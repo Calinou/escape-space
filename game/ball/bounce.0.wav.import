@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bounce.0.wav-11ec91dc70c2c58ce7205da6a88d9250.sample"
+
+[deps]
+
+source_file="res://game/ball/bounce.0.wav"
+dest_files=[ "res://.import/bounce.0.wav-11ec91dc70c2c58ce7205da6a88d9250.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

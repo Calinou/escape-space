@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://game/game.gd" type="Script" id=1]
+[ext_resource path="res://game/hud/hud.tscn" type="PackedScene" id=2]
+[ext_resource path="res://game/paddle/paddle.tscn" type="PackedScene" id=3]
+[ext_resource path="res://game/ball/ball.tscn" type="PackedScene" id=4]
+
+[node name="Game" type="Node"]
+script = ExtResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource( 2 )]
+
+[node name="Paddle" parent="." instance=ExtResource( 3 )]
+position = Vector2( 520, 580 )
+
+[node name="Ball" parent="." instance=ExtResource( 4 )]
+position = Vector2( 520, 560 )
+start_paddle = NodePath("../Paddle")
+
+[connection signal="lives_changed" from="." to="CanvasLayer/HUD" method="_on_lives_changed"]
+[connection signal="score_changed" from="." to="CanvasLayer/HUD" method="_on_score_changed"]
