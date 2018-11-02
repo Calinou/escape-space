@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://game/item/faster_ball.gd"
 }, {
+"base": "StaticBody2D",
+"class": "Goal",
+"language": "GDScript",
+"path": "res://game/goal/goal.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Item",
 "language": "GDScript",
@@ -43,6 +48,7 @@ _global_script_class_icons={
 "Ball": "",
 "Brick": "",
 "FasterBallItem": "",
+"Goal": "",
 "Item": "",
 "Paddle": "",
 "SlowerBallItem": ""
@@ -100,6 +106,7 @@ move_up={
 2d_physics/layer_2="Bricks"
 2d_physics/layer_3="Paddles"
 2d_physics/layer_4="Balls"
+2d_physics/layer_5="Goals"
 
 [rendering]
 

@@ -1,7 +1,10 @@
-[gd_scene format=2]
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://game/paddle/paddle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://game/ball/ball.tscn" type="PackedScene" id=2]
+[ext_resource path="res://game/goal/goal.tscn" type="PackedScene" id=3]
 
 [node name="Level" type="Node2D"]
-position = Vector2( -10, 20 )
 
 [node name="TileMap" type="TileMap" parent="."]
 mode = 0
@@ -21,3 +24,12 @@ collision_mask = 1
 occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray(  )
+
+[node name="Paddle" parent="." instance=ExtResource( 1 )]
+
+[node name="Ball" parent="." instance=ExtResource( 2 )]
+position = Vector2( 380, -80 )
+
+[node name="Goal" parent="." instance=ExtResource( 3 )]
+position = Vector2( 380, 260 )
+balls_required = 1
