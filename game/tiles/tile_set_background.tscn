@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="OpenSimplexNoise" id=1]
+
+seed = 0
+octaves = 5
+period = 64.0
+persistence = 1.0
+lacunarity = 4.0
+
+[sub_resource type="NoiseTexture" id=2]
+
+flags = 7
+width = 64
+height = 56
+seamless = true
+as_normalmap = false
+noise = SubResource( 1 )
+
+[node name="TileSetBackground" type="Node"]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = SubResource( 2 )

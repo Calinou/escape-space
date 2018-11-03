@@ -1,0 +1,31 @@
+[gd_resource type="TileSet" load_steps=3 format=2]
+
+[sub_resource type="OpenSimplexNoise" id=1]
+
+seed = 0
+octaves = 5
+period = 64.0
+persistence = 1.0
+lacunarity = 4.0
+
+[sub_resource type="NoiseTexture" id=2]
+
+flags = 7
+width = 64
+height = 56
+seamless = true
+as_normalmap = false
+noise = SubResource( 1 )
+
+[resource]
+
+0/name = "Sprite"
+0/texture = SubResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 56 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 32, 28 )
+0/navigation_offset = Vector2( 32, 28 )
+0/shapes = [  ]
+0/z_index = 0

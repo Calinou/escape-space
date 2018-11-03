@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="OpenSimplexNoise" id=2]
+
+seed = 0
+octaves = 3
+period = 64.0
+persistence = 1.0
+lacunarity = 2.0
+
+[sub_resource type="NoiseTexture" id=3]
+
+flags = 7
+width = 64
+height = 56
+seamless = true
+as_normalmap = false
+noise = SubResource( 2 )
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 28 )
+
+[node name="TileSetForeground" type="Node"]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = SubResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite"]
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/StaticBody2D"]
+shape = SubResource( 1 )
