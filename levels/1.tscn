@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://game/tiles/tile_set_foreground.tres" type="TileSet" id=1]
 [ext_resource path="res://game/tiles/tile_set_background.tres" type="TileSet" id=2]
 [ext_resource path="res://game/paddle/paddle.tscn" type="PackedScene" id=3]
 [ext_resource path="res://game/ball/ball.tscn" type="PackedScene" id=4]
 [ext_resource path="res://game/goal/goal.tscn" type="PackedScene" id=5]
+[ext_resource path="res://game/force_field/force_field.tscn" type="PackedScene" id=6]
 
 [node name="Level" type="Node2D"]
 
@@ -54,3 +55,17 @@ position = Vector2( 380, -80 )
 [node name="Goal" parent="." instance=ExtResource( 5 )]
 position = Vector2( 380, 260 )
 balls_required = 1
+
+[node name="ForceField" parent="." instance=ExtResource( 6 )]
+margin_left = -340.0
+margin_top = -160.0
+margin_right = -212.0
+margin_bottom = -152.0
+rect_rotation = -44.9999
+
+[node name="ForceField2" parent="." instance=ExtResource( 6 )]
+margin_left = -340.0
+margin_top = -76.0
+margin_right = 219.0
+margin_bottom = -68.0
+rect_rotation = 0.0312835
