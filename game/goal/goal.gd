@@ -6,12 +6,12 @@ class_name Goal
 
 export(int, 1, 100) var balls_required = 10
 
-onready var BallCounter = $BallCounter
+onready var BallCounter = $Panel/BallCounter as Label
 
 func _ready() -> void:
 	update_ball_counter(balls_required)
 
-func update_ball_counter(balls) -> void:
+func update_ball_counter(balls: int) -> void:
 	BallCounter.text = str(balls)
 
 func _draw() -> void:
