@@ -12,7 +12,7 @@ const ACCELERATION = 3000
 const FRICTION = 0.89
 
 # Where the paddle is aiming to go
-var direction = Vector2()
+var direction := Vector2()
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("move_up"):

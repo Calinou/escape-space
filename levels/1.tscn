@@ -3,9 +3,9 @@
 [ext_resource path="res://game/tiles/tile_set_foreground.tres" type="TileSet" id=1]
 [ext_resource path="res://game/tiles/tile_set_background.tres" type="TileSet" id=2]
 [ext_resource path="res://game/paddle/paddle.tscn" type="PackedScene" id=3]
-[ext_resource path="res://game/ball/ball.tscn" type="PackedScene" id=4]
-[ext_resource path="res://game/goal/goal.tscn" type="PackedScene" id=5]
-[ext_resource path="res://game/force_field/force_field.tscn" type="PackedScene" id=6]
+[ext_resource path="res://game/goal/goal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://game/force_field/force_field.tscn" type="PackedScene" id=5]
+[ext_resource path="res://game/ball_launcher/ball_launcher.tscn" type="PackedScene" id=6]
 
 [node name="Level" type="Node2D"]
 
@@ -49,23 +49,23 @@ tile_data = PoolIntArray( -327688, 0, 0, -327687, 0, 0, -327686, 0, 0, -327685, 
 
 [node name="Paddle" parent="." instance=ExtResource( 3 )]
 
-[node name="Ball" parent="." instance=ExtResource( 4 )]
-position = Vector2( 380, -80 )
-
-[node name="Goal" parent="." instance=ExtResource( 5 )]
+[node name="Goal" parent="." instance=ExtResource( 4 )]
 position = Vector2( 380, 260 )
 balls_required = 1
 
-[node name="ForceField" parent="." instance=ExtResource( 6 )]
+[node name="ForceField" parent="." instance=ExtResource( 5 )]
 margin_left = -340.0
 margin_top = -160.0
 margin_right = -212.0
 margin_bottom = -152.0
 rect_rotation = -44.9999
 
-[node name="ForceField2" parent="." instance=ExtResource( 6 )]
+[node name="ForceField2" parent="." instance=ExtResource( 5 )]
 margin_left = -340.0
 margin_top = -76.0
 margin_right = 219.0
 margin_bottom = -68.0
 rect_rotation = 0.0312835
+
+[node name="BallLauncher" parent="." instance=ExtResource( 6 )]
+position = Vector2( -416, -252 )

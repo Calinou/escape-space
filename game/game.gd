@@ -6,14 +6,14 @@ extends Node
 signal score_changed
 signal lives_changed
 
-var score = 0
-var lives = 3
+var score := 0
+var lives := 3
 
 # Level holder
 var level: Node
 
 # The number of destroyable bricks left (used to check if the level was completed)
-var bricks_left = 0
+var bricks_left := 0
 
 func _ready() -> void:
 	randomize()

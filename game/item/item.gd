@@ -7,11 +7,12 @@ class_name Item
 signal item_collected
 
 const gravity = 250
-var motion = Vector2()
+
+var motion := Vector2()
 
 # The reward in points for collecting the item
 # Can be overriden on a per-item basis in the _ready() function
-var score = 500
+var score := 500
 
 func _ready():
 	connect("item_collected", $"/root/Game", "_on_item_collected")

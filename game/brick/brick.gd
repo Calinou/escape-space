@@ -11,7 +11,7 @@ export(int, 1, 100) var item_rarity = 10
 
 # Items that can be dropped by the brick
 # Must be valid scene files in `res://game/item/`, without the `.tscn` extension
-var items = [
+var items := [
 	"faster_ball",
 	"slower_ball",
 ]
