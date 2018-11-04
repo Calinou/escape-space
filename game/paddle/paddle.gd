@@ -1,7 +1,7 @@
 # Copyright © 2018 Hugo Locurcio and contributors - MIT License
 # See `LICENSE.md` included in the source distribution for details.
 
-extends KinematicBody2D
+extends RigidBody2D
 class_name Paddle
 
 # Acceleration
@@ -13,17 +13,17 @@ const FRICTION = 0.89
 
 var motion := Vector2()
 
-func _physics_process(delta: float) -> void:
+func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 	if Input.is_action_pressed("move_up"):
-		motion.y -= ACCELERATION * delta
+		motion.y -= ACCELERATION * state.step
 	elif Input.is_action_pressed("move_down"):
-		motion.y += ACCELERATION * delta
+		motion.y += ACCELERATION * state.step
 
 	if Input.is_action_pressed("move_left"):
-		motion.x -= ACCELERATION * delta
+		motion.x -= ACCELERATION * state.step
 	elif Input.is_action_pressed("move_right"):
-		motion.x += ACCELERATION * delta
+		motion.x += ACCELERATION * state.step
 
 	motion *= FRICTION
 
-	move_and_slide(motion)
+	linear_velocity = motion
