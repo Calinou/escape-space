@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/aura.png-8f2947fc3a2096b2bc2259e0184e05c4.stex"
+path="res://.import/spinner.png-2ed23cc9a6b8b40a74aca083f5f8f3cc.stex"
 
 [deps]
 
-source_file="res://game/ball/aura.png"
-dest_files=[ "res://.import/aura.png-8f2947fc3a2096b2bc2259e0184e05c4.stex" ]
+source_file="res://game/ball/spinner.png"
+dest_files=[ "res://.import/spinner.png-2ed23cc9a6b8b40a74aca083f5f8f3cc.stex" ]
 
 [params]
 

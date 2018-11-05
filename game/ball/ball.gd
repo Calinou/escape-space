@@ -16,8 +16,7 @@ var speed_factor := 1.01
 # Whether the ball has been touched by a paddle or not
 var claimed := false
 
-onready var sprite = $Sprite as Sprite
-onready var particles = $CPUParticles2D as CPUParticles2D
+onready var claim_animation_player = $ClaimAnimationPlayer as AnimationPlayer
 
 var motion := Vector2()
 
@@ -37,6 +36,7 @@ func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 
 # Called when the ball is claimed (i.e. touched by a paddle)
 func claim():
+	if not claimed:
+		claim_animation_player.play("claim")
+
 	claimed = true
-	sprite.modulate = Color(1.0, 0.65, 0.25, 0.7)
-	particles.modulate = Color(1.0, 0.65, 0.25, 1.0)
