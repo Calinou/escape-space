@@ -2,27 +2,27 @@
 
 [ext_resource path="res://game/paddle/paddle.gd" type="Script" id=1]
 
-[sub_resource type="PhysicsMaterial" id=4]
+[sub_resource type="PhysicsMaterial" id=1]
 
 friction = 0.0
 rough = false
 bounce = 0.0
 absorbent = false
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 48, 42 )
+extents = Vector2( 48, 36 )
 
-[sub_resource type="Gradient" id=2]
+[sub_resource type="Gradient" id=3]
 
 offsets = PoolRealArray( 0, 0.5, 1 )
 colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=3]
+[sub_resource type="GradientTexture" id=4]
 
 flags = 4
-gradient = SubResource( 2 )
+gradient = SubResource( 3 )
 width = 96
 
 [node name="Paddle" type="RigidBody2D"]
@@ -31,7 +31,7 @@ collision_layer = 4
 collision_mask = 1
 mode = 2
 mass = 65535.0
-physics_material_override = SubResource( 4 )
+physics_material_override = SubResource( 1 )
 gravity_scale = 1.0
 custom_integrator = true
 continuous_cd = 0
@@ -46,11 +46,11 @@ angular_damp = -1.0
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 1, 84 )
-texture = SubResource( 3 )
+scale = Vector2( 1, 72 )
+texture = SubResource( 4 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 1
