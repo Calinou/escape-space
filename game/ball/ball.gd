@@ -20,9 +20,6 @@ onready var claim_animation_player = $ClaimAnimationPlayer as AnimationPlayer
 
 var motion := Vector2()
 
-func _draw() -> void:
-	draw_circle(Vector2(), 10.0, Color(0.9, 0.9, 0.9, 1))
-
 func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 	linear_velocity = linear_velocity.clamped(MAX_SPEED)
 
