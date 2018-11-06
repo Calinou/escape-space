@@ -12,5 +12,15 @@
 
 ## `game/ball/ball.png`
 
-- **Author:** Hugo Locurcio
+- **Author:** [Hugo Locurcio](https://hugo.pro/)
 - **License:** CC0 1.0 Universal
+
+## `menu/click.wav`
+
+- **Author:** [rhodesmas on Freesound](https://freesound.org/people/rhodesmas/sounds/322900/)
+- **License:** CC BY 3.0 Unported
+
+## `menu/hover.wav`
+
+- **Author:** [DrMinky on Freesound](https://freesound.org/people/DrMinky/sounds/166186/)
+- **License:** CC BY 3.0 Unported
