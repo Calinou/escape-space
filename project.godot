@@ -69,7 +69,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Game Off 2018"
-run/main_scene="res://menu/main.tscn"
+run/main_scene="res://menu/menu.tscn"
 config/icon="res://icon.png"
 
 [display]
