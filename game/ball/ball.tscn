@@ -13,39 +13,44 @@ rough = false
 bounce = 1.0
 absorbent = false
 
-[sub_resource type="CanvasItemMaterial" id=8]
+[sub_resource type="CanvasItemMaterial" id=2]
 
 render_priority = 0
 blend_mode = 1
 light_mode = 0
+particles_animation = false
 
-[sub_resource type="CanvasItemMaterial" id=6]
+[sub_resource type="CanvasItemMaterial" id=3]
 
 render_priority = 0
 blend_mode = 1
 light_mode = 0
+particles_animation = false
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=4]
 
 custom_solver_bias = 0.0
 radius = 10.0
 
-[sub_resource type="CanvasItemMaterial" id=4]
+[sub_resource type="CanvasItemMaterial" id=5]
 
 render_priority = 0
 blend_mode = 1
 light_mode = 0
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
-[sub_resource type="Curve" id=9]
+[sub_resource type="Curve" id=6]
 
 min_value = 0.0
 max_value = 0.3
 bake_resolution = 100
 _data = [ Vector2( 0, 0.3 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=7]
 
-resource_name = "claim"
 length = 1.0
 loop = false
 step = 0.1
@@ -86,9 +91,8 @@ tracks/2/keys = {
 "values": [ Color( 0.643137, 0.835294, 1, 0.376471 ), Color( 1, 0.65098, 0.25098, 0.584314 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 
-resource_name = "spin"
 length = 1.0
 loop = true
 step = 0.1
@@ -133,18 +137,18 @@ texture = ExtResource( 2 )
 
 [node name="Aura" type="Sprite" parent="."]
 modulate = Color( 0.643137, 0.835294, 1, 0.419608 )
-material = SubResource( 8 )
+material = SubResource( 2 )
 scale = Vector2( 0.2, 0.18 )
 texture = ExtResource( 3 )
 
 [node name="Spinner" type="Sprite" parent="."]
 modulate = Color( 0.643137, 0.835294, 1, 0.419608 )
-material = SubResource( 6 )
+material = SubResource( 3 )
 scale = Vector2( 0.12, 0.115 )
 texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = null
@@ -158,7 +162,7 @@ bus = "Master"
 area_mask = 1
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-material = SubResource( 4 )
+material = SubResource( 5 )
 emitting = true
 amount = 15
 lifetime = 1.0
@@ -174,8 +178,6 @@ draw_order = 0
 texture = ExtResource( 5 )
 normalmap = null
 emission_shape = 0
-emission_points = PoolVector2Array(  )
-emission_colors = PoolColorArray(  )
 flag_align_y = false
 spread = 180.0
 flatness = 0.0
@@ -202,7 +204,7 @@ angle_random = 0.0
 angle_curve = null
 scale = 1.0
 scale_random = 0.0
-scale_curve = SubResource( 9 )
+scale_curve = SubResource( 6 )
 color = Color( 1, 1, 1, 1 )
 color_ramp = null
 hue_variation = 0.0
@@ -214,7 +216,6 @@ anim_speed_curve = null
 anim_offset = 0.0
 anim_offset_random = 0.0
 anim_offset_curve = null
-anim_loop = false
 
 [node name="ClaimAnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("..")
@@ -222,7 +223,7 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/claim = SubResource( 5 )
+anims/claim = SubResource( 7 )
 blend_times = [  ]
 
 [node name="SpinAnimationPlayer" type="AnimationPlayer" parent="."]
@@ -231,5 +232,5 @@ autoplay = "spin"
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/spin = SubResource( 7 )
+anims/spin = SubResource( 8 )
 blend_times = [  ]
