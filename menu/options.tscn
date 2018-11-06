@@ -94,7 +94,9 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="HSlider" type="HSlider" parent="VBoxContainer/SoundVolume"]
+[node name="HSlider" type="HSlider" parent="VBoxContainer/SoundVolume" groups=[
+"makes_sound",
+]]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -161,7 +163,9 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="HSlider" type="HSlider" parent="VBoxContainer/MusicVolume"]
+[node name="HSlider" type="HSlider" parent="VBoxContainer/MusicVolume" groups=[
+"makes_sound",
+]]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0

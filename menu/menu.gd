@@ -7,16 +7,20 @@ extends Control
 onready var current_menu = $"/root/Menu/Main" as Control
 
 func _ready() -> void:
-	for button in get_tree().get_nodes_in_group("makes_sound"):
-		if button is BaseButton:
-			button.connect("mouse_entered", self, "_button_hovered", [button])
-			button.connect("button_down", self, "_button_pressed", [button])
+	for control in get_tree().get_nodes_in_group("makes_sound"):
+		if control is BaseButton:
+			control.connect("mouse_entered", self, "_control_hovered", [control])
+			control.connect("button_down", self, "_control_pressed", [control])
+		elif control is Slider:
+			control.connect("mouse_entered", self, "_control_hovered", [control])
 
-func _button_hovered(button: BaseButton) -> void:
-	if not button.disabled:
-		play_sound(preload("res://menu/hover.wav"), -5.5)
+func _control_hovered(control: Control) -> void:
+	if control is BaseButton and control.disabled:
+		return
 
-func _button_pressed(button: BaseButton) -> void:
+	play_sound(preload("res://menu/hover.wav"), -5.5)
+
+func _control_pressed(control: Control) -> void:
 	play_sound(preload("res://menu/click.wav"), -2.0)
 
 # Called when a child GUI sets the currently-viewed GUI.
