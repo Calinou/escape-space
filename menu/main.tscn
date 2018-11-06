@@ -38,7 +38,9 @@ size_flags_vertical = 1
 custom_constants/separation = 20
 alignment = 1
 
-[node name="Play" type="Button" parent="VBoxContainer"]
+[node name="Play" type="Button" parent="VBoxContainer" groups=[
+"makes_sound",
+]]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -61,7 +63,9 @@ text = "Play"
 flat = false
 align = 1
 
-[node name="Options" type="Button" parent="VBoxContainer"]
+[node name="Options" type="Button" parent="VBoxContainer" groups=[
+"makes_sound",
+]]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -84,7 +88,9 @@ text = "Options"
 flat = false
 align = 1
 
-[node name="Quit" type="Button" parent="VBoxContainer"]
+[node name="Quit" type="Button" parent="VBoxContainer" groups=[
+"makes_sound",
+]]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
