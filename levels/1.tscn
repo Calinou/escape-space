@@ -12,7 +12,7 @@
 [node name="Foreground" type="TileMap" parent="."]
 mode = 0
 tile_set = ExtResource( 1 )
-cell_size = Vector2( 64, 56 )
+cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 cell_half_offset = 2
@@ -31,7 +31,7 @@ tile_data = PoolIntArray( -393225, 0, 0, -393224, 0, 0, -393223, 0, 0, -393222, 
 [node name="Background" type="TileMap" parent="."]
 mode = 0
 tile_set = ExtResource( 2 )
-cell_size = Vector2( 64, 56 )
+cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 cell_half_offset = 2
