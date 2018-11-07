@@ -120,6 +120,11 @@ move_up={
 2d_physics/layer_4="Balls"
 2d_physics/layer_5="Goals"
 
+[locale]
+
+translations=PoolStringArray( "res://locale/fr.po" )
+locale_filter=[ 0, [  ] ]
+
 [rendering]
 
 environment/default_clear_color=Color( 0.2, 0.2, 0.2, 1 )
