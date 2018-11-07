@@ -6,7 +6,11 @@ extends Control
 # The currently-viewed menu control
 onready var current_menu = $"/root/Menu/Main" as Control
 
+onready var animation_player = $AnimationPlayer as AnimationPlayer
+
 func _ready() -> void:
+	animation_player.play("fade_in")
+
 	for control in get_tree().get_nodes_in_group("makes_sound"):
 		if control is BaseButton:
 			control.connect("mouse_entered", self, "_control_hovered", [control])
