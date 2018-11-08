@@ -37,7 +37,7 @@ size_flags_vertical = 1
 custom_constants/separation = 10
 alignment = 0
 
-[node name="Score" type="HSplitContainer" parent="Vitals"]
+[node name="Bricks" type="HSplitContainer" parent="Vitals"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -54,12 +54,12 @@ split_offset = 0
 collapsed = false
 dragger_visibility = 0
 
-[node name="Label" type="Label" parent="Vitals/Score"]
+[node name="Label" type="Label" parent="Vitals/Bricks"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 55.0
+margin_right = 60.0
 margin_bottom = 31.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -67,18 +67,18 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "Score"
+text = "Bricks"
 align = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Counter" type="Label" parent="Vitals/Score"]
+[node name="Counter" type="Label" parent="Vitals/Bricks"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 67.0
+margin_left = 72.0
 margin_right = 960.0
 margin_bottom = 31.0
 rect_pivot_offset = Vector2( 0, 0 )

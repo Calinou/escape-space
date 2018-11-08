@@ -11,7 +11,6 @@ func _ready() -> void:
 
 func destroy() -> void:
 	$AnimationPlayer.play("destroy")
-
 	emit_signal("brick_destroyed")
 
 func _on_animation_finished(animation: String) -> void:

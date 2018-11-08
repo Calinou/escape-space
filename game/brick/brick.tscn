@@ -2,7 +2,7 @@
 
 [ext_resource path="res://game/brick/brick.gd" type="Script" id=1]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 28, 28 )
@@ -18,7 +18,7 @@ flags = 4
 gradient = SubResource( 2 )
 width = 56
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 
 length = 2.0
 loop = false
@@ -48,7 +48,9 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[node name="Brick" type="StaticBody2D"]
+[node name="Brick" type="StaticBody2D" groups=[
+"brick",
+]]
 input_pickable = false
 collision_layer = 2
 collision_mask = 12
@@ -57,7 +59,7 @@ constant_angular_velocity = 0.0
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 1, 56 )
@@ -78,7 +80,7 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/destroy = SubResource( 5 )
+anims/destroy = SubResource( 4 )
 blend_times = [  ]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]

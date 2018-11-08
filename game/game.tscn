@@ -15,5 +15,5 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource( 2 )]
 
+[connection signal="bricks_changed" from="." to="CanvasLayer/HUD" method="_on_bricks_changed"]
 [connection signal="lives_changed" from="." to="CanvasLayer/HUD" method="_on_lives_changed"]
-[connection signal="score_changed" from="." to="CanvasLayer/HUD" method="_on_score_changed"]
