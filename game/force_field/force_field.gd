@@ -8,7 +8,7 @@ class_name ForceField
 # The default width of the force field in pixels
 const DEFAULT_WIDTH = 128
 
-onready var body = $StaticBody2D as StaticBody2D
+onready var body := $StaticBody2D as StaticBody2D
 
 func _ready() -> void:
 	# Update the body's width to match the size of the NinePatchRect

@@ -7,7 +7,7 @@ class_name Brick
 signal brick_destroyed
 
 # Probability of dropping an item is 1/`item_rarity`
-export(int, 1, 100) var item_rarity = 10
+export(int, 1, 100) var item_rarity := 10
 
 # Items that can be dropped by the brick
 # Must be valid scene files in `res://game/item/`, without the `.tscn` extension

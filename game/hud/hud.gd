@@ -3,8 +3,8 @@
 
 extends Control
 
-onready var score_counter = $Vitals/Score/Counter as Label
-onready var lives_counter = $Vitals/Lives/Counter as Label
+onready var score_counter := $Vitals/Score/Counter as Label
+onready var lives_counter := $Vitals/Lives/Counter as Label
 
 func _on_score_changed(value: int) -> void:
 	update_score(value)

@@ -21,7 +21,7 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	motion.y += gravity * delta
 
-	var collision = move_and_collide(motion * delta)
+	var collision := move_and_collide(motion * delta)
 
 	if collision:
 		motion = motion.bounce(collision.normal)

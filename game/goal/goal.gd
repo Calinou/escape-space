@@ -4,10 +4,10 @@
 extends StaticBody2D
 class_name Goal
 
-export(int, 1, 100) var balls_required = 10
+export(int, 1, 100) var balls_required := 10
 
-onready var animation_player = $AnimationPlayer as AnimationPlayer
-onready var ball_counter = $Panel/BallCounter as Label
+onready var animation_player := $AnimationPlayer as AnimationPlayer
+onready var ball_counter := $Panel/BallCounter as Label
 
 func _ready() -> void:
 	update_ball_counter(balls_required)

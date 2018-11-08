@@ -4,9 +4,9 @@
 extends Control
 
 # The currently-viewed menu control
-onready var current_menu = $"/root/Menu/Main" as Control
+onready var current_menu := $"/root/Menu/Main" as Control
 
-onready var animation_player = $AnimationPlayer as AnimationPlayer
+onready var animation_player := $AnimationPlayer as AnimationPlayer
 
 func _ready() -> void:
 	animation_player.play("fade_in")

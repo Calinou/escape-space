@@ -16,7 +16,7 @@ var speed_factor := 1.01
 # Whether the ball has been touched by a paddle or not
 var claimed := false
 
-onready var claim_animation_player = $ClaimAnimationPlayer as AnimationPlayer
+onready var claim_animation_player := $ClaimAnimationPlayer as AnimationPlayer
 
 var motion := Vector2()
 
