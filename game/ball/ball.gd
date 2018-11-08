@@ -27,6 +27,9 @@ func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 		if body is Paddle:
 			claim()
 
+		if body is Brick:
+			body.destroy()
+
 		if not claimed:
 			# Destroy unclaimed balls on their first collision
 			queue_free()
