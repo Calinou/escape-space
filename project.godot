@@ -74,6 +74,10 @@ boot_splash/image="res://splash.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 
+[autoload]
+
+Settings="*res://autoload/settings.gd"
+
 [display]
 
 window/dpi/allow_hidpi=true

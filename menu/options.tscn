@@ -115,8 +115,8 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.25
-min_value = 0.0
-max_value = 100.0
+min_value = -50.0
+max_value = 5.0
 step = 1.0
 page = 0.0
 value = 0.0
@@ -186,8 +186,8 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.25
-min_value = 0.0
-max_value = 100.0
+min_value = -50.0
+max_value = 5.0
 step = 1.0
 page = 0.0
 value = 0.0
@@ -228,4 +228,6 @@ text = "Done"
 flat = false
 align = 1
 
+[connection signal="value_changed" from="VBoxContainer/SoundVolume/HSlider" to="." method="_on_sound_volume_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/MusicVolume/HSlider" to="." method="_on_music_volume_value_changed"]
 [connection signal="pressed" from="Done" to="." method="_on_done_pressed"]
