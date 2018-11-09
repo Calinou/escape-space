@@ -158,7 +158,7 @@ autoplay = false
 stream_paused = false
 max_distance = 2000.0
 attenuation = 1.0
-bus = "Master"
+bus = "Effects"
 area_mask = 1
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]

@@ -10,16 +10,20 @@ onready var music_volume_slider := $VBoxContainer/MusicVolume/HSlider as HSlider
 
 func _ready() -> void:
 	connect("menu_changed", $"/root/Menu", "_on_menu_changed")
-	sound_volume_slider.value = Settings.file.get_value("audio", "sound_volume", 0.0)
-	music_volume_slider.value = Settings.file.get_value("audio", "music_volume", 0.0)
+	sound_volume_slider.value = Settings.file.get_value("audio", "sound_volume", linear2db(0.5))
+	music_volume_slider.value = Settings.file.get_value("audio", "music_volume", linear2db(0.5))
 
 func _on_sound_volume_value_changed(value: float) -> void:
-	# TODO: Set sound volume
-	pass
+	AudioServer.set_bus_volume_db(
+			AudioServer.get_bus_index("Effects"),
+			linear2db(value)
+	)
 
 func _on_music_volume_value_changed(value: float) -> void:
-	# TODO: Set music volume
-	pass
+	AudioServer.set_bus_volume_db(
+			AudioServer.get_bus_index("Music"),
+			linear2db(value)
+	)
 
 func _on_done_pressed():
 	Settings.file.set_value("audio", "sound_volume", sound_volume_slider.value)

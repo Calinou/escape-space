@@ -72,7 +72,7 @@ pitch_scale = 1.0
 autoplay = false
 stream_paused = false
 mix_target = 0
-bus = "Master"
+bus = "Effects"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("..")

@@ -37,6 +37,7 @@ func _on_menu_changed(new_menu: Control) -> void:
 func play_sound(stream: AudioStream, volume_db: float) -> void:
 	var audio_stream_player := AudioStreamPlayer.new()
 	add_child(audio_stream_player)
+	audio_stream_player.bus = "Effects"
 	audio_stream_player.stream = stream
 	audio_stream_player.volume_db = volume_db
 	audio_stream_player.play()

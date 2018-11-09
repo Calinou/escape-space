@@ -112,7 +112,7 @@ autoplay = false
 stream_paused = false
 max_distance = 2000.0
 attenuation = 1.0
-bus = "Master"
+bus = "Effects"
 area_mask = 1
 
 [node name="ScoreArea" type="Area2D" parent="."]
