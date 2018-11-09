@@ -38,6 +38,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 text = "Options"
+align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1

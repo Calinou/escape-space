@@ -12,7 +12,7 @@ func _on_audio_settings_pressed():
 	emit_signal("menu_changed", $"/root/Menu/OptionsAudio")
 
 func _on_controls_pressed():
-	pass # Replace with function body.
+	emit_signal("menu_changed", $"/root/Menu/OptionsControls")
 
 func _on_done_pressed():
 	emit_signal("menu_changed", $"/root/Menu/Main")

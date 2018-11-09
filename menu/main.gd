@@ -5,9 +5,6 @@ extends Control
 
 signal menu_changed
 
-func _ready() -> void:
-	connect("menu_changed", $"/root/Menu", "_on_menu_changed")
-
 func _on_play_pressed() -> void:
 	get_tree().change_scene("res://game/game.tscn")
 

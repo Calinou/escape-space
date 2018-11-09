@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://menu/menu.gd" type="Script" id=1]
 [ext_resource path="res://menu/main.tscn" type="PackedScene" id=2]
 [ext_resource path="res://menu/options.tscn" type="PackedScene" id=3]
 [ext_resource path="res://menu/options_audio.tscn" type="PackedScene" id=4]
+[ext_resource path="res://menu/options_controls.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Animation" id=1]
 
@@ -48,6 +49,9 @@ visible = false
 [node name="OptionsAudio" parent="." instance=ExtResource( 4 )]
 visible = false
 
+[node name="OptionsControls" parent="." instance=ExtResource( 5 )]
+visible = false
+
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_left = 0.0
 anchor_top = 0.0
@@ -76,3 +80,4 @@ blend_times = [  ]
 [connection signal="menu_changed" from="Main" to="." method="_on_menu_changed"]
 [connection signal="menu_changed" from="Options" to="." method="_on_menu_changed"]
 [connection signal="menu_changed" from="OptionsAudio" to="." method="_on_menu_changed"]
+[connection signal="menu_changed" from="OptionsControls" to="." method="_on_menu_changed"]
