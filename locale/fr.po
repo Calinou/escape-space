@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: game-off 2018\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-07 01:02+0100\n"
-"PO-Revision-Date: 2018-11-07 01:27+0100\n"
+"PO-Revision-Date: 2018-11-10 00:21+0100\n"
 "Last-Translator: Hugo Locurcio <hugo.locurcio@hugo.pro>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -34,6 +34,21 @@ msgstr "Réglages audio"
 
 msgid "Controls"
 msgstr "Contrôles"
+
+msgid "Move Up"
+msgstr "Aller en haut"
+
+msgid "Move Down"
+msgstr "Aller en bas"
+
+msgid "Move Left"
+msgstr "Aller à gauche"
+
+msgid "Move Right"
+msgstr "Aller à droite"
+
+msgid "Use Boost"
+msgstr "Utiliser le turbo"
 
 msgid "Sound Volume"
 msgstr "Volume du son"

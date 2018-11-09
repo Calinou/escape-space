@@ -34,6 +34,21 @@ msgstr ""
 msgid "Controls"
 msgstr ""
 
+msgid "Move Up"
+msgstr ""
+
+msgid "Move Down"
+msgstr ""
+
+msgid "Move Left"
+msgstr ""
+
+msgid "Move Right"
+msgstr ""
+
+msgid "Use Boost"
+msgstr ""
+
 msgid "Sound Volume"
 msgstr ""
 
