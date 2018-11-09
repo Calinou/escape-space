@@ -25,6 +25,15 @@ msgstr ""
 msgid "Quit"
 msgstr ""
 
+msgid "Video Settings"
+msgstr ""
+
+msgid "Audio Settings"
+msgstr ""
+
+msgid "Controls"
+msgstr ""
+
 msgid "Sound Volume"
 msgstr ""
 

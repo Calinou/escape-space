@@ -1,0 +1,11 @@
+[gd_resource type="ShortCut" load_steps=2 format=2]
+
+[sub_resource type="InputEventAction" id=1]
+
+device = 0
+action = "ui_cancel"
+pressed = true
+
+[resource]
+
+shortcut = SubResource( 1 )

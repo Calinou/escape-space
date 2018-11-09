@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://menu/theme.tres" type="Theme" id=1]
 [ext_resource path="res://menu/options.gd" type="Script" id=2]
+[ext_resource path="res://menu/shortcut_cancel.tres" type="ShortCut" id=3]
 
 [node name="Options" type="Control"]
 anchor_left = 0.0
@@ -26,9 +27,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -33.0
-margin_top = -122.0
+margin_top = -150.0
 margin_right = 34.0
-margin_bottom = -94.0
+margin_bottom = -122.0
 grow_horizontal = 2
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -46,27 +47,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -512.0
-margin_top = -54.0
-margin_right = 168.0
-margin_bottom = 54.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-custom_constants/separation = 8
-alignment = 1
-
-[node name="SoundVolume" type="HBoxContainer" parent="VBoxContainer"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 22.0
-margin_right = 680.0
-margin_bottom = 50.0
+margin_left = -97.0
+margin_top = -70.0
+margin_right = 98.0
+margin_bottom = 72.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -76,142 +60,15 @@ size_flags_vertical = 1
 custom_constants/separation = 20
 alignment = 0
 
-[node name="Label" type="Label" parent="VBoxContainer/SoundVolume"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 502.0
-margin_bottom = 28.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 3
-size_flags_vertical = 4
-size_flags_stretch_ratio = 0.8
-text = "Sound Volume"
-align = 2
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="HSlider" type="HSlider" parent="VBoxContainer/SoundVolume" groups=[
+[node name="VideoSettings" type="Button" parent="VBoxContainer" groups=[
 "makes_sound",
 ]]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 522.0
-margin_top = 4.0
-margin_right = 680.0
-margin_bottom = 24.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 3
-size_flags_vertical = 4
-size_flags_stretch_ratio = 0.25
-min_value = 0.0
-max_value = 1.0
-step = 0.0
-page = 0.0
-value = 0.5
-exp_edit = false
-rounded = false
-allow_greater = false
-allow_lesser = false
-editable = true
-scrollable = true
-tick_count = 0
-ticks_on_borders = false
-focus_mode = 2
-
-[node name="MusicVolume" type="HBoxContainer" parent="VBoxContainer"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 58.0
-margin_right = 680.0
-margin_bottom = 86.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-custom_constants/separation = 20
-alignment = 0
-
-[node name="Label" type="Label" parent="VBoxContainer/MusicVolume"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 502.0
-margin_bottom = 28.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 3
-size_flags_vertical = 4
-size_flags_stretch_ratio = 0.8
-text = "Music Volume"
-align = 2
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="HSlider" type="HSlider" parent="VBoxContainer/MusicVolume" groups=[
-"makes_sound",
-]]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 522.0
-margin_top = 4.0
-margin_right = 680.0
-margin_bottom = 24.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 3
-size_flags_vertical = 4
-size_flags_stretch_ratio = 0.25
-min_value = 0.0
-max_value = 1.0
-step = 0.0
-page = 0.0
-value = 0.5
-exp_edit = false
-rounded = false
-allow_greater = false
-allow_lesser = false
-editable = true
-scrollable = true
-tick_count = 0
-ticks_on_borders = false
-focus_mode = 2
-
-[node name="Done" type="Button" parent="." groups=[
-"makes_sound",
-]]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -57.0
-margin_top = 83.0
-margin_right = 57.0
-margin_bottom = 117.0
+margin_right = 195.0
+margin_bottom = 34.0
 grow_horizontal = 2
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -224,10 +81,90 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
+text = "Video Settings"
+flat = false
+align = 1
+
+[node name="AudioSettings" type="Button" parent="VBoxContainer" groups=[
+"makes_sound",
+]]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 54.0
+margin_right = 195.0
+margin_bottom = 88.0
+grow_horizontal = 2
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Audio Settings"
+flat = false
+align = 1
+
+[node name="Controls" type="Button" parent="VBoxContainer" groups=[
+"makes_sound",
+]]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 108.0
+margin_right = 195.0
+margin_bottom = 142.0
+grow_horizontal = 2
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Controls"
+flat = false
+align = 1
+
+[node name="Done" type="Button" parent="." groups=[
+"makes_sound",
+]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -57.0
+margin_top = 130.0
+margin_right = 57.0
+margin_bottom = 164.0
+grow_horizontal = 2
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = ExtResource( 3 )
+group = null
 text = "Done"
 flat = false
 align = 1
 
-[connection signal="value_changed" from="VBoxContainer/SoundVolume/HSlider" to="." method="_on_sound_volume_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/MusicVolume/HSlider" to="." method="_on_music_volume_value_changed"]
+[connection signal="pressed" from="VBoxContainer/VideoSettings" to="." method="_on_video_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/AudioSettings" to="." method="_on_audio_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Controls" to="." method="_on_controls_pressed"]
 [connection signal="pressed" from="Done" to="." method="_on_done_pressed"]
