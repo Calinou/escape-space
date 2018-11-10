@@ -4,218 +4,109 @@
 
 [sub_resource type="StyleBoxFlat" id=1]
 
-content_margin_left = -1.0
-content_margin_right = -1.0
 content_margin_top = 3.0
 content_margin_bottom = 3.0
 bg_color = Color( 0.294118, 0.294118, 0.294118, 0.498039 )
-draw_center = true
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color( 0.392157, 0.392157, 0.392157, 0.498039 )
-border_blend = false
 corner_radius_top_left = 1
 corner_radius_top_right = 1
 corner_radius_bottom_right = 1
 corner_radius_bottom_left = 1
 corner_detail = 3
-expand_margin_left = 0.0
-expand_margin_right = 0.0
-expand_margin_top = 0.0
-expand_margin_bottom = 0.0
-shadow_color = Color( 0, 0, 0, 0.6 )
-shadow_size = 0
-anti_aliasing = true
-anti_aliasing_size = 1
 
 [sub_resource type="StyleBoxFlat" id=2]
 
-content_margin_left = -1.0
-content_margin_right = -1.0
 content_margin_top = 3.0
 content_margin_bottom = 3.0
 bg_color = Color( 0.294118, 0.294118, 0.294118, 1 )
 draw_center = false
-border_width_left = 0
-border_width_top = 0
-border_width_right = 0
-border_width_bottom = 0
 border_color = Color( 0.392157, 0.392157, 0.392157, 1 )
-border_blend = false
 corner_radius_top_left = 1
 corner_radius_top_right = 1
 corner_radius_bottom_right = 1
 corner_radius_bottom_left = 1
 corner_detail = 3
-expand_margin_left = 0.0
-expand_margin_right = 0.0
-expand_margin_top = 0.0
-expand_margin_bottom = 0.0
 shadow_color = Color( 1, 0.870588, 0.423529, 0.6 )
 shadow_size = 4
-anti_aliasing = true
-anti_aliasing_size = 1
 
 [sub_resource type="StyleBoxFlat" id=3]
 
-content_margin_left = -1.0
-content_margin_right = -1.0
 content_margin_top = 3.0
 content_margin_bottom = 3.0
 bg_color = Color( 0.352941, 0.352941, 0.352941, 1 )
-draw_center = true
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color( 0.45098, 0.45098, 0.45098, 1 )
-border_blend = false
 corner_radius_top_left = 1
 corner_radius_top_right = 1
 corner_radius_bottom_right = 1
 corner_radius_bottom_left = 1
 corner_detail = 3
-expand_margin_left = 0.0
-expand_margin_right = 0.0
-expand_margin_top = 0.0
-expand_margin_bottom = 0.0
-shadow_color = Color( 0, 0, 0, 0.6 )
-shadow_size = 0
-anti_aliasing = true
-anti_aliasing_size = 1
 
 [sub_resource type="StyleBoxFlat" id=4]
 
-content_margin_left = -1.0
-content_margin_right = -1.0
 content_margin_top = 3.0
 content_margin_bottom = 3.0
 bg_color = Color( 0.294118, 0.294118, 0.294118, 1 )
-draw_center = true
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color( 0.392157, 0.392157, 0.392157, 1 )
-border_blend = false
 corner_radius_top_left = 1
 corner_radius_top_right = 1
 corner_radius_bottom_right = 1
 corner_radius_bottom_left = 1
 corner_detail = 3
-expand_margin_left = 0.0
-expand_margin_right = 0.0
-expand_margin_top = 0.0
-expand_margin_bottom = 0.0
-shadow_color = Color( 0, 0, 0, 0.6 )
-shadow_size = 0
-anti_aliasing = true
-anti_aliasing_size = 1
 
 [sub_resource type="StyleBoxFlat" id=5]
 
-content_margin_left = -1.0
-content_margin_right = -1.0
 content_margin_top = 3.0
 content_margin_bottom = 3.0
 bg_color = Color( 0.215686, 0.215686, 0.215686, 1 )
-draw_center = true
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color( 0.313726, 0.313726, 0.313726, 1 )
-border_blend = false
 corner_radius_top_left = 1
 corner_radius_top_right = 1
 corner_radius_bottom_right = 1
 corner_radius_bottom_left = 1
 corner_detail = 3
-expand_margin_left = 0.0
-expand_margin_right = 0.0
-expand_margin_top = 0.0
-expand_margin_bottom = 0.0
-shadow_color = Color( 0, 0, 0, 0.6 )
-shadow_size = 0
-anti_aliasing = true
-anti_aliasing_size = 1
 
 [sub_resource type="Gradient" id=6]
 
-offsets = PoolRealArray( 0, 1 )
 colors = PoolColorArray( 0, 0, 0, 0, 1, 1, 1, 0 )
 
 [sub_resource type="GradientTexture" id=7]
 
-flags = 4
 gradient = SubResource( 6 )
 width = 1
 
 [sub_resource type="StyleBoxFlat" id=8]
 
-content_margin_left = -1.0
-content_margin_right = -1.0
-content_margin_top = -1.0
-content_margin_bottom = -1.0
 bg_color = Color( 0.654902, 0.537255, 0.223529, 1 )
-draw_center = true
-border_width_left = 0
-border_width_top = 0
 border_width_right = 5
-border_width_bottom = 0
 border_color = Color( 1, 0.890196, 0.294118, 1 )
 border_blend = true
-corner_radius_top_left = 0
-corner_radius_top_right = 0
-corner_radius_bottom_right = 0
-corner_radius_bottom_left = 0
-corner_detail = 8
-expand_margin_left = 0.0
-expand_margin_right = 0.0
-expand_margin_top = 0.0
-expand_margin_bottom = 0.0
-shadow_color = Color( 0, 0, 0, 0.6 )
-shadow_size = 0
-anti_aliasing = true
-anti_aliasing_size = 1
 
 [sub_resource type="StyleBoxFlat" id=9]
 
-content_margin_left = -1.0
-content_margin_right = -1.0
-content_margin_top = -1.0
-content_margin_bottom = -1.0
-bg_color = Color( 0.6, 0.6, 0.6, 1 )
 draw_center = false
-border_width_left = 0
 border_width_top = 10
-border_width_right = 0
 border_width_bottom = 10
 border_color = Color( 0, 0, 0, 0.156863 )
-border_blend = false
-corner_radius_top_left = 0
-corner_radius_top_right = 0
-corner_radius_bottom_right = 0
-corner_radius_bottom_left = 0
-corner_detail = 8
-expand_margin_left = 0.0
-expand_margin_right = 0.0
-expand_margin_top = 0.0
-expand_margin_bottom = 0.0
-shadow_color = Color( 0, 0, 0, 0.6 )
-shadow_size = 0
-anti_aliasing = true
-anti_aliasing_size = 1
 
 [sub_resource type="DynamicFont" id=10]
 
 size = 21
-outline_size = 0
-outline_color = Color( 1, 1, 1, 1 )
-use_mipmaps = false
-use_filter = false
 font_data = ExtResource( 1 )
 
 [resource]

@@ -4,29 +4,19 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 
-custom_solver_bias = 0.0
 extents = Vector2( 32, 28 )
 
 [sub_resource type="Gradient" id=2]
 
-offsets = PoolRealArray( 0, 1 )
 colors = PoolColorArray( 0.488281, 0.428751, 0.0400543, 1, 1, 0.965332, 0.445312, 1 )
 
 [sub_resource type="GradientTexture" id=3]
 
-flags = 4
 gradient = SubResource( 2 )
 width = 64
 
 [node name="BallLauncher" type="StaticBody2D"]
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
 script = ExtResource( 1 )
-launch_time = 1.5
-launch_speed = 200
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -39,9 +29,7 @@ texture = SubResource( 3 )
 position = Vector2( 0, 40 )
 
 [node name="LaunchTimer" type="Timer" parent="."]
-process_mode = 1
 wait_time = 1.5
-one_shot = false
 autostart = true
 
 [connection signal="timeout" from="LaunchTimer" to="." method="_on_launch_timer_timeout"]

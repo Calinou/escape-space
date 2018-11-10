@@ -2,24 +2,17 @@
 
 [sub_resource type="OpenSimplexNoise" id=1]
 
-seed = 0
-octaves = 3
-period = 64.0
 persistence = 1.0
-lacunarity = 2.0
 
 [sub_resource type="NoiseTexture" id=2]
 
-flags = 7
 width = 64
 height = 64
 seamless = true
-as_normalmap = false
 noise = SubResource( 1 )
 
 [sub_resource type="RectangleShape2D" id=3]
 
-custom_solver_bias = 0.0
 extents = Vector2( 32, 32 )
 
 [node name="TileSetForeground" type="Node"]
@@ -28,11 +21,6 @@ extents = Vector2( 32, 32 )
 texture = SubResource( 2 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite"]
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/StaticBody2D"]
 shape = SubResource( 3 )

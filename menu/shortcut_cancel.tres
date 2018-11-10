@@ -2,7 +2,6 @@
 
 [sub_resource type="InputEventAction" id=1]
 
-device = 0
 action = "ui_cancel"
 pressed = true
 
