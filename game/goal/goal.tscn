@@ -44,7 +44,9 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.376471, 1, 0.313726, 1 ) ]
 }
 
-[node name="Goal" type="StaticBody2D"]
+[node name="Goal" type="StaticBody2D" groups=[
+"goal",
+]]
 collision_layer = 16
 collision_mask = 12
 script = ExtResource( 1 )

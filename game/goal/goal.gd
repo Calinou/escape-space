@@ -4,12 +4,16 @@
 extends StaticBody2D
 class_name Goal
 
+signal ball_received
+
+export var description = ""
 export(int, 1, 100) var balls_required := 10
 
 onready var animation_player := $AnimationPlayer as AnimationPlayer
 onready var ball_counter := $Panel/BallCounter as Label
 
 func _ready() -> void:
+	connect("ball_received", $"/root/Game", "_on_goal_ball_received")
 	update_ball_counter(balls_required)
 
 func update_ball_counter(balls: int) -> void:
@@ -28,3 +32,4 @@ func _on_score_area_body_entered(body: PhysicsBody2D):
 
 		if balls_required == 0:
 			animation_player.play("close")
+			emit_signal("ball_received", self)

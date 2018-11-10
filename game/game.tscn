@@ -11,3 +11,4 @@ script = ExtResource( 1 )
 [node name="HUD" parent="CanvasLayer" instance=ExtResource( 2 )]
 
 [connection signal="bricks_changed" from="." to="CanvasLayer/HUD" method="_on_bricks_changed"]
+[connection signal="goals_changed" from="." to="CanvasLayer/HUD" method="_on_goals_changed"]

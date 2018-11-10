@@ -24,6 +24,7 @@ tile_data = PoolIntArray( -327688, 0, 0, -327687, 0, 0, -327686, 0, 0, -327685, 
 
 [node name="Goal" parent="." instance=ExtResource( 4 )]
 position = Vector2( 380, 260 )
+description = "Tutorial Goal"
 balls_required = 1
 
 [node name="ForceField" parent="." instance=ExtResource( 5 )]
