@@ -45,6 +45,19 @@ func change_level(level_name: String) -> void:
 	for goal in level.get_tree().get_nodes_in_group("goal"):
 		self.goals[goal.description] = goal.balls_required
 
+# Checks whether the player is allowed to exit and changes the level if they are.
+func _on_exit_requested() -> void:
+	if bricks_left > 0:
+		return
+
+	# Check if all goals have been completed
+	for goal in goals:
+		if goals[goal] > 0:
+			return
+
+	# Player is allowed to exit, change level
+	# TODO
+
 func _on_brick_destroyed() -> void:
 	self.bricks_left -= 1
 

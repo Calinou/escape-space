@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://game/brick/brick.gd"
 }, {
+"base": "StaticBody2D",
+"class": "Exit",
+"language": "GDScript",
+"path": "res://game/exit/exit.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "FasterBallItem",
 "language": "GDScript",
@@ -58,6 +63,7 @@ _global_script_class_icons={
 "Ball": "",
 "BallLauncher": "",
 "Brick": "",
+"Exit": "",
 "FasterBallItem": "",
 "ForceField": "",
 "Goal": "",
