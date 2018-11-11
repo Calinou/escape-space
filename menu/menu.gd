@@ -7,6 +7,9 @@ extends Control
 onready var current_menu := $"/root/Menu/Main" as Control
 
 onready var animation_player := $AnimationPlayer as AnimationPlayer
+onready var preloader := $ResourcePreloader as ResourcePreloader
+onready var hover_sound := preloader.get_resource("hover") as AudioStream
+onready var click_sound := preloader.get_resource("click") as AudioStream
 
 func _ready() -> void:
 	animation_player.play("fade_in")
@@ -22,10 +25,10 @@ func _control_hovered(control: Control) -> void:
 	if control is BaseButton and control.disabled:
 		return
 
-	play_sound(preload("res://menu/hover.wav"), -5.5)
+	play_sound(hover_sound, -5.5)
 
 func _control_pressed(control: Control) -> void:
-	play_sound(preload("res://menu/click.wav"), -2.0)
+	play_sound(click_sound, -2.0)
 
 # Called when a child GUI sets the currently-viewed GUI.
 func _on_menu_changed(new_menu: Control) -> void:

@@ -3,11 +3,11 @@
 
 extends Control
 
-onready var preloader := $ResourcePreloader as ResourcePreloader
 onready var bricks_counter := $Vitals/Bricks/Counter as Label
 onready var goals := $Goals as Control
 onready var time_label := $Time/Label as Label
 onready var time_progress := $Time/TextureProgress as Range
+onready var preloader := $ResourcePreloader as ResourcePreloader
 onready var goal_scene := preloader.get_resource("goal") as PackedScene
 onready var time_gradient := preloader.get_resource("time_gradient") as Gradient
 
