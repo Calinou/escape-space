@@ -13,14 +13,6 @@ margin_bottom = -32.0
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
 
-[node name="Goals" type="Label" parent="."]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -305.0
-margin_top = -163.0
-
 [node name="Vitals" type="VBoxContainer" parent="."]
 margin_right = 960.0
 margin_bottom = 536.0
@@ -41,3 +33,10 @@ margin_left = 72.0
 margin_right = 960.0
 margin_bottom = 31.0
 text = "0"
+
+[node name="Goals" type="VBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -188.0
+margin_right = 168.0
+alignment = 2
