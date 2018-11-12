@@ -20,6 +20,11 @@
 - **Author:** [Hugo Locurcio](https://hugo.pro/)
 - **License:** CC0 1.0 Universal
 
+## `game/tiles/*/*.{png,xcf}`
+
+- **Author:** [Hugo Locurcio](https://hugo.pro/)
+- **License:** CC0 1.0 Universal
+
 ## `menu/click.wav`
 
 - **Author:** [rhodesmas on Freesound](https://freesound.org/people/rhodesmas/sounds/322900/)
