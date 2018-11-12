@@ -14,11 +14,11 @@ var level: Node
 # The number of destroyable bricks left (used to check if the "bricks" goal was completed)
 var bricks_left := 0 setget set_bricks_left
 
-onready var level_timer := $LevelTimer as Timer
-
 # Goal information
 # Key is the description, value is the number of balls left
 var goals := {} setget set_goals
+
+onready var level_timer := $LevelTimer as Timer
 
 func _ready() -> void:
 	randomize()
