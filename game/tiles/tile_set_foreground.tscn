@@ -1,15 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[sub_resource type="OpenSimplexNoise" id=1]
-
-persistence = 1.0
-
-[sub_resource type="NoiseTexture" id=2]
-
-width = 64
-height = 64
-seamless = true
-noise = SubResource( 1 )
+[ext_resource path="res://game/tiles/foreground/base_wall.png" type="Texture" id=1]
 
 [sub_resource type="RectangleShape2D" id=3]
 
@@ -17,10 +8,10 @@ extents = Vector2( 32, 32 )
 
 [node name="TileSetForeground" type="Node"]
 
-[node name="Sprite" type="Sprite" parent="."]
-texture = SubResource( 2 )
+[node name="BaseWall" type="Sprite" parent="."]
+texture = ExtResource( 1 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite"]
+[node name="StaticBody2D" type="StaticBody2D" parent="BaseWall"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BaseWall/StaticBody2D"]
 shape = SubResource( 3 )

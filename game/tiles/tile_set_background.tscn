@@ -1,19 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
-[sub_resource type="OpenSimplexNoise" id=1]
-
-octaves = 5
-persistence = 1.0
-lacunarity = 4.0
-
-[sub_resource type="NoiseTexture" id=2]
-
-width = 64
-height = 64
-seamless = true
-noise = SubResource( 1 )
+[ext_resource path="res://game/tiles/background/base_floor.png" type="Texture" id=1]
 
 [node name="TileSetBackground" type="Node"]
 
-[node name="Sprite" type="Sprite" parent="."]
-texture = SubResource( 2 )
+[node name="BaseFloor" type="Sprite" parent="."]
+texture = ExtResource( 1 )
