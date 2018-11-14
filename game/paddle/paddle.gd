@@ -16,24 +16,27 @@ const CAMERA_ZOOM_BASE = 1.5
 # The zoom-out factor per pixel/s of movement
 const CAMERA_ZOOM_FACTOR = 0.0005
 
+# Where the player intends to go
 var motion := Vector2()
 
 onready var camera := $Camera2D as Camera2D
 onready var tween := $Tween as Tween
 
 func _integrate_forces(state: Physics2DDirectBodyState) -> void:
+	motion = Vector2.ZERO
+
 	if Input.is_action_pressed("move_up"):
-		motion.y -= ACCELERATION * state.step
+		motion.y = -1
 	elif Input.is_action_pressed("move_down"):
-		motion.y += ACCELERATION * state.step
+		motion.y = 1
 
 	if Input.is_action_pressed("move_left"):
-		motion.x -= ACCELERATION * state.step
+		motion.x = -1
 	elif Input.is_action_pressed("move_right"):
-		motion.x += ACCELERATION * state.step
+		motion.x = 1
 
-	motion *= FRICTION
-	linear_velocity = motion
+	motion = motion.normalized()
+	linear_velocity = (linear_velocity + motion * ACCELERATION * state.step) * FRICTION
 
 	tween.start()
 	tween.interpolate_property(
