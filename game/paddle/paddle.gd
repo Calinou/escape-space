@@ -6,10 +6,10 @@ class_name Paddle
 
 # Acceleration
 # There is no maximum set speed because it depends on friction
-const ACCELERATION = 3000
+const ACCELERATION = 2400
 
 # The friction factor applied on each step
-const FRICTION = 0.89
+const FRICTION = 0.9
 
 const CAMERA_ZOOM_BASE = 1.5
 
