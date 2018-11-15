@@ -1,17 +1,22 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://game/hud/theme.tres" type="Theme" id=1]
 [ext_resource path="res://game/hud/hud.gd" type="Script" id=2]
-[ext_resource path="res://game/hud/goal.tscn" type="PackedScene" id=3]
-[ext_resource path="res://game/hud/time_gradient.tres" type="Gradient" id=4]
+[ext_resource path="res://game/hud/vignette.png" type="Texture" id=3]
+[ext_resource path="res://game/hud/goal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://game/hud/time_gradient.tres" type="Gradient" id=5]
 
-[sub_resource type="Gradient" id=1]
+[sub_resource type="CanvasItemMaterial" id=4]
+
+blend_mode = 2
+
+[sub_resource type="Gradient" id=2]
 
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1 )
 
-[sub_resource type="GradientTexture" id=2]
+[sub_resource type="GradientTexture" id=3]
 
-gradient = SubResource( 1 )
+gradient = SubResource( 2 )
 width = 176
 
 [node name="HUD" type="Control"]
@@ -23,6 +28,22 @@ margin_right = -32.0
 margin_bottom = -32.0
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
+
+[node name="Vignette" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.12549 )
+material = SubResource( 4 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 32.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Vitals" type="VBoxContainer" parent="."]
 margin_left = 1.0
@@ -83,8 +104,8 @@ rect_scale = Vector2( 1, 2 )
 max_value = 1.0
 step = 0.0
 value = 0.5
-texture_progress = SubResource( 2 )
+texture_progress = SubResource( 3 )
 fill_mode = 6
 
 [node name="ResourcePreloader" type="ResourcePreloader" parent="."]
-resources = [ PoolStringArray( "goal", "time_gradient" ), [ ExtResource( 3 ), ExtResource( 4 ) ] ]
+resources = [ PoolStringArray( "goal", "time_gradient" ), [ ExtResource( 4 ), ExtResource( 5 ) ] ]

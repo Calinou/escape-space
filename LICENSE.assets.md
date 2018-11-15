@@ -1,5 +1,16 @@
 # Asset licenses
 
+## `game/ball/*.{png,xcf}`
+
+## `game/force_field/*.{png,xcf}`
+
+## `game/hud/*.{png,xcf}`
+
+## `game/tiles/*/*.{png,xcf}`
+
+- **Author:** [Hugo Locurcio](https://hugo.pro/)
+- **License:** CC0 1.0 Universal
+
 ## `game/ball/bounce.*.wav`
 
 - **Author:** [aust_paul on Freesound](https://freesound.org/people/aust_paul/sounds/30932/)
@@ -8,21 +19,6 @@
 ## `game/ball/{aura,spark,spinner}.png`
 
 - **Author:** [Kenney](https://kenney.nl/assets/particle-pack)
-- **License:** CC0 1.0 Universal
-
-## `game/ball/ball.png`
-
-- **Author:** [Hugo Locurcio](https://hugo.pro/)
-- **License:** CC0 1.0 Universal
-
-## `game/force_field/force_field.{png,xcf}`
-
-- **Author:** [Hugo Locurcio](https://hugo.pro/)
-- **License:** CC0 1.0 Universal
-
-## `game/tiles/*/*.{png,xcf}`
-
-- **Author:** [Hugo Locurcio](https://hugo.pro/)
 - **License:** CC0 1.0 Universal
 
 ## `menu/click.wav`
