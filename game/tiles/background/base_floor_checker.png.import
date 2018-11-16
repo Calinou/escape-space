@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/warning_floor_yellow.png-ea69bfe8132bc25061b17e21f952081b.stex"
+path="res://.import/base_floor_checker.png-f331f215b75c669d7127fda78ab52fd3.stex"
 
 [deps]
 
-source_file="res://game/tiles/background/warning_floor_yellow.png"
-dest_files=[ "res://.import/warning_floor_yellow.png-ea69bfe8132bc25061b17e21f952081b.stex" ]
+source_file="res://game/tiles/background/base_floor_checker.png"
+dest_files=[ "res://.import/base_floor_checker.png-f331f215b75c669d7127fda78ab52fd3.stex" ]
 
 [params]
 
