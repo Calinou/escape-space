@@ -6,7 +6,7 @@
 [ext_resource path="res://game/hud/goal.tscn" type="PackedScene" id=4]
 [ext_resource path="res://game/hud/time_gradient.tres" type="Gradient" id=5]
 
-[sub_resource type="CanvasItemMaterial" id=4]
+[sub_resource type="CanvasItemMaterial" id=1]
 
 blend_mode = 2
 
@@ -31,7 +31,7 @@ script = ExtResource( 2 )
 
 [node name="Vignette" type="TextureRect" parent="."]
 modulate = Color( 1, 1, 1, 0.12549 )
-material = SubResource( 4 )
+material = SubResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -32.0
@@ -45,7 +45,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Vitals" type="VBoxContainer" parent="."]
+[node name="Vitals" type="VBoxContainer" parent="." groups=[
+"can_hide",
+]]
 margin_left = 1.0
 margin_right = 961.0
 margin_bottom = 536.0
@@ -67,14 +69,18 @@ margin_right = 960.0
 margin_bottom = 31.0
 text = "0"
 
-[node name="Goals" type="VBoxContainer" parent="."]
+[node name="Goals" type="VBoxContainer" parent="." groups=[
+"can_hide",
+]]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -188.0
 margin_right = 168.0
 alignment = 2
 
-[node name="Time" type="Panel" parent="."]
+[node name="Time" type="Panel" parent="." groups=[
+"can_hide",
+]]
 self_modulate = Color( 1, 1, 1, 0.501961 )
 anchor_left = 0.5
 anchor_right = 0.5

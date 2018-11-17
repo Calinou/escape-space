@@ -11,6 +11,11 @@ onready var preloader := $ResourcePreloader as ResourcePreloader
 onready var goal_scene := preloader.get_resource("goal") as PackedScene
 onready var time_gradient := preloader.get_resource("time_gradient") as Gradient
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("toggle_hud"):
+		for node in get_tree().get_nodes_in_group("can_hide"):
+			node.visible = !node.visible
+
 func _on_bricks_changed(value: int) -> void:
 	update_bricks(value)
 
