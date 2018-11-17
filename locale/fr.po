@@ -35,6 +35,15 @@ msgstr "Réglages audio"
 msgid "Controls"
 msgstr "Contrôles"
 
+msgid "On"
+msgstr "Oui"
+
+msgid "Off"
+msgstr "Non"
+
+msgid "Fullscreen"
+msgstr "Plein écran"
+
 msgid "Move Up"
 msgstr "Aller en haut"
 

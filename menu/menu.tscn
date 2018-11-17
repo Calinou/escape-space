@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://menu/menu.gd" type="Script" id=1]
 [ext_resource path="res://menu/main.tscn" type="PackedScene" id=2]
 [ext_resource path="res://menu/options.tscn" type="PackedScene" id=3]
-[ext_resource path="res://menu/options_audio.tscn" type="PackedScene" id=4]
-[ext_resource path="res://menu/options_controls.tscn" type="PackedScene" id=5]
-[ext_resource path="res://menu/click.wav" type="AudioStream" id=6]
-[ext_resource path="res://menu/hover.wav" type="AudioStream" id=7]
+[ext_resource path="res://menu/options_video.tscn" type="PackedScene" id=4]
+[ext_resource path="res://menu/options_audio.tscn" type="PackedScene" id=5]
+[ext_resource path="res://menu/options_controls.tscn" type="PackedScene" id=6]
+[ext_resource path="res://menu/click.wav" type="AudioStream" id=7]
+[ext_resource path="res://menu/hover.wav" type="AudioStream" id=8]
 
 [sub_resource type="Animation" id=1]
 
@@ -38,10 +39,13 @@ __meta__ = {
 [node name="Options" parent="." instance=ExtResource( 3 )]
 visible = false
 
-[node name="OptionsAudio" parent="." instance=ExtResource( 4 )]
+[node name="OptionsVideo" parent="." instance=ExtResource( 4 )]
 visible = false
 
-[node name="OptionsControls" parent="." instance=ExtResource( 5 )]
+[node name="OptionsAudio" parent="." instance=ExtResource( 5 )]
+visible = false
+
+[node name="OptionsControls" parent="." instance=ExtResource( 6 )]
 visible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -57,9 +61,10 @@ __meta__ = {
 anims/fade_in = SubResource( 1 )
 
 [node name="ResourcePreloader" type="ResourcePreloader" parent="."]
-resources = [ PoolStringArray( "click", "hover" ), [ ExtResource( 6 ), ExtResource( 7 ) ] ]
+resources = [ PoolStringArray( "click", "hover" ), [ ExtResource( 7 ), ExtResource( 8 ) ] ]
 
 [connection signal="menu_changed" from="Main" to="." method="_on_menu_changed"]
 [connection signal="menu_changed" from="Options" to="." method="_on_menu_changed"]
+[connection signal="menu_changed" from="OptionsVideo" to="." method="_on_menu_changed"]
 [connection signal="menu_changed" from="OptionsAudio" to="." method="_on_menu_changed"]
 [connection signal="menu_changed" from="OptionsControls" to="." method="_on_menu_changed"]

@@ -17,9 +17,13 @@ func _input(event: InputEvent) -> void:
 	# Fullscreen toggle
 	# This can be done from anywhere, so it should be in a singleton
 	if event.is_action_pressed("toggle_fullscreen"):
-		OS.window_fullscreen = !OS.window_fullscreen
-		file.set_value("video", "fullscreen", OS.window_fullscreen)
-		save()
+		set_fullscreen(!OS.window_fullscreen)
+
+# Sets fullscreen status and persists it to the settings file.
+func set_fullscreen(fullscreen: bool) -> void:
+	OS.window_fullscreen = !OS.window_fullscreen
+	file.set_value("video", "fullscreen", OS.window_fullscreen)
+	save()
 
 # Saves the configuration file with a pre-defined path.
 # This method should be used over `Settings.file.save(path)`

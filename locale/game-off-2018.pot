@@ -34,6 +34,15 @@ msgstr ""
 msgid "Controls"
 msgstr ""
 
+msgid "On"
+msgstr ""
+
+msgid "Off"
+msgstr ""
+
+msgid "Fullscreen"
+msgstr ""
+
 msgid "Move Up"
 msgstr ""
 

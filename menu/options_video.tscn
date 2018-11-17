@@ -1,0 +1,84 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://menu/theme.tres" type="Theme" id=1]
+[ext_resource path="res://menu/options_video.gd" type="Script" id=2]
+[ext_resource path="res://menu/shortcut_cancel.tres" type="ShortCut" id=3]
+
+[node name="OptionsVideo" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -62.0
+margin_top = -112.0
+margin_right = 64.0
+margin_bottom = -84.0
+grow_horizontal = 2
+text = "Video Settings"
+align = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -54.0
+margin_right = 108.0
+margin_bottom = 54.0
+custom_constants/separation = 8
+alignment = 1
+
+[node name="Fullscreen" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 37.0
+margin_right = 620.0
+margin_bottom = 71.0
+custom_constants/separation = 24
+
+[node name="Label" type="Label" parent="VBoxContainer/Fullscreen"]
+margin_top = 3.0
+margin_right = 501.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.8
+text = "Fullscreen"
+align = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/Fullscreen" groups=[
+"makes_sound",
+]]
+margin_left = 525.0
+margin_right = 620.0
+margin_bottom = 34.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.15
+toggle_mode = true
+text = "Off"
+
+[node name="Done" type="Button" parent="." groups=[
+"makes_sound",
+]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -57.0
+margin_top = 83.0
+margin_right = 57.0
+margin_bottom = 117.0
+grow_horizontal = 2
+shortcut = ExtResource( 3 )
+text = "Done"
+
+[connection signal="toggled" from="VBoxContainer/Fullscreen/Button" to="." method="_on_fullscreen_toggled"]
+[connection signal="pressed" from="Done" to="." method="_on_done_pressed"]

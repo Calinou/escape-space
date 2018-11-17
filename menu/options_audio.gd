@@ -28,7 +28,7 @@ func _on_music_volume_value_changed(value: float) -> void:
 			linear2db(value)
 	)
 
-func _on_done_pressed():
+func _on_done_pressed() -> void:
 	Settings.file.set_value("audio", "sound_volume", sound_volume_slider.value)
 	Settings.file.set_value("audio", "music_volume", music_volume_slider.value)
 	Settings.save()

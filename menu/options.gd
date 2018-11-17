@@ -5,14 +5,14 @@ extends Control
 
 signal menu_changed
 
-func _on_video_settings_pressed():
-	pass # Replace with function body.
+func _on_video_settings_pressed() -> void:
+	emit_signal("menu_changed", $"/root/Menu/OptionsVideo")
 
-func _on_audio_settings_pressed():
+func _on_audio_settings_pressed() -> void:
 	emit_signal("menu_changed", $"/root/Menu/OptionsAudio")
 
-func _on_controls_pressed():
+func _on_controls_pressed() -> void:
 	emit_signal("menu_changed", $"/root/Menu/OptionsControls")
 
-func _on_done_pressed():
+func _on_done_pressed() -> void:
 	emit_signal("menu_changed", $"/root/Menu/Main")
