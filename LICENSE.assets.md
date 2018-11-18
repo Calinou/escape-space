@@ -18,6 +18,8 @@
 
 ## `game/ball/{aura,spark,spinner}.png`
 
+## `game/goal/{aura,spark}.png`
+
 - **Author:** [Kenney](https://kenney.nl/assets/particle-pack)
 - **License:** CC0 1.0 Universal
 

@@ -19,9 +19,6 @@ func _ready() -> void:
 func update_ball_counter(balls: int) -> void:
 	ball_counter.text = str(balls)
 
-func _draw() -> void:
-	draw_circle(Vector2(), 30.0, Color(0.3, 0.7, 1.0, 1))
-
 # The area's collision shape is disabled when the number of balls required
 # reaches 0, so it won't be called anymore after the goal is complete
 func _on_score_area_body_entered(body: PhysicsBody2D):

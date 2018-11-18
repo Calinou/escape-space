@@ -1,24 +1,33 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://game/goal/goal.gd" type="Script" id=1]
 [ext_resource path="res://fonts/ibm_plex_mono_medium_italic.tres" type="DynamicFontData" id=2]
+[ext_resource path="res://game/goal/aura.png" type="Texture" id=3]
+[ext_resource path="res://game/goal/spark.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 26
 font_data = ExtResource( 2 )
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CanvasItemMaterial" id=2]
+
+blend_mode = 1
+
+[sub_resource type="Curve" id=3]
+
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.5, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CircleShape2D" id=4]
 
 radius = 30.0
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=5]
 
 radius = 36.0
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=6]
 
-resource_name = "close"
 tracks/0/type = "value"
 tracks/0/path = NodePath("ScoreArea/CollisionShape2D:disabled")
 tracks/0/interp = 1
@@ -42,6 +51,47 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.376471, 1, 0.313726, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sparks:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.196078, 0.352941, 1, 0.376471 ), Color( 1, 1, 1, 0.376471 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Aura:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.156863, 0.313726, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.313726, 1, 0.27451, 0.501961 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Aura:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
 }
 
 [node name="Goal" type="StaticBody2D" groups=[
@@ -67,18 +117,48 @@ text = "1"
 align = 1
 valign = 1
 
+[node name="Aura" type="Sprite" parent="."]
+modulate = Color( 0.156863, 0.313726, 1, 1 )
+material = SubResource( 2 )
+scale = Vector2( 0.390625, 0.390625 )
+texture = ExtResource( 3 )
+
+[node name="Sparks" type="CPUParticles2D" parent="."]
+material = SubResource( 2 )
+scale = 0.14
+amount = 12
+texture = ExtResource( 4 )
+emission_shape = 1
+emission_sphere_radius = 40.0
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 0.0
+angular_velocity = 180.0
+angular_velocity_random = 1.0
+radial_accel = -100.0
+scale = 0.14
+scale_curve = SubResource( 3 )
+color = Color( 0.196078, 0.352941, 1, 0.376471 )
+hue_variation_random = 1.0
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
+visible = false
+shape = SubResource( 4 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 bus = "Effects"
 
 [node name="ScoreArea" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreArea"]
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/close = SubResource( 4 )
+anims/close = SubResource( 6 )
+
+[node name="SpinAnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "spin"
+anims/spin = SubResource( 7 )
 
 [connection signal="body_entered" from="ScoreArea" to="." method="_on_score_area_body_entered"]
