@@ -10,16 +10,12 @@ const BASE_SPEED = 275
 # The maximum ball speed
 const MAX_SPEED = 600
 
-# Speed factor on every bounce
-var speed_factor := 1.01
-
 # Whether the ball has been touched by a paddle or not
 var claimed := false
 
-onready var claim_animation_player := $ClaimAnimationPlayer as AnimationPlayer
+onready var animation_player := $AnimationPlayer as AnimationPlayer
 
-var motion := Vector2()
-
+#warning-ignore:unused_argument
 func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 	linear_velocity = linear_velocity.clamped(MAX_SPEED)
 
@@ -32,11 +28,15 @@ func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 
 		if not claimed:
 			# Destroy unclaimed balls on their first collision
-			queue_free()
+			animation_player.play("destroy")
 
-# Called when the ball is claimed (i.e. touched by a paddle)
+func _on_animation_finished(anim_name: String) -> void:
+	if anim_name == "destroy":
+		queue_free()
+
+# Called when the ball is claimed (i.e. touched by a paddle).
 func claim():
 	if not claimed:
-		claim_animation_player.play("claim")
+		animation_player.play("claim")
 
 	claimed = true
