@@ -39,7 +39,7 @@ dist-linux: dist
 
 # Export and package for macOS
 dist-macos: dist
-	godot-headless --export "macOS 64-bit" "dist/$(PKG_NAME)-macos.zip"
+	"$(GODOT)" --export "macOS 64-bit" "dist/$(PKG_NAME)-macos.zip"
 
 # Export and package for Windows
 dist-windows: dist
