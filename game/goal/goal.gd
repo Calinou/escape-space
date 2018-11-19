@@ -6,6 +6,8 @@ class_name Goal
 
 signal ball_received
 
+# Short description to be displayed by the HUD
+#warning-ignore:unused_class_variable
 export var description = ""
 export(int, 1, 100) var balls_required := 10
 
@@ -30,3 +32,17 @@ func _on_score_area_body_entered(body: PhysicsBody2D):
 		if balls_required == 0:
 			animation_player.play("close")
 			emit_signal("ball_received", self)
+		else:
+			animation_player.play("get_ball")
+
+# Plays a sound and frees the AudioStreamPlayer when the sound is done playing.
+# This is done to support polyphony.
+func play_sound(stream: AudioStream, volume_db: float) -> void:
+	var audio_stream_player := AudioStreamPlayer2D.new()
+	add_child(audio_stream_player)
+	audio_stream_player.bus = "Effects"
+	audio_stream_player.stream = stream
+	audio_stream_player.volume_db = volume_db
+	audio_stream_player.pitch_scale = rand_range(0.94, 1.06)
+	audio_stream_player.play()
+	audio_stream_player.connect("finished", audio_stream_player, "queue_free")

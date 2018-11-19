@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://game/goal/goal.gd" type="Script" id=1]
 [ext_resource path="res://fonts/ibm_plex_mono_medium_italic.tres" type="DynamicFontData" id=2]
 [ext_resource path="res://game/goal/aura.png" type="Texture" id=3]
 [ext_resource path="res://game/goal/spark.png" type="Texture" id=4]
 [ext_resource path="res://game/goal/close.wav" type="AudioStream" id=5]
+[ext_resource path="res://game/goal/get_ball.wav" type="AudioStream" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -92,7 +93,38 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 )
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=9]
+
+resource_name = "get_ball"
+length = 0.6
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ ExtResource( 6 ), 4.0 ],
+"method": "play_sound"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Aura:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.156863, 0.313726, 1, 1 ), Color( 0.470588, 0.72549, 1, 0.784314 ), Color( 0.156863, 0.313726, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
 
 length = 3.0
 loop = true
@@ -170,9 +202,10 @@ shape = SubResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/close = SubResource( 6 )
+anims/get_ball = SubResource( 9 )
 
 [node name="SpinAnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "spin"
-anims/spin = SubResource( 7 )
+anims/spin = SubResource( 8 )
 
 [connection signal="body_entered" from="ScoreArea" to="." method="_on_score_area_body_entered"]

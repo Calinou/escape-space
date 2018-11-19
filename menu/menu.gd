@@ -37,6 +37,7 @@ func _on_menu_changed(new_menu: Control) -> void:
 	current_menu = new_menu
 
 # Plays a sound and frees the AudioStreamPlayer when the sound is done playing.
+# This is done to support polyphony.
 func play_sound(stream: AudioStream, volume_db: float) -> void:
 	var audio_stream_player := AudioStreamPlayer.new()
 	add_child(audio_stream_player)

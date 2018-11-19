@@ -26,9 +26,9 @@ tile_data = PoolIntArray( -327688, 0, 0, -327687, 0, 0, -327686, 0, 0, -327685, 
 [node name="Paddle" parent="." instance=ExtResource( 4 )]
 
 [node name="Goal" parent="." instance=ExtResource( 5 )]
-position = Vector2( 380, 260 )
+position = Vector2( 384, 256 )
 description = "Tutorial Goal"
-balls_required = 1
+balls_required = 3
 
 [node name="ForceField" parent="." instance=ExtResource( 6 )]
 margin_left = -340.0
