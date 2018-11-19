@@ -2,6 +2,8 @@
 
 ## `game/ball/*.{png,xcf}`
 
+## `game/ball_launcher/*.{png,xcf}`
+
 ## `game/force_field/*.{png,xcf}`
 
 ## `game/hud/*.{png,xcf}`
