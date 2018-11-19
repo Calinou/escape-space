@@ -23,6 +23,11 @@
 - **Author:** [Kenney](https://kenney.nl/assets/particle-pack)
 - **License:** CC0 1.0 Universal
 
+## `game/goal/{close,get_ball}.wav`
+
+- **Author:** manuts on Freesound (cannot find original source)
+- **License:** CC BY 3.0 Unported
+
 ## `menu/click.wav`
 
 - **Author:** [rhodesmas on Freesound](https://freesound.org/people/rhodesmas/sounds/322900/)

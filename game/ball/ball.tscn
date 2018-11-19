@@ -6,18 +6,18 @@
 [ext_resource path="res://game/ball/spinner.png" type="Texture" id=4]
 [ext_resource path="res://game/ball/spark.png" type="Texture" id=5]
 
-[sub_resource type="CanvasItemMaterial" id=8]
+[sub_resource type="CanvasItemMaterial" id=1]
 
 blend_mode = 1
 
-[sub_resource type="CanvasItemMaterial" id=9]
+[sub_resource type="CanvasItemMaterial" id=2]
 
 blend_mode = 1
 
-[sub_resource type="CircleShape2D" id=10]
+[sub_resource type="CircleShape2D" id=3]
 
 
-[sub_resource type="CanvasItemMaterial" id=5]
+[sub_resource type="CanvasItemMaterial" id=4]
 
 blend_mode = 1
 particles_animation = true
@@ -25,17 +25,17 @@ particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
-[sub_resource type="Curve" id=6]
+[sub_resource type="Curve" id=5]
 
 max_value = 0.5
 _data = [ Vector2( 0, 0.5 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="PhysicsMaterial" id=14]
+[sub_resource type="PhysicsMaterial" id=6]
 
 friction = 0.0
 bounce = 1.0
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=7]
 
 tracks/0/type = "value"
 tracks/0/path = NodePath("Aura:modulate")
@@ -83,10 +83,10 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ SubResource( 14 ) ]
+"values": [ SubResource( 6 ) ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=8]
 
 tracks/0/type = "value"
 tracks/0/path = NodePath("DestroyParticles:emitting")
@@ -173,7 +173,7 @@ tracks/6/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=9]
 
 loop = true
 tracks/0/type = "value"
@@ -208,31 +208,32 @@ texture = ExtResource( 2 )
 
 [node name="Aura" type="Sprite" parent="."]
 modulate = Color( 0.643137, 0.835294, 1, 0.376471 )
-material = SubResource( 8 )
+material = SubResource( 1 )
 scale = Vector2( 0.2, 0.18 )
 texture = ExtResource( 3 )
 
 [node name="Spinner" type="Sprite" parent="."]
 modulate = Color( 0.643137, 0.835294, 1, 0.376471 )
-material = SubResource( 9 )
+material = SubResource( 2 )
 scale = Vector2( 0.12, 0.115 )
 texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 10 )
+shape = SubResource( 3 )
 
 [node name="IdleParticles" type="CPUParticles2D" parent="."]
-material = SubResource( 5 )
+material = SubResource( 4 )
 amount = 15
 preprocess = 1.0
 texture = ExtResource( 5 )
 spread = 180.0
 gravity = Vector2( 0, 0 )
 initial_velocity = 30.0
-scale_curve = SubResource( 6 )
+angular_velocity = 0.0
+scale_curve = SubResource( 5 )
 
 [node name="DestroyParticles" type="CPUParticles2D" parent="."]
-material = SubResource( 5 )
+material = SubResource( 4 )
 emitting = false
 amount = 30
 lifetime = 0.5
@@ -242,7 +243,8 @@ texture = ExtResource( 5 )
 spread = 180.0
 gravity = Vector2( 0, 0 )
 initial_velocity = 60.0
-scale_curve = SubResource( 6 )
+angular_velocity = 0.0
+scale_curve = SubResource( 5 )
 hue_variation = 0.1
 hue_variation_random = 1.0
 
@@ -250,11 +252,11 @@ hue_variation_random = 1.0
 bus = "Effects"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/claim = SubResource( 11 )
-anims/destroy = SubResource( 12 )
+anims/claim = SubResource( 7 )
+anims/destroy = SubResource( 8 )
 
 [node name="SpinAnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "spin"
-anims/spin = SubResource( 13 )
+anims/spin = SubResource( 9 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]

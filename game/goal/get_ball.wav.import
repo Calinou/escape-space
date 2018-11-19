@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/get_ball.wav-4a93a2de7eb1609493ea4d1cbada73dd.sample"
+
+[deps]
+
+source_file="res://game/goal/get_ball.wav"
+dest_files=[ "res://.import/get_ball.wav-4a93a2de7eb1609493ea4d1cbada73dd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
