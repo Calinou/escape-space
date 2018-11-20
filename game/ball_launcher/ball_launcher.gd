@@ -21,5 +21,5 @@ func _ready() -> void:
 func _on_launch_timer_timeout() -> void:
 	var ball := ball_scene.instance()
 	ball.position = launch_position.global_transform.origin
-	ball.linear_velocity = Vector2(0, launch_speed)
+	ball.linear_velocity = Vector2(0, launch_speed).rotated(rotation)
 	get_parent().add_child(ball)
