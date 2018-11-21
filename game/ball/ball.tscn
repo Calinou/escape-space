@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://game/ball/ball.gd" type="Script" id=1]
 [ext_resource path="res://game/ball/ball.png" type="Texture" id=2]
@@ -175,6 +175,23 @@ tracks/6/keys = {
 
 [sub_resource type="Animation" id=9]
 
+resource_name = "spawn"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 4, 4, 4, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Spinner:rotation_degrees")
@@ -243,7 +260,6 @@ texture = ExtResource( 5 )
 spread = 180.0
 gravity = Vector2( 0, 0 )
 initial_velocity = 60.0
-angular_velocity = 0.0
 scale_curve = SubResource( 5 )
 hue_variation = 0.1
 hue_variation_random = 1.0
@@ -252,11 +268,13 @@ hue_variation_random = 1.0
 bus = "Effects"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "spawn"
 anims/claim = SubResource( 7 )
 anims/destroy = SubResource( 8 )
+anims/spawn = SubResource( 9 )
 
 [node name="SpinAnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "spin"
-anims/spin = SubResource( 9 )
+anims/spin = SubResource( 10 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]

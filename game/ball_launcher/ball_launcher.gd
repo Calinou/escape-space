@@ -12,6 +12,7 @@ export(int, 10, 1000) var launch_speed := 200
 
 onready var launch_position := $LaunchPosition as Position2D
 onready var launch_timer := $LaunchTimer as Timer
+onready var animation_player := $AnimationPlayer as AnimationPlayer
 onready var preloader := $ResourcePreloader as ResourcePreloader
 onready var ball_scene := preloader.get_resource("ball") as PackedScene
 
@@ -19,6 +20,7 @@ func _ready() -> void:
 	launch_timer.wait_time = launch_time
 
 func _on_launch_timer_timeout() -> void:
+	animation_player.play("launch")
 	var ball := ball_scene.instance()
 	ball.position = launch_position.global_transform.origin
 	ball.linear_velocity = Vector2(0, launch_speed).rotated(rotation)

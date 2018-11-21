@@ -2,7 +2,7 @@
 
 ## `game/ball/*.{png,xcf}`
 
-## `game/ball_launcher/*.{png,xcf}`
+## `game/ball_launcher/ball_launcher.{png,xcf}`
 
 ## `game/force_field/*.{png,xcf}`
 
@@ -17,6 +17,8 @@
 
 - **Author:** [aust_paul on Freesound](https://freesound.org/people/aust_paul/sounds/30932/)
 - **License:** CC0 1.0 Universal
+
+## `game/ball_launcher/smoke_puff.png`
 
 ## `game/ball/{aura,spark,spinner}.png`
 

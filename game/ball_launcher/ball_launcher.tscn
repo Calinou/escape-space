@@ -1,12 +1,38 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://game/ball_launcher/ball_launcher.gd" type="Script" id=1]
 [ext_resource path="res://game/ball_launcher/ball_launcher.png" type="Texture" id=2]
-[ext_resource path="res://game/ball/ball.tscn" type="PackedScene" id=3]
+[ext_resource path="res://game/ball_launcher/smoke_puff.png" type="Texture" id=3]
+[ext_resource path="res://game/ball/ball.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 extents = Vector2( 64, 32 )
+
+[sub_resource type="CanvasItemMaterial" id=2]
+
+blend_mode = 1
+
+[sub_resource type="Curve" id=3]
+
+max_value = 0.2
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.1838, 0.2 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Animation" id=4]
+
+resource_name = "launch"
+tracks/0/type = "value"
+tracks/0/path = NodePath("LaunchParticles:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [node name="BallLauncher" type="StaticBody2D"]
 script = ExtResource( 1 )
@@ -20,11 +46,36 @@ shape = SubResource( 1 )
 [node name="LaunchPosition" type="Position2D" parent="."]
 position = Vector2( 0, 46 )
 
+[node name="LaunchParticles" type="CPUParticles2D" parent="."]
+material = SubResource( 2 )
+position = Vector2( 0, 32 )
+rotation = 1.57079
+emitting = false
+amount = 9
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource( 3 )
+emission_shape = 1
+emission_sphere_radius = 7.0
+spread = 0.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 400.0
+initial_velocity_random = 0.2
+angular_velocity = 25.0
+angular_velocity_random = 1.0
+linear_accel = 50.0
+scale_curve = SubResource( 3 )
+color = Color( 1, 1, 1, 0.0784314 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/launch = SubResource( 4 )
+
 [node name="LaunchTimer" type="Timer" parent="."]
 wait_time = 1.5
 autostart = true
 
 [node name="ResourcePreloader" type="ResourcePreloader" parent="."]
-resources = [ PoolStringArray( "ball" ), [ ExtResource( 3 ) ] ]
+resources = [ PoolStringArray( "ball" ), [ ExtResource( 4 ) ] ]
 
 [connection signal="timeout" from="LaunchTimer" to="." method="_on_launch_timer_timeout"]
