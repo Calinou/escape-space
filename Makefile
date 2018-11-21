@@ -22,14 +22,19 @@ PKG_NAME := $(NAME)-$(VERSION)
 # This can be overridden using `make GODOT=<path to Godot binary>`
 GODOT = godot-headless
 
+# Workaround for <https://github.com/godotengine/godot/issues/23044>
+TIMEOUT = 20
+
 # Run before all export targets
 dist:
-	mkdir -p "dist/"
+	# Create directories needed for headless exporting
+	# Workaround for <https://github.com/godotengine/godot/issues/16949>
+	mkdir -p "dist/" "$HOME/.config/godot/" "$HOME/.cache/godot/" "$HOME/.local/share/godot/"
 
 # Export and package for Linux
 dist-linux: dist
 	mkdir -p "dist/.linux/$(PKG_NAME)-linux-x86_64/"
-	"$(GODOT)" --export "Linux 64-bit" "dist/.linux/$(PKG_NAME)-linux-x86_64/$(NAME).x86_64"
+	timeout "$(TIMEOUT)" "$(GODOT)" --export "Linux 64-bit" "dist/.linux/$(PKG_NAME)-linux-x86_64/$(NAME).x86_64" || true
 
 	# Create Linux .tar.xz archive
 	(cd "dist/.linux/" && tar cfJ "../$(PKG_NAME)-linux-x86_64.tar.xz" "$(PKG_NAME)-linux-x86_64/")
@@ -39,14 +44,16 @@ dist-linux: dist
 
 # Export and package for macOS
 dist-macos: dist
-	"$(GODOT)" --export "macOS 64-bit" "dist/$(PKG_NAME)-macos.zip"
+	# Workaround for <https://github.com/godotengine/godot/issues/23073>
+	timeout "$(TIMEOUT)" "$(GODOT)" --export "macOS 64-bit" "dist/$(PKG_NAME)-macos.app" || true
+	mv "dist/$(PKG_NAME)-macos.app" "dist/$(PKG_NAME)-macos.zip"
 
 # Export and package for Windows
 dist-windows: dist
 	convert "icon.png" -define icon:auto-resize=256,128,64,48,32,16 "icon.ico"
 	mkdir -p "dist/.windows/$(PKG_NAME)-windows-x86_64/" "dist/.windows/$(PKG_NAME)-windows-x86/"
-	"$(GODOT)" --export "Windows 64-bit" "dist/.windows/$(PKG_NAME)-windows-x86_64/$(NAME).exe" &
-	"$(GODOT)" --export "Windows 32-bit" "dist/.windows/$(PKG_NAME)-windows-x86/$(NAME).exe"
+	timeout "$(TIMEOUT)" "$(GODOT)" --export "Windows 64-bit" "dist/.windows/$(PKG_NAME)-windows-x86_64/$(NAME).exe" || true &
+	timeout "$(TIMEOUT)" "$(GODOT)" --export "Windows 32-bit" "dist/.windows/$(PKG_NAME)-windows-x86/$(NAME).exe" || true
 
 	# Create Windows ZIP archive
 	(cd "dist/.windows/" && 7z a -r -mx9 "../$(PKG_NAME)-windows-x86_64.zip" "$(PKG_NAME)-windows-x86_64/") &
