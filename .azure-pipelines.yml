@@ -23,7 +23,7 @@ jobs:
             unzip -joqq "$tpz" -d "$HOME/.local/share/godot/templates/3.1.alpha/"
           done
 
-          make VERSION="continuous"
+          make VERSION="continuous" OUTPUT_PATH="$SYSTEM_ARTIFACTSDIRECTORY"
       - task: PublishBuildArtifacts@1
         inputs:
           pathtoPublish: $(Build.ArtifactStagingDirectory)
