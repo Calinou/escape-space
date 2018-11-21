@@ -7,8 +7,6 @@ jobs:
     condition: ne(variables['Build.SourceBranchName'], 'continuous')
     pool:
       vmImage: ubuntu-16.04
-    variables:
-      debian_frontend: noninteractive
     steps:
       - script: |
           sudo apt-get update -qq
@@ -26,6 +24,8 @@ jobs:
           done
 
           make VERSION="continuous" OUTPUT_PATH="$SYSTEM_ARTIFACTSDIRECTORY"
+        env:
+          DEBIAN_FRONTEND: noninteractive
       - task: PublishBuildArtifacts@1
         inputs:
           pathtoPublish: $(Build.ArtifactStagingDirectory)
@@ -40,8 +40,6 @@ jobs:
       )
     pool:
       vmImage: ubuntu-16.04
-    variables:
-      github_token: $(GitHub.Token)
     steps:
       - task: DownloadBuildArtifacts@0
         inputs:
@@ -64,3 +62,5 @@ jobs:
                 --name "$(basename $artifact)" \
                 --file "$artifact"
           done
+        env:
+          GITHUB_TOKEN: $(GitHub.Token)
