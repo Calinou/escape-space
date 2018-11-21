@@ -1,12 +1,10 @@
 # Copyright © 2018 Hugo Locurcio and contributors - MIT License
 # See `LICENSE.md` included in the source distribution for details.
 #
-# This Makefile assists in exporting and packaging the project for
-# various platforms.
-# Godot, ImageMagick and 7-zip must be available in the PATH for
-# this Makefile to function correctly.
-# The project's assets must also have been imported first by opening
-# the project using the editor for exporting to be possible.
+# This Makefile is used to export and package the project to various platforms.
+# The path to the Godot editor/headless binary can be specified by adding
+# `GODOT=<path to Godot binary>` to the make command line.
+# ImageMagick and 7-zip must also be available in the PATH for this Makefile to work.
 
 MAKEFLAGS += --silent
 all: dist-linux dist-macos dist-windows
@@ -19,7 +17,6 @@ VERSION = 0.0.1
 PKG_NAME := $(NAME)-$(VERSION)
 
 # The Godot binary path (can be just the name if it's in the PATH)
-# This can be overridden using `make GODOT=<path to Godot binary>`
 GODOT = godot-headless
 
 # Destination path for build artifacts
