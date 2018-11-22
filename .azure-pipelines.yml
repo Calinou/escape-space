@@ -54,7 +54,10 @@ jobs:
           gothub delete \
               --tag "continuous" || true
           gothub release \
-              --tag "continuous" || true
+              --tag "continuous" \
+              --name "Continuous build" \
+              --description "Continuous build" \
+              --pre-release || true
 
           for artifact in "$SYSTEM_ARTIFACTSDIRECTORY/build"/*; do
             gothub upload \
