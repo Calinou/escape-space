@@ -53,6 +53,10 @@ jobs:
 
           gothub delete \
               --tag "continuous" || true
+          curl \
+              --request DELETE --header "Authorization: token $GITHUB_TOKEN" \
+              "https://api.github.com/repos/$GITHUB_USER/$GITHUB_REPO/git/refs/tags/continuous"
+
           gothub release \
               --tag "continuous" \
               --name "Continuous build" \
