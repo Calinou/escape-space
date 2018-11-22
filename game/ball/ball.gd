@@ -36,7 +36,8 @@ func _on_animation_finished(anim_name: String) -> void:
 
 # Called when the ball is claimed (i.e. touched by a paddle).
 func claim():
-	if not claimed:
-		animation_player.play("claim")
+	# Don't claim if the ball is currently being destroyed
+	if not claimed and animation_player.current_animation != "destroy":
+		animation_player.queue("claim")
 
 	claimed = true
