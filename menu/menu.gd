@@ -13,6 +13,7 @@ onready var click_sound := preloader.get_resource("click") as AudioStream
 
 func _ready() -> void:
 	animation_player.play("fade_in")
+	Music.play_song("menu/menu")
 
 	for control in get_tree().get_nodes_in_group("makes_sound"):
 		if control is BaseButton:

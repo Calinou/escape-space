@@ -32,6 +32,11 @@
 - **Author:** manuts on Freesound (cannot find original source)
 - **License:** CC BY 3.0 Unported
 
+## `menu/menu.ogg`
+
+- **Author:** [Andrey Avkhimovich](https://avkh.bandcamp.com/)
+- **License:** CC BY 3.0 Unported
+
 ## `menu/click.wav`
 
 - **Author:** [rhodesmas on Freesound](https://freesound.org/people/rhodesmas/sounds/322900/)

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://autoload/music.gd" type="Script" id=1]
+
+[node name="Music" type="AudioStreamPlayer"]
+volume_db = -3.0
+bus = "Music"
+script = ExtResource( 1 )

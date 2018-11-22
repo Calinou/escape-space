@@ -83,6 +83,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Settings="*res://autoload/settings.gd"
+Music="*res://autoload/music.tscn"
 
 [display]
 
