@@ -13,3 +13,6 @@ func _on_options_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
+
+func _on_credits_pressed() -> void:
+	emit_signal("menu_changed", $"/root/Menu/Credits")

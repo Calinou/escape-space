@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: game-off 2018\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-07 01:02+0100\n"
-"PO-Revision-Date: 2018-11-10 00:21+0100\n"
+"PO-Revision-Date: 2018-11-23 10:45+0100\n"
 "Last-Translator: Hugo Locurcio <hugo.locurcio@hugo.pro>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -25,6 +25,9 @@ msgstr "Options"
 
 msgid "Quit"
 msgstr "Quitter"
+
+msgid "Credits"
+msgstr "Crédits"
 
 msgid "Video Settings"
 msgstr "Réglages vidéo"
@@ -67,3 +70,21 @@ msgstr "Volume de la musique"
 
 msgid "Done"
 msgstr "Terminé"
+
+msgid "Back"
+msgstr "Retour"
+
+msgid "Programming"
+msgstr "Programmation"
+
+msgid "2D Art"
+msgstr "Art 2D"
+
+msgid "Sound Effects"
+msgstr "Effets sonores"
+
+msgid "Music"
+msgstr "Musique"
+
+msgid "Miscellaneous"
+msgstr "Divers"

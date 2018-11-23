@@ -52,6 +52,21 @@ margin_bottom = 371.0
 grow_horizontal = 2
 text = "Quit"
 
+[node name="Credits" type="Button" parent="." groups=[
+"makes_sound",
+]]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -108.0
+margin_top = -34.0
+margin_right = 108.0
+grow_horizontal = 2
+text = "Credits"
+flat = true
+
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]

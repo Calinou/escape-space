@@ -25,6 +25,9 @@ msgstr ""
 msgid "Quit"
 msgstr ""
 
+msgid "Credits"
+msgstr ""
+
 msgid "Video Settings"
 msgstr ""
 
@@ -65,4 +68,22 @@ msgid "Music Volume"
 msgstr ""
 
 msgid "Done"
+msgstr ""
+
+msgid "Back"
+msgstr ""
+
+msgid "Programming"
+msgstr ""
+
+msgid "2D Art"
+msgstr ""
+
+msgid "Sound Effects"
+msgstr ""
+
+msgid "Music"
+msgstr ""
+
+msgid "Miscellaneous"
 msgstr ""
