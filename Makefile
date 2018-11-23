@@ -7,8 +7,8 @@
 # ImageMagick and 7-zip must also be available in the PATH for this Makefile to work.
 
 MAKEFLAGS += --silent
-all: dist-linux dist-macos dist-windows
 .PHONY: all
+all: dist-linux dist-macos dist-windows
 
 NAME = game-off-2018
 VERSION = 0.0.1
@@ -32,6 +32,7 @@ dist:
 	mkdir -p "$(OUTPUT_PATH)/" "$(HOME)/.config/godot/" "$(HOME)/.cache/godot/" "$(HOME)/.local/share/godot/"
 
 # Export and package for Linux
+.PHONY: dist-linux
 dist-linux: dist
 	mkdir -p "$(OUTPUT_PATH)/.linux/$(PKG_NAME)-linux-x86_64/"
 	timeout "$(TIMEOUT)" "$(GODOT)" --export "Linux 64-bit" "$(OUTPUT_PATH)/.linux/$(PKG_NAME)-linux-x86_64/$(NAME).x86_64" || true
@@ -43,12 +44,14 @@ dist-linux: dist
 	rm -rf "$(OUTPUT_PATH)/.linux/"
 
 # Export and package for macOS
+.PHONY: dist-macos
 dist-macos: dist
 	# Workaround for <https://github.com/godotengine/godot/issues/23073>
 	timeout "$(TIMEOUT)" "$(GODOT)" --export "macOS 64-bit" "$(OUTPUT_PATH)/$(PKG_NAME)-macos.app" || true
 	mv "$(OUTPUT_PATH)/$(PKG_NAME)-macos.app" "$(OUTPUT_PATH)/$(PKG_NAME)-macos.zip"
 
 # Export and package for Windows
+.PHONY: dist-windows
 dist-windows: dist
 	convert "icon.png" -define icon:auto-resize=256,128,64,48,32,16 "icon.ico"
 	mkdir -p "$(OUTPUT_PATH)/.windows/$(PKG_NAME)-windows-x86_64/" "$(OUTPUT_PATH)/.windows/$(PKG_NAME)-windows-x86/"
@@ -63,5 +66,6 @@ dist-windows: dist
 	rm -rf "$(OUTPUT_PATH)/.windows/"
 
 # Clean up build artifacts
+.PHONY: clean
 clean:
 	rm -rf "$(OUTPUT_PATH)/" "icon.ico"
