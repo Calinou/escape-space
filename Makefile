@@ -29,7 +29,7 @@ TIMEOUT = 20
 dist:
 	# Create directories needed for headless exporting
 	# Workaround for <https://github.com/godotengine/godot/issues/16949>
-	mkdir -p "$(OUTPUT_PATH)/" "$HOME/.config/godot/" "$HOME/.cache/godot/" "$HOME/.local/share/godot/"
+	mkdir -p "$(OUTPUT_PATH)/" "$(HOME)/.config/godot/" "$(HOME)/.cache/godot/" "$(HOME)/.local/share/godot/"
 
 # Export and package for Linux
 dist-linux: dist
