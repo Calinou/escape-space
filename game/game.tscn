@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://game/game.gd" type="Script" id=1]
-[ext_resource path="res://game/hud/hud.tscn" type="PackedScene" id=2]
+[ext_resource path="res://game/background/stars.png" type="Texture" id=2]
+[ext_resource path="res://game/background/nebulae.png" type="Texture" id=3]
+[ext_resource path="res://game/hud/hud.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+
+blend_mode = 1
 
 [node name="Game" type="Node"]
 script = ExtResource( 1 )
@@ -9,9 +15,48 @@ script = ExtResource( 1 )
 [node name="LevelTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_ignore_camera_zoom = true
+
+[node name="StarsBackground" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.02, 0.02 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/StarsBackground"]
+modulate = Color( 1, 1, 1, 0.25098 )
+material = SubResource( 1 )
+position = Vector2( 512, 300 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 65535, 65535 )
+
+[node name="StarsForeground" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.05, 0.05 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/StarsForeground"]
+modulate = Color( 1, 0.992157, 0.933333, 0.54902 )
+material = SubResource( 1 )
+position = Vector2( 512, 300 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 65535, 65535 )
+
+[node name="Nebulae" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.15, 0.15 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Nebulae"]
+modulate = Color( 0.25098, 0.219608, 0.180392, 1 )
+material = SubResource( 1 )
+position = Vector2( 512, 300 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 65535, 65535 )
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="HUD" parent="CanvasLayer" instance=ExtResource( 2 )]
+[node name="HUD" parent="CanvasLayer" instance=ExtResource( 4 )]
 
 [connection signal="bricks_changed" from="." to="CanvasLayer/HUD" method="_on_bricks_changed"]
 [connection signal="goals_changed" from="." to="CanvasLayer/HUD" method="_on_goals_changed"]
