@@ -55,18 +55,18 @@ custom_constants/separation = 10
 
 [node name="Bricks" type="HSplitContainer" parent="Vitals"]
 margin_right = 960.0
-margin_bottom = 31.0
+margin_bottom = 28.0
 
 [node name="Label" type="Label" parent="Vitals/Bricks"]
-margin_right = 60.0
-margin_bottom = 31.0
+margin_right = 58.0
+margin_bottom = 28.0
 text = "Bricks"
 align = 2
 
 [node name="Counter" type="Label" parent="Vitals/Bricks"]
-margin_left = 72.0
+margin_left = 70.0
 margin_right = 960.0
-margin_bottom = 31.0
+margin_bottom = 28.0
 text = "0"
 
 [node name="Goals" type="VBoxContainer" parent="." groups=[

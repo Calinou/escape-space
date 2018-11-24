@@ -1,12 +1,7 @@
-[gd_resource type="Theme" load_steps=3 format=2]
+[gd_resource type="Theme" load_steps=2 format=2]
 
-[ext_resource path="res://fonts/ibm_plex_sans_condensed_medium.tres" type="DynamicFontData" id=1]
-
-[sub_resource type="DynamicFont" id=1]
-
-size = 23
-font_data = ExtResource( 1 )
+[ext_resource path="res://fonts/default_2.tres" type="DynamicFont" id=1]
 
 [resource]
 
-default_font = SubResource( 1 )
+default_font = ExtResource( 1 )

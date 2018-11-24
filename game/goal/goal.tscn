@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://game/goal/goal.gd" type="Script" id=1]
-[ext_resource path="res://fonts/ibm_plex_mono_medium_italic.tres" type="DynamicFontData" id=2]
+[ext_resource path="res://fonts/data/ibm_plex_mono_medium_italic.tres" type="DynamicFontData" id=2]
 [ext_resource path="res://game/goal/aura.png" type="Texture" id=3]
 [ext_resource path="res://game/goal/spark.png" type="Texture" id=4]
 [ext_resource path="res://game/goal/close.wav" type="AudioStream" id=5]
@@ -10,6 +10,9 @@
 [sub_resource type="DynamicFont" id=1]
 
 size = 26
+use_mipmaps = true
+use_filter = true
+extra_spacing_char = 1
 font_data = ExtResource( 2 )
 
 [sub_resource type="CanvasItemMaterial" id=2]
