@@ -1,5 +1,7 @@
 # Asset licenses
 
+## `game/background/*.{png,xcf}`
+
 ## `game/ball/*.{png,xcf}`
 
 ## `game/ball_launcher/ball_launcher.{png,xcf}`
