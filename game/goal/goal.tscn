@@ -78,46 +78,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Color( 0.156863, 0.313726, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.313726, 1, 0.27451, 0.501961 ) ]
 }
-tracks/4/type = "audio"
-tracks/4/path = NodePath("AudioStreamPlayer2D")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"clips": [ {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource( 5 )
-} ],
-"times": PoolRealArray( 0 )
-}
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=7]
 
 resource_name = "get_ball"
 length = 0.6
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Aura:modulate")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [ ExtResource( 6 ), 4.0 ],
-"method": "play_sound"
-} ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Aura:modulate")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
 "times": PoolRealArray( 0, 0.1, 0.6 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
@@ -191,10 +163,6 @@ hue_variation_random = 1.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 4 )
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-volume_db = 10.0
-bus = "Effects"
-
 [node name="ScoreArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreArea"]
@@ -202,10 +170,13 @@ shape = SubResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/close = SubResource( 6 )
-anims/get_ball = SubResource( 9 )
+anims/get_ball = SubResource( 7 )
 
 [node name="SpinAnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "spin"
 anims/spin = SubResource( 8 )
+
+[node name="ResourcePreloader" type="ResourcePreloader" parent="."]
+resources = [ PoolStringArray( "close", "get_ball" ), [ ExtResource( 5 ), ExtResource( 6 ) ] ]
 
 [connection signal="body_entered" from="ScoreArea" to="." method="_on_score_area_body_entered"]

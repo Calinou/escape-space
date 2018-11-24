@@ -87,6 +87,7 @@ config/custom_user_dir_name.OSX="game-off-2018"
 
 Settings="*res://autoload/settings.gd"
 Music="*res://autoload/music.tscn"
+Sound="*res://autoload/sound.gd"
 
 [display]
 
