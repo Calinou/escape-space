@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/base_floor_checker.png-f331f215b75c669d7127fda78ab52fd3.stex"
+path="res://.import/tile_white.png-ad369c55627ec930abbb2a4b56b7b932.stex"
 
 [deps]
 
-source_file="res://game/tiles/background/base_floor_checker.png"
-dest_files=[ "res://.import/base_floor_checker.png-f331f215b75c669d7127fda78ab52fd3.stex" ]
+source_file="res://game/tiles/light/tile_white.png"
+dest_files=[ "res://.import/tile_white.png-ad369c55627ec930abbb2a4b56b7b932.stex" ]
 
 [params]
 
@@ -21,7 +21,7 @@ flags/filter=true
 flags/mipmaps=true
 flags/anisotropic=false
 flags/srgb=0
-process/fix_alpha_border=false
+process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false

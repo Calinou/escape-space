@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/base_floor_checker.png-f331f215b75c669d7127fda78ab52fd3.stex"
+path="res://.import/base_floor_tile.png-39d0208b1b7fab18390da220b9c204aa.stex"
 
 [deps]
 
-source_file="res://game/tiles/background/base_floor_checker.png"
-dest_files=[ "res://.import/base_floor_checker.png-f331f215b75c669d7127fda78ab52fd3.stex" ]
+source_file="res://game/tiles/background/base_floor_tile.png"
+dest_files=[ "res://.import/base_floor_tile.png-39d0208b1b7fab18390da220b9c204aa.stex" ]
 
 [params]
 
