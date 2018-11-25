@@ -45,11 +45,11 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 0.752941 ), Color( 1, 0.941176, 0.25098, 1 ) ]
 }
 
-[node name="UpdateChecker" type="HBoxContainer"]
-margin_right = 143.0
-margin_bottom = 31.0
+[node name="UpdateChecker" type="VBoxContainer"]
+margin_right = 67.0
+margin_bottom = 74.0
 theme = ExtResource( 1 )
-custom_constants/separation = 20
+custom_constants/separation = 10
 alignment = 2
 script = ExtResource( 2 )
 
@@ -58,8 +58,9 @@ script = ExtResource( 2 )
 ]]
 visible = false
 margin_left = -1.0
+margin_top = 10.0
 margin_right = 66.0
-margin_bottom = 31.0
+margin_bottom = 41.0
 size_flags_horizontal = 10
 custom_fonts/font = ExtResource( 3 )
 custom_constants/hseparation = 0
@@ -67,11 +68,9 @@ text = "Update"
 
 [node name="Version" type="Label" parent="."]
 modulate = Color( 1, 1, 1, 0.752941 )
-margin_left = 87.0
-margin_top = 4.0
-margin_right = 143.0
-margin_bottom = 27.0
-grow_horizontal = 0
+margin_top = 51.0
+margin_right = 67.0
+margin_bottom = 74.0
 custom_fonts/font = ExtResource( 3 )
 text = "Version"
 align = 2
