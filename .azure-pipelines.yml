@@ -23,6 +23,9 @@ jobs:
             unzip -joqq "$tpz" -d "$HOME/.local/share/godot/templates/3.1.alpha/"
           done
 
+          sed -i "s|config/version=\".*\"|config/version=\"continuous [$(git rev-parse HEAD | head -c8)]\"|" project.godot
+          sed -i "s|config/version_date=.*|config/version_date=$(date +%s)|" project.godot
+
           make VERSION="continuous" OUTPUT_PATH="$SYSTEM_ARTIFACTSDIRECTORY"
         env:
           DEBIAN_FRONTEND: noninteractive
