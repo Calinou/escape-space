@@ -30,27 +30,27 @@ alignment = 1
 [node name="Play" type="Button" parent="VBoxContainer" groups=[
 "makes_sound",
 ]]
-margin_top = 229.0
+margin_top = 226.0
 margin_right = 216.0
-margin_bottom = 263.0
+margin_bottom = 262.0
 grow_horizontal = 2
 text = "Play"
 
 [node name="Options" type="Button" parent="VBoxContainer" groups=[
 "makes_sound",
 ]]
-margin_top = 283.0
+margin_top = 282.0
 margin_right = 216.0
-margin_bottom = 317.0
+margin_bottom = 318.0
 grow_horizontal = 2
 text = "Options"
 
 [node name="Quit" type="Button" parent="VBoxContainer" groups=[
 "makes_sound",
 ]]
-margin_top = 337.0
+margin_top = 338.0
 margin_right = 216.0
-margin_bottom = 371.0
+margin_bottom = 374.0
 grow_horizontal = 2
 text = "Quit"
 
@@ -74,10 +74,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -253.0
-margin_top = -39.0
-margin_right = -13.0
-margin_bottom = -10.0
+margin_left = -162.0
+margin_top = -43.0
+margin_right = -19.0
+margin_bottom = -12.0
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]

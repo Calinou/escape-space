@@ -18,10 +18,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -33.0
-margin_top = -150.0
-margin_right = 34.0
-margin_bottom = -122.0
+margin_left = -35.0
+margin_top = -180.0
+margin_right = 37.0
+margin_bottom = -152.0
 grow_horizontal = 2
 text = "Options"
 align = 1
@@ -32,36 +32,45 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -97.0
-margin_top = -70.0
+margin_top = -100.0
 margin_right = 98.0
-margin_bottom = 72.0
+margin_bottom = 104.0
 custom_constants/separation = 20
 
 [node name="VideoSettings" type="Button" parent="VBoxContainer" groups=[
 "makes_sound",
 ]]
 margin_right = 195.0
-margin_bottom = 34.0
+margin_bottom = 36.0
 grow_horizontal = 2
 text = "Video Settings"
 
 [node name="AudioSettings" type="Button" parent="VBoxContainer" groups=[
 "makes_sound",
 ]]
-margin_top = 54.0
+margin_top = 56.0
 margin_right = 195.0
-margin_bottom = 88.0
+margin_bottom = 92.0
 grow_horizontal = 2
 text = "Audio Settings"
 
 [node name="Controls" type="Button" parent="VBoxContainer" groups=[
 "makes_sound",
 ]]
-margin_top = 108.0
+margin_top = 112.0
 margin_right = 195.0
-margin_bottom = 142.0
+margin_bottom = 148.0
 grow_horizontal = 2
 text = "Controls"
+
+[node name="MiscSettings" type="Button" parent="VBoxContainer" groups=[
+"makes_sound",
+]]
+margin_top = 168.0
+margin_right = 195.0
+margin_bottom = 204.0
+grow_horizontal = 2
+text = "Misc. Settings"
 
 [node name="Done" type="Button" parent="." groups=[
 "makes_sound",
@@ -71,9 +80,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -57.0
-margin_top = 130.0
+margin_top = 160.0
 margin_right = 57.0
-margin_bottom = 164.0
+margin_bottom = 196.0
 grow_horizontal = 2
 shortcut = ExtResource( 3 )
 text = "Done"
@@ -81,4 +90,5 @@ text = "Done"
 [connection signal="pressed" from="VBoxContainer/VideoSettings" to="." method="_on_video_settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/AudioSettings" to="." method="_on_audio_settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/Controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="VBoxContainer/MiscSettings" to="." method="_on_misc_settings_pressed"]
 [connection signal="pressed" from="Done" to="." method="_on_done_pressed"]

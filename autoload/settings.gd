@@ -3,13 +3,19 @@
 
 extends Node
 
+# Used for persistent settings
 const CONFIG_PATH = "user://settings.ini"
 
+# Used for "temporary" settings such as the last update check timestamp
+const CONFIG_CACHE_PATH = "user://cache.ini"
+
 var file := ConfigFile.new()
+var cache := ConfigFile.new()
 
 func _ready() -> void:
 	# Loads existing configuration (if any) for use anywhere
 	file.load(CONFIG_PATH)
+	cache.load(CONFIG_CACHE_PATH)
 
 	OS.window_fullscreen = bool(file.get_value("video", "fullscreen", false))
 
@@ -25,8 +31,9 @@ func set_fullscreen(fullscreen: bool) -> void:
 	file.set_value("video", "fullscreen", OS.window_fullscreen)
 	save()
 
-# Saves the configuration file with a pre-defined path.
+# Saves configuration files with predefined paths.
 # This method should be used over `Settings.file.save(path)`
 # unless a custom path needs to be specified.
 func save() -> void:
 	file.save(CONFIG_PATH)
+	cache.save(CONFIG_CACHE_PATH)

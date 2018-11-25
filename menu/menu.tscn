@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://menu/menu.gd" type="Script" id=1]
 [ext_resource path="res://menu/main.tscn" type="PackedScene" id=2]
@@ -6,9 +6,10 @@
 [ext_resource path="res://menu/options_video.tscn" type="PackedScene" id=4]
 [ext_resource path="res://menu/options_audio.tscn" type="PackedScene" id=5]
 [ext_resource path="res://menu/options_controls.tscn" type="PackedScene" id=6]
-[ext_resource path="res://menu/credits.tscn" type="PackedScene" id=7]
-[ext_resource path="res://menu/click.wav" type="AudioStream" id=8]
-[ext_resource path="res://menu/hover.wav" type="AudioStream" id=9]
+[ext_resource path="res://menu/options_misc.tscn" type="PackedScene" id=7]
+[ext_resource path="res://menu/credits.tscn" type="PackedScene" id=8]
+[ext_resource path="res://menu/click.wav" type="AudioStream" id=9]
+[ext_resource path="res://menu/hover.wav" type="AudioStream" id=10]
 
 [sub_resource type="Animation" id=1]
 
@@ -79,7 +80,10 @@ visible = false
 [node name="OptionsControls" parent="." instance=ExtResource( 6 )]
 visible = false
 
-[node name="Credits" parent="." instance=ExtResource( 7 )]
+[node name="OptionsMisc" parent="." instance=ExtResource( 7 )]
+visible = false
+
+[node name="Credits" parent="." instance=ExtResource( 8 )]
 visible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -97,11 +101,12 @@ anims/change_menu = SubResource( 1 )
 anims/fade_in = SubResource( 2 )
 
 [node name="ResourcePreloader" type="ResourcePreloader" parent="."]
-resources = [ PoolStringArray( "click", "hover" ), [ ExtResource( 8 ), ExtResource( 9 ) ] ]
+resources = [ PoolStringArray( "click", "hover" ), [ ExtResource( 9 ), ExtResource( 10 ) ] ]
 
 [connection signal="menu_changed" from="Main" to="." method="_on_menu_changed"]
 [connection signal="menu_changed" from="Options" to="." method="_on_menu_changed"]
 [connection signal="menu_changed" from="OptionsVideo" to="." method="_on_menu_changed"]
 [connection signal="menu_changed" from="OptionsAudio" to="." method="_on_menu_changed"]
 [connection signal="menu_changed" from="OptionsControls" to="." method="_on_menu_changed"]
+[connection signal="menu_changed" from="OptionsMisc" to="." method="_on_menu_changed"]
 [connection signal="menu_changed" from="Credits" to="." method="_on_menu_changed"]

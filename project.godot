@@ -84,11 +84,10 @@ config/custom_user_dir_name.X11="game-off-2018"
 config/custom_user_dir_name.OSX="game-off-2018"
 config/version="dev"
 config/check_for_updates=true
-config/update_to_continuous_builds=false
-config/check_for_updates.editor=true
+config/check_for_updates.editor=false
 config/github_user="Calinou"
 config/github_repository="game-off-2018"
-config/version_date=1500000000
+config/version_date=0
 
 [autoload]
 

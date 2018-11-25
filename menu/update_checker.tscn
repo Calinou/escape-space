@@ -1,39 +1,86 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://menu/update_checker.gd" type="Script" id=1]
-[ext_resource path="res://fonts/default_4.tres" type="DynamicFont" id=2]
+[ext_resource path="res://menu/theme.tres" type="Theme" id=1]
+[ext_resource path="res://menu/update_checker.gd" type="Script" id=2]
+[ext_resource path="res://fonts/default_4.tres" type="DynamicFont" id=3]
+
+[sub_resource type="Animation" id=1]
+
+resource_name = "fade_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Update:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 0.5 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Update:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Version:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 0.5 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.752941 ), Color( 1, 0.941176, 0.25098, 1 ) ]
+}
 
 [node name="UpdateChecker" type="HBoxContainer"]
-margin_right = 240.0
-margin_bottom = 29.0
-custom_constants/separation = 10
+margin_right = 143.0
+margin_bottom = 31.0
+theme = ExtResource( 1 )
+custom_constants/separation = 20
 alignment = 2
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="Update" type="Button" parent="." groups=[
 "makes_sound",
 ]]
 visible = false
-margin_right = 115.0
-margin_bottom = 29.0
-size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 2 )
+margin_left = -1.0
+margin_right = 66.0
+margin_bottom = 31.0
+size_flags_horizontal = 10
+custom_fonts/font = ExtResource( 3 )
+custom_constants/hseparation = 0
 text = "Update"
 
 [node name="Version" type="Label" parent="."]
-margin_top = 3.0
-margin_right = 240.0
-margin_bottom = 26.0
+modulate = Color( 1, 1, 1, 0.752941 )
+margin_left = 87.0
+margin_top = 4.0
+margin_right = 143.0
+margin_bottom = 27.0
 grow_horizontal = 0
-size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 2 )
-custom_colors/font_color = Color( 1, 1, 1, 0.752941 )
+custom_fonts/font = ExtResource( 3 )
 text = "Version"
 align = 2
 valign = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/fade_in = SubResource( 1 )
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
+[connection signal="pressed" from="Update" to="." method="_on_update_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_completed"]

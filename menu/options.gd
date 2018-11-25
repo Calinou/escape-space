@@ -14,5 +14,8 @@ func _on_audio_settings_pressed() -> void:
 func _on_controls_pressed() -> void:
 	emit_signal("menu_changed", $"/root/Menu/OptionsControls")
 
+func _on_misc_settings_pressed() -> void:
+	emit_signal("menu_changed", $"/root/Menu/OptionsMisc")
+
 func _on_done_pressed() -> void:
 	emit_signal("menu_changed", $"/root/Menu/Main")

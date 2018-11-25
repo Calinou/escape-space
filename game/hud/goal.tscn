@@ -1,16 +1,18 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://fonts/default_4.tres" type="DynamicFont" id=1]
-[ext_resource path="res://fonts/data/ibm_plex_sans_condensed_medium.tres" type="DynamicFontData" id=2]
+[ext_resource path="res://menu/theme.tres" type="Theme" id=1]
+[ext_resource path="res://fonts/default_4.tres" type="DynamicFont" id=2]
+[ext_resource path="res://fonts/data/ibm_plex_sans_condensed_medium.tres" type="DynamicFontData" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 17
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 
 [node name="Goal" type="HBoxContainer"]
 margin_right = 258.0
 margin_bottom = 31.0
+theme = ExtResource( 1 )
 custom_constants/separation = 20
 
 [node name="Description" type="Label" parent="."]
@@ -19,7 +21,7 @@ margin_top = 4.0
 margin_right = 228.0
 margin_bottom = 27.0
 size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "Description"
 align = 2
 
