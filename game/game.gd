@@ -45,6 +45,9 @@ func change_level(level_name: String) -> void:
 	for goal in level.get_tree().get_nodes_in_group("goal"):
 		self.goals[goal.description] = goal.balls_required
 
+	Music.play_song(load("res://levels/" + level_name + ".ogg"))
+	Music.fade_in()
+
 # Checks whether the player is allowed to exit and changes the level if they are.
 func _on_exit_requested() -> void:
 	if bricks_left > 0:

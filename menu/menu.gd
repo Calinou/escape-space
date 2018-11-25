@@ -15,7 +15,7 @@ signal transition_finished
 
 func _ready() -> void:
 	animation_player.play("fade_in")
-	Music.play_song("menu/menu")
+	Music.play_song(preload("res://menu/menu.ogg"))
 
 	for control in get_tree().get_nodes_in_group("makes_sound"):
 		if control is BaseButton:

@@ -7,6 +7,8 @@ signal menu_changed
 
 func _on_play_pressed() -> void:
 	emit_signal("menu_changed")
+	Music.fade_out()
+
 	yield($"/root/Menu", "transition_finished")
 	get_tree().change_scene("res://game/game.tscn")
 
@@ -15,6 +17,8 @@ func _on_options_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	emit_signal("menu_changed")
+	Music.fade_out()
+
 	yield($"/root/Menu", "transition_finished")
 	get_tree().quit()
 
