@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://menu/theme.tres" type="Theme" id=1]
 [ext_resource path="res://menu/main.gd" type="Script" id=2]
 [ext_resource path="res://fonts/default_4.tres" type="DynamicFont" id=3]
+[ext_resource path="res://menu/update_checker.tscn" type="PackedScene" id=4]
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
@@ -67,6 +68,16 @@ grow_horizontal = 2
 custom_fonts/font = ExtResource( 3 )
 text = "Credits"
 flat = true
+
+[node name="UpdateChecker" parent="." instance=ExtResource( 4 )]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -253.0
+margin_top = -39.0
+margin_right = -13.0
+margin_bottom = -10.0
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
