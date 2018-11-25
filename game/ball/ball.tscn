@@ -31,8 +31,7 @@ particles_anim_loop = false
 
 [sub_resource type="Curve" id=5]
 
-max_value = 0.5
-_data = [ Vector2( 0, 0.5 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="PhysicsMaterial" id=6]
 
@@ -88,6 +87,18 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ SubResource( 6 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("TrailParticles:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.643137, 0.835294, 1, 0.12549 ), Color( 1, 0.65098, 0.25098, 0.584314 ) ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -176,6 +187,18 @@ tracks/6/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/7/type = "value"
+tracks/7/path = NodePath("TrailParticles:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=9]
 
@@ -244,16 +267,38 @@ shape = SubResource( 3 )
 
 [node name="IdleParticles" type="CPUParticles2D" parent="."]
 material = SubResource( 4 )
+scale = 0.5
 amount = 15
 preprocess = 1.0
 texture = ExtResource( 5 )
 spread = 180.0
 gravity = Vector2( 0, 0 )
 initial_velocity = 30.0
+angular_velocity = 2.80845e-06
+scale = 0.5
 scale_curve = SubResource( 5 )
+
+[node name="TrailParticles" type="CPUParticles2D" parent="."]
+material = SubResource( 4 )
+scale = 0.2
+amount = 100
+lifetime = 0.5
+preprocess = 1.0
+local_coords = false
+texture = ExtResource( 5 )
+emission_shape = 1
+emission_sphere_radius = 5.0
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 30.0
+angular_velocity = 2.80845e-06
+scale = 0.2
+scale_curve = SubResource( 5 )
+color = Color( 0.643137, 0.835294, 1, 0.12549 )
 
 [node name="DestroyParticles" type="CPUParticles2D" parent="."]
 material = SubResource( 4 )
+scale = 0.5
 emitting = false
 amount = 30
 lifetime = 0.5
@@ -263,6 +308,8 @@ texture = ExtResource( 5 )
 spread = 180.0
 gravity = Vector2( 0, 0 )
 initial_velocity = 60.0
+angular_velocity = 1.08996e+27
+scale = 0.5
 scale_curve = SubResource( 5 )
 hue_variation = 0.1
 hue_variation_random = 1.0

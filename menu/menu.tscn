@@ -10,7 +10,7 @@
 [ext_resource path="res://menu/click.wav" type="AudioStream" id=8]
 [ext_resource path="res://menu/hover.wav" type="AudioStream" id=9]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 
 resource_name = "change_menu"
 length = 0.3
@@ -40,9 +40,8 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, 8 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=2]
 
-resource_name = "fade_in"
 length = 0.45
 step = 0.05
 tracks/0/type = "value"
@@ -94,8 +93,8 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_process_mode = 0
-anims/change_menu = SubResource( 2 )
-anims/fade_in = SubResource( 1 )
+anims/change_menu = SubResource( 1 )
+anims/fade_in = SubResource( 2 )
 
 [node name="ResourcePreloader" type="ResourcePreloader" parent="."]
 resources = [ PoolStringArray( "click", "hover" ), [ ExtResource( 8 ), ExtResource( 9 ) ] ]
