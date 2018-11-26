@@ -94,6 +94,7 @@ config/github_repository="game-off-2018"
 Settings="*res://autoload/settings.gd"
 Music="*res://autoload/music.tscn"
 Sound="*res://autoload/sound.gd"
+ColorCorrection="*res://autoload/color_correction.tscn"
 
 [display]
 

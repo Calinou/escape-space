@@ -48,4 +48,4 @@ func _ready() -> void:
 
 func _on_back_pressed() -> void:
 	rich_text_label.scroll_to_line(0)
-	emit_signal("menu_changed", $"/root/Menu/Main")
+	emit_signal("menu_changed", $"/root/Menu/Control/Main")

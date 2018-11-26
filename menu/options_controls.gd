@@ -49,7 +49,7 @@ func _wait_for_input(selected_action: String) -> void:
 	set_process_input(true)
 
 func _on_done_pressed() -> void:
-	emit_signal("menu_changed", $"/root/Menu/Options")
+	emit_signal("menu_changed", $"/root/Menu/Control/Options")
 
 # Removes existing input events from an action and binds a new event to an action.
 func bind_event(action: String, event: InputEvent) -> void:

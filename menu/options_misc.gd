@@ -9,7 +9,7 @@ signal update_requested
 onready var check_updates_button := $VBoxContainer/CheckUpdates/Button as Button
 
 func _ready() -> void:
-	connect("update_requested", $"/root/Menu/Main/UpdateChecker", "check_for_updates")
+	connect("update_requested", $"/root/Menu/Control/Main/UpdateChecker", "check_for_updates")
 
 	check_updates_button.pressed = Settings.file.get_value(
 			"network",
@@ -28,4 +28,4 @@ func _on_check_updates_toggled(button_pressed: bool) -> void:
 		emit_signal("update_requested")
 
 func _on_done_pressed():
-	emit_signal("menu_changed", $"/root/Menu/Options")
+	emit_signal("menu_changed", $"/root/Menu/Control/Options")

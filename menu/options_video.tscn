@@ -39,15 +39,15 @@ custom_constants/separation = 8
 alignment = 1
 
 [node name="Fullscreen" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 37.0
+margin_top = 18.0
 margin_right = 620.0
-margin_bottom = 71.0
+margin_bottom = 54.0
 custom_constants/separation = 24
 
 [node name="Label" type="Label" parent="VBoxContainer/Fullscreen"]
-margin_top = 3.0
+margin_top = 4.0
 margin_right = 501.0
-margin_bottom = 31.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.8
 text = "Fullscreen"
@@ -58,12 +58,42 @@ align = 2
 ]]
 margin_left = 525.0
 margin_right = 620.0
-margin_bottom = 34.0
+margin_bottom = 36.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.15
 toggle_mode = true
 text = "Off"
+
+[node name="Brightness" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 62.0
+margin_right = 620.0
+margin_bottom = 90.0
+custom_constants/separation = 24
+
+[node name="Label" type="Label" parent="VBoxContainer/Brightness"]
+margin_right = 501.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.8
+text = "Brightness"
+align = 2
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/Brightness" groups=[
+"makes_sound",
+]]
+margin_left = 525.0
+margin_top = 4.0
+margin_right = 620.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.15
+min_value = 0.5
+max_value = 1.5
+step = 0.0
+value = 1.0
+ticks_on_borders = true
 
 [node name="Done" type="Button" parent="." groups=[
 "makes_sound",
@@ -81,4 +111,5 @@ shortcut = ExtResource( 3 )
 text = "Done"
 
 [connection signal="toggled" from="VBoxContainer/Fullscreen/Button" to="." method="_on_fullscreen_toggled"]
+[connection signal="value_changed" from="VBoxContainer/Brightness/HSlider" to="." method="_on_brightness_value_changed"]
 [connection signal="pressed" from="Done" to="." method="_on_done_pressed"]

@@ -32,4 +32,4 @@ func _on_done_pressed() -> void:
 	Settings.file.set_value("audio", "sound_volume", sound_volume_slider.value)
 	Settings.file.set_value("audio", "music_volume", music_volume_slider.value)
 	Settings.save()
-	emit_signal("menu_changed", $"/root/Menu/Options")
+	emit_signal("menu_changed", $"/root/Menu/Control/Options")

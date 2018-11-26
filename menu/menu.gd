@@ -1,11 +1,12 @@
 # Copyright © 2018 Hugo Locurcio and contributors - MIT License
 # See `LICENSE.md` included in the source distribution for details.
 
-extends Control
+extends Node
 
 # The currently-viewed menu control
-onready var current_menu := $"/root/Menu/Main" as Control
+onready var current_menu := $"/root/Menu/Control/Main" as Control
 
+onready var root_control := $Control as Control
 onready var animation_player := $AnimationPlayer as AnimationPlayer
 onready var preloader := $ResourcePreloader as ResourcePreloader
 onready var hover_sound := preloader.get_resource("hover") as AudioStream
@@ -17,6 +18,12 @@ func _ready() -> void:
 	animation_player.play("fade_in")
 	Music.play_song(preload("res://menu/menu.ogg"))
 
+	# Connect menu nodes for menu transitions
+	for control in root_control.get_children():
+		if control.get_script() and control.get_script().has_script_signal("menu_changed"):
+			control.connect("menu_changed", self, "_on_menu_changed")
+
+	# Connect any nodes that play a sound when hovered/pressed
 	for control in get_tree().get_nodes_in_group("makes_sound"):
 		if control is BaseButton:
 			control.connect("mouse_entered", self, "_control_hovered", [control])

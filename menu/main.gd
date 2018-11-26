@@ -13,7 +13,7 @@ func _on_play_pressed() -> void:
 	get_tree().change_scene("res://game/game.tscn")
 
 func _on_options_pressed() -> void:
-	emit_signal("menu_changed", $"/root/Menu/Options")
+	emit_signal("menu_changed", $"/root/Menu/Control/Options")
 
 func _on_quit_pressed() -> void:
 	emit_signal("menu_changed")
@@ -23,4 +23,4 @@ func _on_quit_pressed() -> void:
 	get_tree().quit()
 
 func _on_credits_pressed() -> void:
-	emit_signal("menu_changed", $"/root/Menu/Credits")
+	emit_signal("menu_changed", $"/root/Menu/Control/Credits")
