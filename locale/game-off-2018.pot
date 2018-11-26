@@ -28,6 +28,9 @@ msgstr ""
 msgid "Credits"
 msgstr ""
 
+msgid "Update"
+msgstr ""
+
 msgid "Video Settings"
 msgstr ""
 
@@ -37,6 +40,12 @@ msgstr ""
 msgid "Controls"
 msgstr ""
 
+msgid "Misc. Settings"
+msgstr ""
+
+msgid "Miscellaneous Settings"
+msgstr ""
+
 msgid "On"
 msgstr ""
 
@@ -44,6 +53,9 @@ msgid "Off"
 msgstr ""
 
 msgid "Fullscreen"
+msgstr ""
+
+msgid "Brightness"
 msgstr ""
 
 msgid "Move Up"
@@ -65,6 +77,9 @@ msgid "Sound Volume"
 msgstr ""
 
 msgid "Music Volume"
+msgstr ""
+
+msgid "Check for Updates"
 msgstr ""
 
 msgid "Done"

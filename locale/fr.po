@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: game-off 2018\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-07 01:02+0100\n"
-"PO-Revision-Date: 2018-11-23 10:45+0100\n"
+"PO-Revision-Date: 2018-11-26 12:00+0100\n"
 "Last-Translator: Hugo Locurcio <hugo.locurcio@hugo.pro>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -29,6 +29,9 @@ msgstr "Quitter"
 msgid "Credits"
 msgstr "Crédits"
 
+msgid "Update"
+msgstr "Mettre à jour"
+
 msgid "Video Settings"
 msgstr "Réglages vidéo"
 
@@ -38,6 +41,12 @@ msgstr "Réglages audio"
 msgid "Controls"
 msgstr "Contrôles"
 
+msgid "Misc. Settings"
+msgstr "Réglages divers"
+
+msgid "Miscellaneous Settings"
+msgstr "Réglages divers"
+
 msgid "On"
 msgstr "Oui"
 
@@ -46,6 +55,9 @@ msgstr "Non"
 
 msgid "Fullscreen"
 msgstr "Plein écran"
+
+msgid "Brightness"
+msgstr "Luminosité"
 
 msgid "Move Up"
 msgstr "Aller en haut"
@@ -67,6 +79,9 @@ msgstr "Volume du son"
 
 msgid "Music Volume"
 msgstr "Volume de la musique"
+
+msgid "Check for Updates"
+msgstr "Vérifier les mises à jour"
 
 msgid "Done"
 msgstr "Terminé"
