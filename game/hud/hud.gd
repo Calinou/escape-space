@@ -3,8 +3,14 @@
 
 extends Control
 
-onready var animation_player := $AnimationPlayer as AnimationPlayer
+onready var color_rect_animation := $ColorRect/AnimationPlayer as AnimationPlayer
 onready var bricks_counter := $Vitals/Bricks/Counter as Label
+onready var center_label := $CenterText as RichTextLabel
+onready var center_label_animation := $CenterText/AnimationPlayer as AnimationPlayer
+onready var center_label_timer := $CenterText/Timer as Timer
+onready var info_label := $InfoText as RichTextLabel
+onready var info_label_animation := $InfoText/AnimationPlayer as AnimationPlayer
+onready var info_label_timer := $InfoText/Timer as Timer
 onready var goals := $Goals as Control
 onready var time_label := $Time/Label as Label
 onready var time_progress := $Time/TextureProgress as Range
@@ -54,5 +60,25 @@ func _on_time_limit_changed(time_limit: int) -> void:
 
 func _on_game_state_changed(state: int) -> void:
 	match state:
+		Game.State.PREGAME:
+			set_center_text("[color=#ffee44]Get ready…[/color]")
+		Game.State.PLAYING:
+			set_center_text("[color=#66ff44]GO![/color]", 0.5)
 		Game.State.WON:
-			animation_player.play_backwards("fade_in")
+			color_rect_animation.play_backwards("fade_in")
+
+func set_center_text(text: String, duration: float = 6.0) -> void:
+	center_label.bbcode_text = "[center]" + text + "[/center]"
+	center_label_timer.wait_time = duration
+	center_label_timer.start()
+
+	yield(center_label_timer, "timeout")
+	center_label_animation.play("fade_out")
+
+func set_info_text(text: String, duration: float = 6.0) -> void:
+	info_label.bbcode_text = "[center]" + text + "[/center]"
+	info_label_timer.wait_time = duration
+	info_label_timer.start()
+
+	yield(info_label_timer, "timeout")
+	info_label_animation.play("fade_out")
