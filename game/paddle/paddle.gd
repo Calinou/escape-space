@@ -19,21 +19,29 @@ const CAMERA_ZOOM_FACTOR = 0.0005
 # Where the player intends to go
 var motion := Vector2()
 
+# Whether the paddle is allowed to move
+var can_move := false
+
+onready var game := $"/root/Game" as Node
 onready var camera := $Camera2D as Camera2D
 onready var tween := $Tween as Tween
+
+func _ready() -> void:
+	game.connect("state_changed", self, "_on_game_state_changed")
 
 func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 	motion = Vector2.ZERO
 
-	if Input.is_action_pressed("move_up"):
-		motion.y = -1
-	elif Input.is_action_pressed("move_down"):
-		motion.y = 1
+	if can_move:
+		if Input.is_action_pressed("move_up"):
+			motion.y = -1
+		elif Input.is_action_pressed("move_down"):
+			motion.y = 1
 
-	if Input.is_action_pressed("move_left"):
-		motion.x = -1
-	elif Input.is_action_pressed("move_right"):
-		motion.x = 1
+		if Input.is_action_pressed("move_left"):
+			motion.x = -1
+		elif Input.is_action_pressed("move_right"):
+			motion.x = 1
 
 	motion = motion.normalized()
 	linear_velocity = (linear_velocity + motion * ACCELERATION * state.step) * FRICTION
@@ -47,3 +55,10 @@ func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 			Tween.TRANS_SINE,
 			Tween.EASE_IN_OUT
 	)
+
+func _on_game_state_changed(state: int) -> void:
+	match state:
+		game.State.PREGAME:
+			can_move = false
+		game.State.PLAYING:
+			can_move = true

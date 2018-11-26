@@ -12,6 +12,10 @@ blend_mode = 1
 [node name="Game" type="Node"]
 script = ExtResource( 1 )
 
+[node name="PregameTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
 [node name="LevelTimer" type="Timer" parent="."]
 one_shot = true
 
@@ -60,5 +64,8 @@ region_rect = Rect2( 0, 0, 65535, 65535 )
 
 [connection signal="bricks_changed" from="." to="CanvasLayer/HUD" method="_on_bricks_changed"]
 [connection signal="goals_changed" from="." to="CanvasLayer/HUD" method="_on_goals_changed"]
+[connection signal="state_changed" from="." to="CanvasLayer/HUD" method="_on_game_state_changed"]
 [connection signal="time_left_changed" from="." to="CanvasLayer/HUD" method="_on_time_left_changed"]
 [connection signal="time_limit_changed" from="." to="CanvasLayer/HUD" method="_on_time_limit_changed"]
+[connection signal="timeout" from="PregameTimer" to="." method="_on_pregame_timer_timeout"]
+[connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]

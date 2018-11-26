@@ -3,6 +3,7 @@
 
 extends Control
 
+onready var animation_player := $AnimationPlayer as AnimationPlayer
 onready var bricks_counter := $Vitals/Bricks/Counter as Label
 onready var goals := $Goals as Control
 onready var time_label := $Time/Label as Label
@@ -50,3 +51,8 @@ func _on_time_left_changed(time: float) -> void:
 
 func _on_time_limit_changed(time_limit: int) -> void:
 	time_progress.max_value = time_limit
+
+func _on_game_state_changed(state: int) -> void:
+	match state:
+		Game.State.WON:
+			animation_player.play_backwards("fade_in")

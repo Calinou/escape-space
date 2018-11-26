@@ -17,6 +17,7 @@ onready var preloader := $ResourcePreloader as ResourcePreloader
 onready var ball_scene := preloader.get_resource("ball") as PackedScene
 
 func _ready() -> void:
+	$"/root/Game".connect("state_changed", self, "_on_game_state_changed")
 	launch_timer.wait_time = launch_time
 
 func _on_launch_timer_timeout() -> void:
@@ -25,3 +26,12 @@ func _on_launch_timer_timeout() -> void:
 	ball.position = launch_position.global_transform.origin
 	ball.linear_velocity = Vector2(0, launch_speed).rotated(rotation)
 	get_parent().add_child(ball)
+
+func _on_game_state_changed(state: int) -> void:
+	match state:
+		Game.State.PREGAME:
+			launch_timer.stop()
+		Game.State.PLAYING:
+			launch_timer.start()
+			# Start launching balls immediately
+			launch_timer.emit_signal("timeout")
