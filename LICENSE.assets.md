@@ -6,7 +6,9 @@
 
 ## `game/ball_launcher/ball_launcher.{png,xcf}`
 
-## `game/brick/*.{png,xcf}`
+## `game/brick/aura.png`
+
+## `game/brick/brick.{png,xcf}`
 
 ## `game/force_field/*.{png,xcf}`
 
@@ -25,6 +27,8 @@
 ## `game/ball_launcher/smoke_puff.png`
 
 ## `game/ball/{aura,spark,spinner}.png`
+
+## `game/brick/spark.png`
 
 ## `game/goal/{aura,spark}.png`
 

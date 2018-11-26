@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://game/brick/brick.gd" type="Script" id=1]
 [ext_resource path="res://game/brick/brick.png" type="Texture" id=2]
 [ext_resource path="res://game/brick/aura.png" type="Texture" id=3]
+[ext_resource path="res://game/brick/spark.png" type="Texture" id=4]
 
 [sub_resource type="CanvasItemMaterial" id=3]
 
@@ -16,9 +17,18 @@ blend_mode = 1
 
 extents = Vector2( 27, 27 )
 
+[sub_resource type="CanvasItemMaterial" id=5]
+
+blend_mode = 1
+
+[sub_resource type="Curve" id=6]
+
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.161574, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
 [sub_resource type="Animation" id=2]
 
-length = 2.0
+length = 0.75
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("CollisionShape2D:disabled")
 tracks/0/interp = 1
@@ -43,6 +53,30 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("CPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Aura:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.75 ),
+"transitions": PoolRealArray( 1 ),
+"update": 3,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
 
 [node name="Brick" type="StaticBody2D" groups=[
 "brick",
@@ -63,8 +97,28 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource( 1 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+material = SubResource( 5 )
+scale = 0.11
+emitting = false
+amount = 30
+lifetime = 0.75
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource( 4 )
+emission_shape = 2
+emission_rect_extents = Vector2( 21, 21 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 150.0
+initial_velocity_random = 0.2
+angular_velocity = 45.0
+angular_velocity_random = 1.0
+scale = 0.11
+scale_curve = SubResource( 6 )
+color = Color( 0.168627, 0.337255, 0.301961, 1 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 bus = "Effects"
