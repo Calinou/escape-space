@@ -47,5 +47,7 @@ func _ready() -> void:
 	rich_text_label.bbcode_text = credits_text
 
 func _on_back_pressed() -> void:
-	rich_text_label.scroll_to_line(0)
 	emit_signal("menu_changed", $"/root/Menu/Control/Main")
+
+	yield($"/root/Menu", "transition_finished")
+	rich_text_label.scroll_to_line(0)
