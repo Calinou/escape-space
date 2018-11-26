@@ -6,6 +6,8 @@
 
 ## `game/ball_launcher/ball_launcher.{png,xcf}`
 
+## `game/brick/*.{png,xcf}`
+
 ## `game/force_field/*.{png,xcf}`
 
 ## `game/hud/*.{png,xcf}`
@@ -33,6 +35,8 @@
 
 - **Author:** manuts on Freesound (cannot find original source)
 - **License:** CC BY 3.0 Unported
+
+## `levels/*.ogg`
 
 ## `menu/menu.ogg`
 
