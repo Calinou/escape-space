@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://game/hud/theme.tres" type="Theme" id=1]
 [ext_resource path="res://game/hud/hud.gd" type="Script" id=2]
@@ -13,7 +13,36 @@ blend_mode = 2
 
 [sub_resource type="Animation" id=2]
 
-resource_name = "fade_out"
+resource_name = "fade_in"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, -2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, -2 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -28,16 +57,16 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Gradient" id=3]
+[sub_resource type="Gradient" id=4]
 
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1 )
 
-[sub_resource type="GradientTexture" id=4]
+[sub_resource type="GradientTexture" id=5]
 
-gradient = SubResource( 3 )
+gradient = SubResource( 4 )
 width = 176
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -82,8 +111,9 @@ __meta__ = {
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_top = -70.0
-margin_bottom = 70.0
+margin_top = -150.0
+margin_bottom = -10.0
+grow_horizontal = 2
 custom_fonts/normal_font = ExtResource( 4 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 0.501961 )
 custom_constants/shadow_offset_x = 2
@@ -92,7 +122,8 @@ bbcode_enabled = true
 scroll_active = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CenterText"]
-anims/fade_out = SubResource( 2 )
+anims/fade_in = SubResource( 2 )
+anims/fade_out = SubResource( 3 )
 
 [node name="Timer" type="Timer" parent="CenterText"]
 one_shot = true
@@ -101,14 +132,17 @@ one_shot = true
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -68.0
+margin_top = -88.0
+margin_bottom = -20.0
+grow_horizontal = 2
 custom_colors/font_color_shadow = Color( 0, 0, 0, 0.501961 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
 bbcode_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="InfoText"]
-anims/fade_out = SubResource( 2 )
+anims/fade_in = SubResource( 2 )
+anims/fade_out = SubResource( 3 )
 
 [node name="Timer" type="Timer" parent="InfoText"]
 one_shot = true
@@ -178,7 +212,7 @@ rect_scale = Vector2( 1, 2 )
 max_value = 1.0
 step = 0.0
 value = 0.5
-texture_progress = SubResource( 4 )
+texture_progress = SubResource( 5 )
 fill_mode = 6
 
 [node name="ResourcePreloader" type="ResourcePreloader" parent="."]
@@ -195,4 +229,4 @@ color = Color( 0, 0, 0, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
 autoplay = "fade_in"
-anims/fade_in = SubResource( 5 )
+anims/fade_in = SubResource( 6 )

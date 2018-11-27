@@ -68,6 +68,7 @@ func _on_game_state_changed(state: int) -> void:
 			color_rect_animation.play_backwards("fade_in")
 
 func set_center_text(text: String, duration: float = 6.0) -> void:
+	center_label_animation.play("fade_in")
 	center_label.bbcode_text = "[center]" + text + "[/center]"
 	center_label_timer.wait_time = duration
 	center_label_timer.start()
@@ -76,6 +77,7 @@ func set_center_text(text: String, duration: float = 6.0) -> void:
 	center_label_animation.play("fade_out")
 
 func set_info_text(text: String, duration: float = 6.0) -> void:
+	info_label_animation.play("fade_in")
 	info_label.bbcode_text = "[center]" + text + "[/center]"
 	info_label_timer.wait_time = duration
 	info_label_timer.start()
