@@ -109,3 +109,6 @@ msgstr "À vos marques…"
 
 msgid "Go!"
 msgstr "Partez !"
+
+msgid "Powered by Godot Engine"
+msgstr "Propulsé par Godot Engine"

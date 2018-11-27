@@ -38,7 +38,7 @@ func _ready() -> void:
 				.format({section = tr(section)})
 
 		for person in credits[section]:
-			credits_text += person + "\n"
+			credits_text += tr(person) + "\n"
 
 		credits_text += "\n"
 
