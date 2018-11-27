@@ -102,3 +102,9 @@ msgstr ""
 
 msgid "Miscellaneous"
 msgstr ""
+
+msgid "Get ready…"
+msgstr ""
+
+msgid "Go!"
+msgstr ""

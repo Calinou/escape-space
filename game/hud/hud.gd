@@ -61,9 +61,9 @@ func _on_time_limit_changed(time_limit: int) -> void:
 func _on_game_state_changed(state: int) -> void:
 	match state:
 		Game.State.PREGAME:
-			set_center_text("[color=#ffee44]Get ready…[/color]")
+			set_center_text("[color=#ffee44]" + tr("Get ready…") + "[/color]")
 		Game.State.PLAYING:
-			set_center_text("[color=#66ff44]GO![/color]", 0.5)
+			set_center_text("[color=#66ff44]" + tr("Go!") + "[/color]", 0.5)
 		Game.State.WON:
 			color_rect_animation.play_backwards("fade_in")
 

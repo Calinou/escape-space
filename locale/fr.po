@@ -103,3 +103,9 @@ msgstr "Musique"
 
 msgid "Miscellaneous"
 msgstr "Divers"
+
+msgid "Get ready…"
+msgstr "À vos marques…"
+
+msgid "Go!"
+msgstr "Partez !"
