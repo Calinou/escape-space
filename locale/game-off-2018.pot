@@ -111,3 +111,8 @@ msgstr ""
 
 msgid "Powered by Godot Engine"
 msgstr ""
+
+msgid ""
+"Reach the exit after completing all objectives.\n"
+"Be quick or you'll miss the shuttle!"
+msgstr ""

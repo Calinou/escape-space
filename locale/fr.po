@@ -112,3 +112,10 @@ msgstr "Partez !"
 
 msgid "Powered by Godot Engine"
 msgstr "Propulsé par Godot Engine"
+
+msgid ""
+"Reach the exit after completing all objectives.\n"
+"Be quick or you'll miss the shuttle!"
+msgstr ""
+"Atteignez la sortie après avoir complété les objectifs.\n"
+"Ne traînez pas, sinon vous manquerez le vaisseau !"

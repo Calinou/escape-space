@@ -67,6 +67,9 @@ func _on_game_state_changed(state: int) -> void:
 		Game.State.WON:
 			color_rect_animation.play_backwards("fade_in")
 
+func _on_info_triggered(text: String) -> void:
+	set_info_text(text)
+
 func set_center_text(text: String, duration: float = 6.0) -> void:
 	center_label_animation.play("fade_in")
 	center_label.bbcode_text = "[center]" + text + "[/center]"

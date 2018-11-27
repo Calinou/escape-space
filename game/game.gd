@@ -32,6 +32,7 @@ var state: int setget set_state
 
 onready var pregame_timer := $PregameTimer as Timer
 onready var level_timer := $LevelTimer as Timer
+onready var hud := $CanvasLayer/HUD as Control
 
 func _ready() -> void:
 	randomize()
@@ -49,6 +50,9 @@ func change_level(level_name: String) -> void:
 
 	level = load("res://levels/" + level_name + ".tscn").instance()
 	add_child(level)
+
+	for info_trigger in level.get_tree().get_nodes_in_group("info_trigger"):
+		info_trigger.connect("info_triggered", hud, "_on_info_triggered")
 
 	self.bricks_left = level.get_tree().get_nodes_in_group("brick").size()
 	self.goals = {}

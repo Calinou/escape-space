@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://levels/level.gd" type="Script" id=1]
 [ext_resource path="res://game/tiles/tile_set_foreground.tres" type="TileSet" id=2]
@@ -10,10 +10,15 @@
 [ext_resource path="res://game/ball_launcher/ball_launcher.tscn" type="PackedScene" id=8]
 [ext_resource path="res://game/brick/brick.tscn" type="PackedScene" id=9]
 [ext_resource path="res://game/exit/exit.tscn" type="PackedScene" id=10]
+[ext_resource path="res://game/info_trigger/info_trigger.tscn" type="PackedScene" id=11]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
 blend_mode = 1
+
+[sub_resource type="RectangleShape2D" id=2]
+
+extents = Vector2( 32, 128 )
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 1 )
@@ -69,3 +74,14 @@ position = Vector2( 320, -128 )
 
 [node name="Exit" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1024, 256 )
+
+[node name="InfoTrigger" parent="." instance=ExtResource( 11 )]
+position = Vector2( 544, -128 )
+text = "Reach the exit after completing all objectives.
+Be quick or you'll miss the shuttle!"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InfoTrigger"]
+shape = SubResource( 2 )
+
+
+[editable path="InfoTrigger"]
