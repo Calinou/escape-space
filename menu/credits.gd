@@ -16,8 +16,9 @@ const credits = {
 	"Sound Effects": [
 		"aust_paul",
 		"DrMinky",
-		"rhodesmas",
 		"manuts",
+		"rhodesmas",
+		"SanitysPrime",
 	],
 	"Music": [
 		"Andrey Avkhimovich",

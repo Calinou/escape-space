@@ -35,6 +35,11 @@
 - **Author:** [Kenney](https://kenney.nl/assets/particle-pack)
 - **License:** CC0 1.0 Universal
 
+## `game/brick/destroy.wav`
+
+- **Author:** [SanitysPrime on Freesound](https://freesound.org/people/SanitysPrime/sounds/129281/)
+- **License:** CC0 1.0 Universal
+
 ## `game/goal/{close,get_ball}.wav`
 
 - **Author:** manuts on Freesound (cannot find original source)
