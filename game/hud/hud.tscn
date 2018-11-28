@@ -217,5 +217,4 @@ margin_bottom = 32.0
 color = Color( 0, 0, 0, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
-autoplay = "fade_in"
 anims/fade_in = SubResource( 6 )
