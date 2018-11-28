@@ -5,7 +5,7 @@
 [ext_resource path="res://game/background/nebulae.png" type="Texture" id=3]
 [ext_resource path="res://game/hud/hud.tscn" type="PackedScene" id=4]
 
-[sub_resource type="CanvasItemMaterial" id=1]
+[sub_resource type="CanvasItemMaterial" id=3]
 
 blend_mode = 1
 
@@ -27,7 +27,7 @@ motion_scale = Vector2( 0.02, 0.02 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/StarsBackground"]
 modulate = Color( 1, 1, 1, 0.25098 )
-material = SubResource( 1 )
+material = SubResource( 3 )
 position = Vector2( 512, 300 )
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 2 )
@@ -39,7 +39,7 @@ motion_scale = Vector2( 0.05, 0.05 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/StarsForeground"]
 modulate = Color( 1, 0.992157, 0.933333, 0.54902 )
-material = SubResource( 1 )
+material = SubResource( 3 )
 position = Vector2( 512, 300 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
@@ -51,7 +51,7 @@ motion_scale = Vector2( 0.15, 0.15 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/Nebulae"]
 modulate = Color( 0.25098, 0.219608, 0.180392, 1 )
-material = SubResource( 1 )
+material = SubResource( 3 )
 position = Vector2( 512, 300 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )

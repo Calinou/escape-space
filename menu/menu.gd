@@ -3,11 +3,15 @@
 
 extends Node
 
+# The parallax background motion
+var motion := Vector2()
+
 # The currently-viewed menu control
 onready var current_menu := $"/root/Menu/Control/Main" as Control
 
 onready var root_control := $Control as Control
 onready var animation_player := $AnimationPlayer as AnimationPlayer
+onready var background := $ParallaxBackground as ParallaxBackground
 onready var preloader := $ResourcePreloader as ResourcePreloader
 onready var hover_sound := preloader.get_resource("hover") as AudioStream
 onready var click_sound := preloader.get_resource("click") as AudioStream
@@ -30,6 +34,15 @@ func _ready() -> void:
 			control.connect("button_down", self, "_control_pressed", [control])
 		elif control is Slider:
 			control.connect("mouse_entered", self, "_control_hovered", [control])
+
+func _input(event: InputEvent) -> void:
+	# Move the background as the mouse moves
+	if event is InputEventMouseMotion:
+		motion += event.relative
+
+func _physics_process(delta: float) -> void:
+	motion *= 0.9
+	background.scroll_offset += motion
 
 func _control_hovered(control: Control) -> void:
 	if control is BaseButton and control.disabled:

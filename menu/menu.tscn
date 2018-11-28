@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://menu/menu.gd" type="Script" id=1]
 [ext_resource path="res://menu/main.tscn" type="PackedScene" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://menu/credits.tscn" type="PackedScene" id=8]
 [ext_resource path="res://menu/click.wav" type="AudioStream" id=9]
 [ext_resource path="res://menu/hover.wav" type="AudioStream" id=10]
+[ext_resource path="res://game/background/stars.png" type="Texture" id=11]
+[ext_resource path="res://game/background/nebulae.png" type="Texture" id=12]
 
 [sub_resource type="Animation" id=1]
 
@@ -58,6 +60,10 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
+[sub_resource type="CanvasItemMaterial" id=3]
+
+blend_mode = 1
+
 [node name="Menu" type="CanvasLayer"]
 script = ExtResource( 1 )
 
@@ -104,3 +110,42 @@ resources = [ PoolStringArray( "click", "hover" ), [ ExtResource( 9 ), ExtResour
 playback_process_mode = 0
 anims/change_menu = SubResource( 1 )
 anims/fade_in = SubResource( 2 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_base_scale = Vector2( 0.1, 0.1 )
+
+[node name="StarsBackground" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.02, 0.02 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/StarsBackground"]
+modulate = Color( 1, 1, 1, 0.25098 )
+material = SubResource( 3 )
+position = Vector2( 512, 300 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 11 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 65535, 65535 )
+
+[node name="StarsForeground" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.05, 0.05 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/StarsForeground"]
+modulate = Color( 1, 0.992157, 0.933333, 0.54902 )
+material = SubResource( 3 )
+position = Vector2( 512, 300 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 11 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 65535, 65535 )
+
+[node name="Nebulae" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.15, 0.15 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Nebulae"]
+modulate = Color( 1, 1, 1, 0.156863 )
+material = SubResource( 3 )
+position = Vector2( 512, 300 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 12 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 65535, 65535 )
