@@ -23,7 +23,7 @@ GODOT = godot-headless
 OUTPUT_PATH = dist
 
 # Workaround for <https://github.com/godotengine/godot/issues/23044>
-TIMEOUT = 30
+TIMEOUT = 60
 
 # Run before all export targets
 dist:
