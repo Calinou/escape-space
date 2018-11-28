@@ -113,6 +113,7 @@ anims/fade_in = SubResource( 2 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_base_scale = Vector2( 0.1, 0.1 )
+scroll_ignore_camera_zoom = true
 
 [node name="StarsBackground" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.02, 0.02 )
