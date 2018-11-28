@@ -10,6 +10,9 @@ signal time_limit_changed
 signal time_left_changed
 signal state_changed
 
+# The music volume bias to apply to all levels (in decibels)
+const MUSIC_VOLUME_DB_BIAS = -3.0
+
 # Level holder
 var level: Node
 
@@ -61,6 +64,7 @@ func change_level(level_name: String) -> void:
 		self.goals[goal.description] = goal.balls_required
 
 	Music.play_song(load("res://levels/" + level_name + ".ogg"))
+	Music.volume_db = level.music_volume_db + MUSIC_VOLUME_DB_BIAS
 	Music.fade_in()
 
 	level_timer.wait_time = level.time_limit

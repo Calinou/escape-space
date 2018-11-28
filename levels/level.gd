@@ -7,3 +7,6 @@ extends Node2D
 
 # The time limit in seconds
 export(int, 1, 1000) var time_limit := 180
+
+# The music volume offset in decibels
+export(float, -50.0, 0.0) var music_volume_db := 0.0
