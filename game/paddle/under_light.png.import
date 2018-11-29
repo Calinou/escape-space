@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spark.png-c1b6fbfa574797a1cb51e9e311460e0c.stex"
+path="res://.import/under_light.png-b337c4a4804cc86fc9ce78f8dbb46061.stex"
 
 [deps]
 
-source_file="res://game/goal/spark.png"
-dest_files=[ "res://.import/spark.png-c1b6fbfa574797a1cb51e9e311460e0c.stex" ]
+source_file="res://game/paddle/under_light.png"
+dest_files=[ "res://.import/under_light.png-b337c4a4804cc86fc9ce78f8dbb46061.stex" ]
 
 [params]
 

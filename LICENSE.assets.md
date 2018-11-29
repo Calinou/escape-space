@@ -14,6 +14,8 @@
 
 ## `game/hud/*.{png,xcf}`
 
+## `game/paddle/*.{png,xcf}`
+
 ## `game/tiles/*/*.{png,xcf}`
 
 - **Author:** [Hugo Locurcio](https://hugo.pro/)
