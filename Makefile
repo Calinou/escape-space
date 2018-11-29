@@ -23,7 +23,7 @@ GODOT = godot-headless
 OUTPUT_PATH = dist
 
 # Workaround for <https://github.com/godotengine/godot/issues/23044>
-TIMEOUT = 60
+TIMEOUT = 30
 
 # Run before all export targets
 dist:
@@ -55,7 +55,7 @@ dist-macos: dist
 dist-windows: dist
 	convert "icon.png" -define icon:auto-resize=256,128,64,48,32,16 "icon.ico"
 	mkdir -p "$(OUTPUT_PATH)/.windows/$(PKG_NAME)-windows-x86_64/" "$(OUTPUT_PATH)/.windows/$(PKG_NAME)-windows-x86/"
-	timeout "$(TIMEOUT)" "$(GODOT)" --export "Windows 64-bit" "$(OUTPUT_PATH)/.windows/$(PKG_NAME)-windows-x86_64/$(NAME).exe" || true &
+	timeout "$(TIMEOUT)" "$(GODOT)" --export "Windows 64-bit" "$(OUTPUT_PATH)/.windows/$(PKG_NAME)-windows-x86_64/$(NAME).exe" || true
 	timeout "$(TIMEOUT)" "$(GODOT)" --export "Windows 32-bit" "$(OUTPUT_PATH)/.windows/$(PKG_NAME)-windows-x86/$(NAME).exe" || true
 
 	# Create Windows ZIP archive
