@@ -4,7 +4,8 @@
 # This Makefile is used to export and package the project to various platforms.
 # The path to the Godot editor/headless binary can be specified by adding
 # `GODOT=<path to Godot binary>` to the make command line.
-# ImageMagick and 7-zip must also be available in the PATH for this Makefile to work.
+# ImageMagick, Inno Setup and 7-zip must also be available in the PATH
+# for this Makefile to work.
 
 MAKEFLAGS += --silent
 .PHONY: all
@@ -58,7 +59,13 @@ dist-windows: dist
 	timeout "$(TIMEOUT)" "$(GODOT)" --export "Windows 64-bit" "$(OUTPUT_PATH)/.windows/$(PKG_NAME)-windows-x86_64/$(NAME).exe" || true
 	timeout "$(TIMEOUT)" "$(GODOT)" --export "Windows 32-bit" "$(OUTPUT_PATH)/.windows/$(PKG_NAME)-windows-x86/$(NAME).exe" || true
 
-	# Create Windows ZIP archive
+	# Create Windows installers
+	cp "misc/$(NAME).iss" "$(OUTPUT_PATH)/.windows/$(PKG_NAME)-windows-x86_64/" &
+	cp "misc/$(NAME).iss" "$(OUTPUT_PATH)/.windows/$(PKG_NAME)-windows-x86/"
+	iscc "$(OUTPUT_PATH)/.windows/$(PKG_NAME)-windows-x86_64/$(NAME).iss" "/DMyAppVersion=$(VERSION)" &
+	iscc "$(OUTPUT_PATH)/.windows/$(PKG_NAME)-windows-x86/$(NAME).iss" "/DMyAppVersion=$(VERSION)" /DApp32Bit &
+
+	# Create Windows ZIP archives
 	(cd "$(OUTPUT_PATH)/.windows/" && 7z a -r -mx9 "../$(PKG_NAME)-windows-x86_64.zip" "$(PKG_NAME)-windows-x86_64/") &
 	(cd "$(OUTPUT_PATH)/.windows/" && 7z a -r -mx9 "../$(PKG_NAME)-windows-x86.zip" "$(PKG_NAME)-windows-x86/")
 

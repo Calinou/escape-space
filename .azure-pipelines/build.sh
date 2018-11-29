@@ -7,10 +7,27 @@ set -euo pipefail
 IFS=$'\n\t'
 
 export DEBIAN_FRONTEND="noninteractive"
+export WINEDEBUG="-all"
 
 # Install packages
+sudo apt-get install -qqq \
+    apt-transport-https curl imagemagick make p7zip-full \
+    software-properties-common xz-utils
+curl -LO "https://dl.winehq.org/wine-builds/Release.key"
+sudo apt-key add Release.key
+sudo apt-add-repository "https://dl.winehq.org/wine-builds/ubuntu/"
+sudo dpkg --add-architecture i386
 sudo apt-get update -qq
-sudo apt-get install -qqq curl imagemagick make p7zip-full xz-utils
+sudo apt-get install -qqq winehq-devel
+
+# Install Inno Setup and create a launcher script
+curl -fsSLO "http://files.jrsoftware.org/is/5/innosetup-5.6.1-unicode.exe"
+# Create a virtual X display (required to install Inno Setup)
+Xvfb :0 & export DISPLAY=":0"
+wine "innosetup-5.6.1-unicode.exe" "/VERYSILENT"
+echo "wine \"$HOME/.wine/drive_c/Program Files (x86)/Inno Setup 5/ISCC.exe\" \"\$@\"" \
+    | sudo tee "/usr/local/bin/iscc"
+sudo chmod +x "/usr/local/bin/iscc"
 
 # Install Godot headless editor
 curl -fsSLO \
