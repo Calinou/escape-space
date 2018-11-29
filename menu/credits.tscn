@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://menu/theme.tres" type="Theme" id=1]
 [ext_resource path="res://menu/credits.gd" type="Script" id=2]
-[ext_resource path="res://fonts/default_4.tres" type="DynamicFont" id=3]
-[ext_resource path="res://menu/shortcut_cancel.tres" type="ShortCut" id=4]
+[ext_resource path="res://fonts/default_1.tres" type="DynamicFont" id=3]
+[ext_resource path="res://fonts/default_4.tres" type="DynamicFont" id=4]
+[ext_resource path="res://menu/shortcut_cancel.tres" type="ShortCut" id=5]
 
 [node name="Credits" type="Control"]
 anchor_right = 1.0
@@ -19,11 +20,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -33.0
-margin_top = -260.0
-margin_right = 34.0
-margin_bottom = -232.0
+margin_left = -47.0
+margin_top = -270.0
+margin_right = 48.0
+margin_bottom = -229.0
 grow_horizontal = 2
+custom_fonts/font = ExtResource( 3 )
 text = "Credits"
 align = 1
 
@@ -44,7 +46,7 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
-custom_fonts/normal_font = ExtResource( 3 )
+custom_fonts/normal_font = ExtResource( 4 )
 bbcode_enabled = true
 
 [node name="Back" type="Button" parent="." groups=[
@@ -59,7 +61,7 @@ margin_top = 220.0
 margin_right = 57.0
 margin_bottom = 254.0
 grow_horizontal = 2
-shortcut = ExtResource( 4 )
+shortcut = ExtResource( 5 )
 text = "Back"
 
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

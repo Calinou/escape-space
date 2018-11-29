@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://menu/theme.tres" type="Theme" id=1]
 [ext_resource path="res://menu/options.gd" type="Script" id=2]
-[ext_resource path="res://menu/shortcut_cancel.tres" type="ShortCut" id=3]
+[ext_resource path="res://fonts/default_1.tres" type="DynamicFont" id=3]
+[ext_resource path="res://menu/shortcut_cancel.tres" type="ShortCut" id=4]
 
 [node name="Options" type="Control"]
 anchor_right = 1.0
@@ -18,11 +19,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -35.0
+margin_left = -51.0
 margin_top = -180.0
-margin_right = 37.0
-margin_bottom = -152.0
+margin_right = 52.0
+margin_bottom = -139.0
 grow_horizontal = 2
+custom_fonts/font = ExtResource( 3 )
 text = "Options"
 align = 1
 
@@ -84,7 +86,7 @@ margin_top = 160.0
 margin_right = 57.0
 margin_bottom = 196.0
 grow_horizontal = 2
-shortcut = ExtResource( 3 )
+shortcut = ExtResource( 4 )
 text = "Done"
 
 [connection signal="pressed" from="VBoxContainer/VideoSettings" to="." method="_on_video_settings_pressed"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://menu/theme.tres" type="Theme" id=1]
 [ext_resource path="res://menu/options_controls.gd" type="Script" id=2]
-[ext_resource path="res://menu/shortcut_cancel.tres" type="ShortCut" id=3]
+[ext_resource path="res://fonts/default_1.tres" type="DynamicFont" id=3]
+[ext_resource path="res://menu/shortcut_cancel.tres" type="ShortCut" id=4]
 
 [node name="OptionsControls" type="Control"]
 anchor_right = 1.0
@@ -18,11 +19,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -62.0
-margin_top = -202.0
-margin_right = 64.0
-margin_bottom = -174.0
+margin_left = -63.0
+margin_top = -210.0
+margin_right = 63.0
+margin_bottom = -169.0
 grow_horizontal = 2
+custom_fonts/font = ExtResource( 3 )
 text = "Controls"
 align = 1
 
@@ -40,13 +42,13 @@ alignment = 1
 
 [node name="move_up" type="HBoxContainer" parent="ActionList"]
 margin_right = 670.0
-margin_bottom = 34.0
+margin_bottom = 36.0
 custom_constants/separation = 30
 
 [node name="Label" type="Label" parent="ActionList/move_up"]
-margin_top = 3.0
+margin_top = 4.0
 margin_right = 497.0
-margin_bottom = 31.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.7
 text = "Move Up"
@@ -57,21 +59,21 @@ align = 2
 ]]
 margin_left = 527.0
 margin_right = 670.0
-margin_bottom = 34.0
+margin_bottom = 36.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
 toggle_mode = true
 
 [node name="move_down" type="HBoxContainer" parent="ActionList"]
-margin_top = 50.0
+margin_top = 52.0
 margin_right = 670.0
-margin_bottom = 84.0
+margin_bottom = 88.0
 custom_constants/separation = 30
 
 [node name="Label" type="Label" parent="ActionList/move_down"]
-margin_top = 3.0
+margin_top = 4.0
 margin_right = 497.0
-margin_bottom = 31.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.7
 text = "Move Down"
@@ -82,21 +84,21 @@ align = 2
 ]]
 margin_left = 527.0
 margin_right = 670.0
-margin_bottom = 34.0
+margin_bottom = 36.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
 toggle_mode = true
 
 [node name="move_left" type="HBoxContainer" parent="ActionList"]
-margin_top = 100.0
+margin_top = 104.0
 margin_right = 670.0
-margin_bottom = 134.0
+margin_bottom = 140.0
 custom_constants/separation = 30
 
 [node name="Label" type="Label" parent="ActionList/move_left"]
-margin_top = 3.0
+margin_top = 4.0
 margin_right = 497.0
-margin_bottom = 31.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.7
 text = "Move Left"
@@ -107,21 +109,21 @@ align = 2
 ]]
 margin_left = 527.0
 margin_right = 670.0
-margin_bottom = 34.0
+margin_bottom = 36.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
 toggle_mode = true
 
 [node name="move_right" type="HBoxContainer" parent="ActionList"]
-margin_top = 150.0
+margin_top = 156.0
 margin_right = 670.0
-margin_bottom = 184.0
+margin_bottom = 192.0
 custom_constants/separation = 30
 
 [node name="Label" type="Label" parent="ActionList/move_right"]
-margin_top = 3.0
+margin_top = 4.0
 margin_right = 497.0
-margin_bottom = 31.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.7
 text = "Move Right"
@@ -132,21 +134,21 @@ align = 2
 ]]
 margin_left = 527.0
 margin_right = 670.0
-margin_bottom = 34.0
+margin_bottom = 36.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
 toggle_mode = true
 
 [node name="use_boost" type="HBoxContainer" parent="ActionList"]
-margin_top = 200.0
+margin_top = 208.0
 margin_right = 670.0
-margin_bottom = 234.0
+margin_bottom = 244.0
 custom_constants/separation = 30
 
 [node name="Label" type="Label" parent="ActionList/use_boost"]
-margin_top = 3.0
+margin_top = 4.0
 margin_right = 497.0
-margin_bottom = 31.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.7
 text = "Use Boost"
@@ -157,7 +159,7 @@ align = 2
 ]]
 margin_left = 527.0
 margin_right = 670.0
-margin_bottom = 34.0
+margin_bottom = 36.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
 toggle_mode = true
@@ -174,7 +176,7 @@ margin_top = 143.0
 margin_right = 57.0
 margin_bottom = 177.0
 grow_horizontal = 2
-shortcut = ExtResource( 3 )
+shortcut = ExtResource( 4 )
 text = "Done"
 
 [connection signal="pressed" from="Done" to="." method="_on_done_pressed"]
