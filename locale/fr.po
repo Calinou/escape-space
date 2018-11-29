@@ -119,3 +119,12 @@ msgid ""
 msgstr ""
 "Atteignez la sortie après avoir complété les objectifs.\n"
 "Ne traînez pas, sinon vous manquerez le vaisseau !"
+
+msgid "Continue"
+msgstr "Continuer"
+
+msgid "Restart Level"
+msgstr "Recommencer"
+
+msgid "Exit to Menu"
+msgstr "Quitter vers le menu"

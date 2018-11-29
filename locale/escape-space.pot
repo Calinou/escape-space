@@ -116,3 +116,12 @@ msgid ""
 "Reach the exit after completing all objectives.\n"
 "Be quick or you'll miss the shuttle!"
 msgstr ""
+
+msgid "Continue"
+msgstr ""
+
+msgid "Restart Level"
+msgstr ""
+
+msgid "Exit to Menu"
+msgstr ""
