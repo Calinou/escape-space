@@ -8,11 +8,12 @@
 
 friction = 0.0
 
-[sub_resource type="CanvasItemMaterial" id=3]
+[sub_resource type="CanvasItemMaterial" id=2]
 
 blend_mode = 1
 
 [node name="Paddle" type="RigidBody2D"]
+z_index = 1
 collision_layer = 4
 mode = 2
 mass = 65535.0
@@ -25,7 +26,7 @@ polygon = PoolVector2Array( -44, -36, -36, -44, 36, -44, 44, -36, 44, 36, 36, 44
 
 [node name="UnderLight" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.25098 )
-material = SubResource( 3 )
+material = SubResource( 2 )
 scale = Vector2( 0.9, 0.9 )
 texture = ExtResource( 2 )
 
