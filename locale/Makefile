@@ -1,7 +1,7 @@
 # Makefile providing various facilities to manage translations
 # Adapted from https://github.com/godotengine/godot/blob/master/editor/translations/Makefile
 
-TEMPLATE = game-off-2018.pot
+TEMPLATE = escape-space.pot
 POFILES = $(wildcard *.po)
 LANGS = $(POFILES:%.po=%)
 

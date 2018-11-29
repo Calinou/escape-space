@@ -10,7 +10,7 @@ MAKEFLAGS += --silent
 .PHONY: all
 all: dist-linux dist-macos dist-windows
 
-NAME = game-off-2018
+NAME = escape-space
 VERSION = 0.0.1
 
 # The full package name with version
