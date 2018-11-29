@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://menu/theme.tres" type="Theme" id=1]
 [ext_resource path="res://menu/main.gd" type="Script" id=2]
-[ext_resource path="res://fonts/default_4.tres" type="DynamicFont" id=3]
-[ext_resource path="res://menu/update_checker.tscn" type="PackedScene" id=4]
+[ext_resource path="res://fonts/data/ibm_plex_sans_condensed_medium.tres" type="DynamicFontData" id=3]
+[ext_resource path="res://fonts/default_4.tres" type="DynamicFont" id=4]
+[ext_resource path="res://menu/update_checker.tscn" type="PackedScene" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 64
+extra_spacing_char = -2
+extra_spacing_space = 16
+font_data = ExtResource( 3 )
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
@@ -13,6 +21,24 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -207.0
+margin_top = -232.0
+margin_right = 208.0
+margin_bottom = -148.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.980392, 0.65098, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.501961 )
+custom_constants/shadow_offset_x = 6
+custom_constants/shadow_offset_y = 6
+text = "Escape Space"
+align = 1
+valign = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_left = 0.5
@@ -65,11 +91,11 @@ margin_left = -108.0
 margin_top = -34.0
 margin_right = 108.0
 grow_horizontal = 2
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 text = "Credits"
 flat = true
 
-[node name="UpdateChecker" parent="." instance=ExtResource( 4 )]
+[node name="UpdateChecker" parent="." instance=ExtResource( 5 )]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
