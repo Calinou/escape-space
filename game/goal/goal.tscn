@@ -149,6 +149,7 @@ texture = ExtResource( 3 )
 material = SubResource( 2 )
 scale = 0.14
 amount = 12
+preprocess = 1.0
 texture = ExtResource( 4 )
 emission_shape = 1
 emission_sphere_radius = 40.0

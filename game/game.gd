@@ -16,6 +16,11 @@ const MUSIC_VOLUME_DB_BIAS = -3.0
 # Level holder
 var level: Node
 
+# The current level name
+# For level rotation to work, levels should be named with numbers only
+# (without leading zeroes)
+var current_level: String
+
 # The number of destroyable bricks left (used to check if the "bricks" goal was completed)
 var bricks_left := 0 setget set_bricks_left
 
@@ -46,6 +51,7 @@ func _process(delta: float) -> void:
 
 # Changes to a new level and initializes data displayed by the HUD.
 func change_level(level_name: String) -> void:
+	current_level = level_name
 	self.state = State.PREGAME
 
 	if level:
@@ -107,10 +113,10 @@ func set_state(p_state: int) -> void:
 			level_timer.start()
 		State.WON:
 			yield(get_tree().create_timer(2.0), "timeout")
-			change_level("2")
+			change_level(str(int(current_level) + 1))
 		State.LOST:
 			yield(get_tree().create_timer(2.0), "timeout")
-			change_level("1")
+			change_level(current_level)
 
 func set_bricks_left(bricks: int) -> void:
 	bricks_left = bricks

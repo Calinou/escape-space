@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://game/hud/theme.tres" type="Theme" id=1]
 [ext_resource path="res://game/hud/hud.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://fonts/default_1.tres" type="DynamicFont" id=4]
 [ext_resource path="res://game/hud/goal.tscn" type="PackedScene" id=5]
 [ext_resource path="res://game/hud/time_gradient.tres" type="Gradient" id=6]
+[ext_resource path="res://game/pause_menu/pause_menu.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -70,6 +71,7 @@ tracks/0/keys = {
 }
 
 [node name="HUD" type="Control"]
+pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 32.0
@@ -88,6 +90,7 @@ margin_left = -32.0
 margin_top = -32.0
 margin_right = 32.0
 margin_bottom = 32.0
+mouse_filter = 2
 texture = ExtResource( 3 )
 expand = true
 stretch_mode = 1
@@ -147,6 +150,7 @@ custom_constants/separation = 10
 [node name="Bricks" type="HSplitContainer" parent="Vitals"]
 margin_right = 960.0
 margin_bottom = 28.0
+dragger_visibility = 1
 
 [node name="Label" type="Label" parent="Vitals/Bricks"]
 margin_right = 58.0
@@ -207,6 +211,9 @@ fill_mode = 6
 [node name="ResourcePreloader" type="ResourcePreloader" parent="."]
 resources = [ PoolStringArray( "goal", "time_gradient" ), [ ExtResource( 5 ), ExtResource( 6 ) ] ]
 
+[node name="PauseMenu" parent="." instance=ExtResource( 7 )]
+visible = false
+
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -214,6 +221,7 @@ margin_left = -32.0
 margin_top = -32.0
 margin_right = 32.0
 margin_bottom = 32.0
+mouse_filter = 2
 color = Color( 0, 0, 0, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
