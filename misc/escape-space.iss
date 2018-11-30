@@ -1,5 +1,5 @@
 #define MyAppName "Escape Space"
-#define MyAppVersion "0.0.1"
+; Define MyAppVersion using /DMyAppVersion="x.y.z" on the command line
 #define MyAppPublisher "Hugo Locurcio"
 #define MyAppURL "https://github.com/Calinou/escape-space"
 #define MyAppBaseName "escape-space"
