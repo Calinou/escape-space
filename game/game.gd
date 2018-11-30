@@ -47,7 +47,8 @@ func _ready() -> void:
 	change_level("1")
 
 func _process(delta: float) -> void:
-	emit_signal("time_left_changed", level_timer.time_left)
+	if not level_timer.is_stopped():
+		emit_signal("time_left_changed", level_timer.time_left)
 
 # Changes to a new level and initializes data displayed by the HUD.
 func change_level(level_name: String) -> void:
@@ -73,8 +74,10 @@ func change_level(level_name: String) -> void:
 	Music.volume_db = level.music_volume_db + MUSIC_VOLUME_DB_BIAS
 	Music.fade_in()
 
+	# Set the time limit and prepare time HUD display
 	level_timer.wait_time = level.time_limit
 	emit_signal("time_limit_changed", level.time_limit)
+	emit_signal("time_left_changed", level.time_limit)
 
 # Checks whether the player is allowed to exit and starts the winning sequence
 # if they are.
