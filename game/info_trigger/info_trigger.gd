@@ -11,13 +11,29 @@ export(String, MULTILINE) var text := ""
 # Whether the area can be triggered
 var can_trigger := true
 
+onready var game := $"/root/Game" as Node
 onready var cooldown := $Cooldown as Timer
+onready var shape := $CollisionShape2D as CollisionShape2D
+
+# Toggling the collision shape must be done on idle time,
+# so `call_deferred()` is used
+
+func _ready() -> void:
+	game.connect("state_changed", self, "_on_game_state_changed")
 
 func _on_body_entered(body: PhysicsBody2D) -> void:
-	if can_trigger:
-		emit_signal("info_triggered", tr(text))
-		can_trigger = false
-		cooldown.start()
+	emit_signal("info_triggered", tr(text))
+	cooldown.start()
+	shape.call_deferred("set_disabled", true)
 
 func _on_cooldown_timeout() -> void:
-	can_trigger = true
+	shape.call_deferred("set_disabled", false)
+
+func _on_game_state_changed(state: int) -> void:
+	match state:
+		Game.State.PREGAME, \
+		Game.State.WON, \
+		Game.State.LOST:
+			shape.call_deferred("set_disabled", true)
+		Game.State.PLAYING:
+			shape.call_deferred("set_disabled", false)
