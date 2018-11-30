@@ -113,9 +113,25 @@ msgid "Powered by Godot Engine"
 msgstr ""
 
 msgid ""
+"Welcome to the space station!\n"
+"Use the arrow keys to move."
+msgstr ""
+
+msgid ""
+"Activate comets by touching them.\n"
+"Push 3 comets into the blue goal to continue."
+msgstr ""
+
+msgid ""
+"Your second mission is to destroy all bricks using comets.\n"
+"Find another ball launcher at the end of the corridor."
+msgstr ""
+
+msgid ""
 "Reach the exit after completing all objectives.\n"
 "Be quick or you'll miss the shuttle!"
 msgstr ""
+
 
 msgid "Continue"
 msgstr ""
