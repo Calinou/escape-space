@@ -68,8 +68,12 @@ func _on_game_state_changed(state: int) -> void:
 		Game.State.PREGAME:
 			color_rect_animation.play("fade_in")
 			set_center_text("[color=#ffee44]" + tr("Get ready…") + "[/color]")
+			# Clear existing info text (useful after a restart)
+			set_info_text("")
+
 		Game.State.PLAYING:
 			set_center_text("[color=#66ff44]" + tr("Go!") + "[/color]", 0.5)
+
 		Game.State.WON:
 			color_rect_animation.play_backwards("fade_in")
 
