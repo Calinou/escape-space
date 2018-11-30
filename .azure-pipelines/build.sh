@@ -20,12 +20,15 @@ sudo dpkg --add-architecture i386
 sudo apt-get update -qq
 sudo apt-get install -qqq winehq-devel
 
-# Install Inno Setup and create a launcher script
+# Install Inno Setup using innoextract and create a launcher script
+tmp="$(mktemp)"
+curl -fsSLo "$tmp" \
+    "http://constexpr.org/innoextract/files/snapshots/innoextract-1.8-dev-2018-09-09/innoextract-1.8-dev-2018-09-09-linux.tar.xz"
+tar xf "$tmp"
+sudo mv innoextract* /opt/innoextract/
 curl -fsSLO "http://files.jrsoftware.org/is/5/innosetup-5.6.1-unicode.exe"
-# Create a virtual X display (required to install Inno Setup)
-Xvfb :0 & export DISPLAY=":0"
-wine "innosetup-5.6.1-unicode.exe" "/VERYSILENT"
-echo "wine \"$HOME/.wine/drive_c/Program Files (x86)/Inno Setup 5/ISCC.exe\" \"\$@\"" \
+sudo /opt/innoextract/innoextract -md "/opt/innosetup/" "innosetup-5.6.1-unicode.exe"
+echo "wine \"/opt/innosetup/app/ISCC.exe\" \"\$@\"" \
     | sudo tee "/usr/local/bin/iscc"
 sudo chmod +x "/usr/local/bin/iscc"
 

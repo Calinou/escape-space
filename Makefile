@@ -60,10 +60,12 @@ dist-windows: dist
 	timeout "$(TIMEOUT)" "$(GODOT)" --export "Windows 32-bit" "$(OUTPUT_PATH)/.windows/$(PKG_NAME)-windows-x86/$(NAME).exe" || true
 
 	# Create Windows installers
+	# The path given to ISCC must be globalized for WINE by prepending `Z:`
 	cp "misc/$(NAME).iss" "$(OUTPUT_PATH)/.windows/$(PKG_NAME)-windows-x86_64/" &
 	cp "misc/$(NAME).iss" "$(OUTPUT_PATH)/.windows/$(PKG_NAME)-windows-x86/"
-	iscc "$(OUTPUT_PATH)/.windows/$(PKG_NAME)-windows-x86_64/$(NAME).iss" "/DMyAppVersion=$(VERSION)" &
-	iscc "$(OUTPUT_PATH)/.windows/$(PKG_NAME)-windows-x86/$(NAME).iss" "/DMyAppVersion=$(VERSION)" /DApp32Bit &
+	iscc "Z:$(OUTPUT_PATH)/.windows/$(PKG_NAME)-windows-x86_64/$(NAME).iss" "/DMyAppVersion=$(VERSION)" &
+	iscc "Z:$(OUTPUT_PATH)/.windows/$(PKG_NAME)-windows-x86/$(NAME).iss" "/DMyAppVersion=$(VERSION)" /DApp32Bit
+	rm "$(OUTPUT_PATH)/.windows/$(PKG_NAME)-windows-x86_64/$(NAME).iss" "$(OUTPUT_PATH)/.windows/$(PKG_NAME)-windows-x86/$(NAME).iss"
 
 	# Create Windows ZIP archives
 	(cd "$(OUTPUT_PATH)/.windows/" && 7z a -r -mx9 "../$(PKG_NAME)-windows-x86_64.zip" "$(PKG_NAME)-windows-x86_64/") &
