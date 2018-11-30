@@ -1,11 +1,11 @@
-# French translations for game-off package.
+# French translations for escape-space package.
 # Copyright (C) 2018 Hugo Locurcio and contributors
-# This file is distributed under the same license as the game-off package.
+# This file is distributed under the same license as the escape-space package.
 # Hugo Locurcio <hugo.locurcio@hugo.pro>, 2018.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: game-off 2018\n"
+"Project-Id-Version: escape-space\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-07 01:02+0100\n"
 "PO-Revision-Date: 2018-11-26 12:00+0100\n"
