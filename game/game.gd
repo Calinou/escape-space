@@ -13,13 +13,16 @@ signal state_changed
 # The music volume bias to apply to all levels (in decibels)
 const MUSIC_VOLUME_DB_BIAS = -3.0
 
+# The number of levels in the game
+const LEVEL_MAX = 2
+
 # Level holder
 var level: Node
 
-# The current level name
-# For level rotation to work, levels should be named with numbers only
+# The current level number
+# For level rotation to work, level scenes should be named with numbers only
 # (without leading zeroes)
-var current_level: String
+var current_level: int
 
 # The number of destroyable bricks left (used to check if the "bricks" goal was completed)
 var bricks_left := 0 setget set_bricks_left
@@ -44,21 +47,25 @@ onready var hud := $CanvasLayer/HUD as Control
 
 func _ready() -> void:
 	randomize()
-	change_level("1")
+	change_level(2)
 
 func _process(delta: float) -> void:
 	if not level_timer.is_stopped():
 		emit_signal("time_left_changed", level_timer.time_left)
 
 # Changes to a new level and initializes data displayed by the HUD.
-func change_level(level_name: String) -> void:
+func change_level(level_name: int) -> void:
+	if level_name > LEVEL_MAX:
+		get_tree().change_scene("res://menu/menu.tscn")
+		return
+
 	current_level = level_name
 	self.state = State.PREGAME
 
 	if level:
 		level.queue_free()
 
-	level = load("res://levels/" + level_name + ".tscn").instance()
+	level = load("res://levels/" + str(level_name) + ".tscn").instance()
 	add_child(level)
 
 	for info_trigger in level.get_tree().get_nodes_in_group("info_trigger"):
@@ -70,7 +77,7 @@ func change_level(level_name: String) -> void:
 	for goal in level.get_tree().get_nodes_in_group("goal"):
 		self.goals[goal.description] = goal.balls_required
 
-	Music.play_song(load("res://levels/" + level_name + ".ogg"))
+	Music.play_song(load("res://levels/" + str(level_name) + ".ogg"))
 	Music.volume_db = level.music_volume_db + MUSIC_VOLUME_DB_BIAS
 	Music.fade_in()
 
@@ -112,13 +119,18 @@ func set_state(p_state: int) -> void:
 	match p_state:
 		State.PREGAME:
 			pregame_timer.start()
+
 		State.PLAYING:
 			level_timer.start()
+
 		State.WON:
 			yield(get_tree().create_timer(2.0), "timeout")
-			change_level(str(int(current_level) + 1))
+			# Go to the next level
+			change_level(current_level + 1)
+
 		State.LOST:
 			yield(get_tree().create_timer(2.0), "timeout")
+			# Restart the current level
 			change_level(current_level)
 
 func set_bricks_left(bricks: int) -> void:
