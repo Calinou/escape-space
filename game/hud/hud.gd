@@ -75,7 +75,12 @@ func _on_game_state_changed(state: int) -> void:
 			set_center_text("[color=#66ff44]" + tr("Go!") + "[/color]", 0.5)
 
 		Game.State.WON:
-			color_rect_animation.play_backwards("fade_in")
+			set_center_text("[color=#99ff77]" + tr("Success!") + "[/color]")
+			color_rect_animation.play("fade_in", -1, -0.5, true)
+
+		Game.State.LOST:
+			set_center_text("[color=#ff6644]" + tr("Time's up!") + "[/color]")
+			color_rect_animation.play("fade_in", -1, -0.5, true)
 
 func _on_info_triggered(text: String) -> void:
 	set_info_text(text)
