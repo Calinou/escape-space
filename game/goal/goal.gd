@@ -28,7 +28,7 @@ func update_ball_counter(balls: int) -> void:
 # reaches 0, so it won't be called anymore after the goal is complete
 func _on_score_area_body_entered(body: PhysicsBody2D):
 	if body is Ball:
-		body.queue_free()
+		body.get_node("AnimationPlayer").play("score")
 		balls_required -= 1
 		update_ball_counter(balls_required)
 

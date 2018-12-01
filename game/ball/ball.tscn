@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://game/ball/ball.gd" type="Script" id=1]
 [ext_resource path="res://game/ball/ball.png" type="Texture" id=2]
@@ -214,7 +214,97 @@ tracks/7/keys = {
 
 [sub_resource type="Animation" id=9]
 
-resource_name = "spawn"
+resource_name = "score"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ball:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( -2 ),
+"update": 3,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Aura:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( -2 ),
+"update": 3,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Spinner:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( -2 ),
+"update": 3,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("IdleParticles:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("TrailParticles:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("IdleParticles:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( -2 ),
+"update": 3,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -229,7 +319,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 4, 4, 4, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 
 loop = true
 tracks/0/type = "value"
@@ -333,11 +423,12 @@ bus = "Effects"
 autoplay = "spawn"
 anims/claim = SubResource( 7 )
 anims/destroy = SubResource( 8 )
-anims/spawn = SubResource( 9 )
+anims/score = SubResource( 9 )
+anims/spawn = SubResource( 10 )
 
 [node name="SpinAnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "spin"
-anims/spin = SubResource( 10 )
+anims/spin = SubResource( 11 )
 
 [node name="ResourcePreloader" type="ResourcePreloader" parent="."]
 resources = [ PoolStringArray( "bounce.0", "bounce.1", "bounce.2", "bounce.3" ), [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ] ]
