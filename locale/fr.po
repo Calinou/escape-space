@@ -110,6 +110,12 @@ msgstr "À vos marques…"
 msgid "Go!"
 msgstr "Partez !"
 
+msgid "Success!"
+msgstr "Mission accomplie !"
+
+msgid "Time's up!"
+msgstr "Temps écoulé !"
+
 msgid "Powered by Godot Engine"
 msgstr "Propulsé par Godot Engine"
 

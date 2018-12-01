@@ -109,6 +109,12 @@ msgstr ""
 msgid "Go!"
 msgstr ""
 
+msgid "Success!"
+msgstr ""
+
+msgid "Time's up!"
+msgstr ""
+
 msgid "Powered by Godot Engine"
 msgstr ""
 
