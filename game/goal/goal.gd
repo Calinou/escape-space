@@ -31,11 +31,11 @@ func _on_score_area_body_entered(body: PhysicsBody2D):
 		body.get_node("AnimationPlayer").play("score")
 		balls_required -= 1
 		update_ball_counter(balls_required)
+		emit_signal("ball_received", self)
 
 		if balls_required == 0:
 			animation_player.play("close")
 			Sound.play(Sound.Type.POSITIONAL_2D, self, close_sound, 4.0)
-			emit_signal("ball_received", self)
 		else:
 			animation_player.play("get_ball")
 			Sound.play(
