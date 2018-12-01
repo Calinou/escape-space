@@ -54,6 +54,6 @@ func _on_animation_finished(anim_name: String) -> void:
 func claim():
 	# Don't claim if the ball is currently being destroyed
 	if not claimed and animation_player.current_animation != "destroy":
-		animation_player.queue("claim")
+		animation_player.play("claim")
 
 	claimed = true

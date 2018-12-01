@@ -100,6 +100,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [ Color( 0.643137, 0.835294, 1, 0.12549 ), Color( 1, 0.65098, 0.25098, 0.584314 ) ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath(".:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( -2 ),
+"update": 3,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=8]
 
