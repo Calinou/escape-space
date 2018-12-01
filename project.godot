@@ -44,7 +44,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://game/game.gd"
 }, {
-"base": "StaticBody2D",
+"base": "Node",
 "class": "Goal",
 "language": "GDScript",
 "path": "res://game/goal/goal.gd"

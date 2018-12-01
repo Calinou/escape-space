@@ -13,7 +13,7 @@ friction = 0.0
 blend_mode = 1
 
 [node name="Paddle" type="RigidBody2D"]
-z_index = 1
+z_index = 2
 collision_layer = 4
 mode = 2
 mass = 65535.0

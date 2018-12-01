@@ -23,11 +23,11 @@ extents = Vector2( 256, 192 )
 
 extents = Vector2( 32, 262 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=4]
 
 extents = Vector2( 32, 128 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=5]
 
 extents = Vector2( 32, 128 )
 
@@ -133,7 +133,7 @@ Find another ball launcher at the end of the corridor."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DestroyBricks"]
 position = Vector2( 32, 64 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 disabled = true
 
 [node name="ReachExit" parent="." instance=ExtResource( 10 )]
@@ -143,5 +143,5 @@ Be quick or you'll miss the shuttle!"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ReachExit"]
 position = Vector2( 352, 1216 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 disabled = true

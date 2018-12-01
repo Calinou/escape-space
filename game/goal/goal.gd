@@ -1,7 +1,7 @@
 # Copyright © 2018 Hugo Locurcio and contributors - MIT License
 # See `LICENSE.md` included in the source distribution for details.
 
-extends StaticBody2D
+extends Node
 class_name Goal
 
 signal ball_received
