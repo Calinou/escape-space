@@ -42,7 +42,7 @@ func _on_goals_changed(goals_data: Dictionary) -> void:
 	for goal_data in goals_data:
 		# Key is the description, value is the number of balls left
 		var goal := goal_scene.instance()
-		goal.get_node("Description").text = goal_data
+		goal.get_node("Description").text = tr(goal_data)
 		goal.get_node("Balls").text = str(goals_data[goal_data])
 
 		if goals_data[goal_data] <= 0:

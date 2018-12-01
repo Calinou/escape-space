@@ -116,6 +116,12 @@ msgstr "Propulsé par Godot Engine"
 msgid "Bricks"
 msgstr "Briques"
 
+msgid "Tutorial Goal"
+msgstr "But de tutoriel"
+
+msgid "Storage Platform"
+msgstr "Plateforme de stockage"
+
 msgid ""
 "Welcome to the space station!\n"
 "Use the arrow keys to move."

@@ -115,6 +115,12 @@ msgstr ""
 msgid "Bricks"
 msgstr ""
 
+msgid "Tutorial Goal"
+msgstr ""
+
+msgid "Storage Platform"
+msgstr ""
+
 msgid ""
 "Welcome to the space station!\n"
 "Use the arrow keys to move."
@@ -134,7 +140,6 @@ msgid ""
 "Reach the exit after completing all objectives.\n"
 "Be quick or you'll miss the shuttle!"
 msgstr ""
-
 
 msgid "Continue"
 msgstr ""
