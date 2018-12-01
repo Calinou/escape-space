@@ -9,7 +9,9 @@ signal brick_destroyed
 onready var animation_player := $AnimationPlayer as AnimationPlayer
 
 func _ready() -> void:
-	connect("brick_destroyed", $"/root/Game", "_on_brick_destroyed")
+	# Prevent a brick from being destroyed multiple times,
+	# which would mess up the brick counter
+	connect("brick_destroyed", $"/root/Game", "_on_brick_destroyed", [], CONNECT_ONESHOT)
 
 func destroy() -> void:
 	animation_player.play("destroy")

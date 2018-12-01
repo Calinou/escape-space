@@ -26,11 +26,11 @@ blend_mode = 1
 
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.161574, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="AudioStreamRandomPitch" id=7]
+[sub_resource type="AudioStreamRandomPitch" id=6]
 
 audio_stream = ExtResource( 5 )
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 
 length = 0.75
 step = 0.05
@@ -92,7 +92,7 @@ tracks/4/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": SubResource( 7 )
+"stream": SubResource( 6 )
 } ],
 "times": PoolRealArray( 0 )
 }
@@ -133,7 +133,6 @@ spread = 180.0
 gravity = Vector2( 0, 0 )
 initial_velocity = 150.0
 initial_velocity_random = 0.2
-angular_velocity = 45.0
 angular_velocity_random = 1.0
 scale = 0.11
 scale_curve = SubResource( 5 )
@@ -144,6 +143,6 @@ volume_db = -3.0
 bus = "Effects"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/destroy = SubResource( 6 )
+anims/destroy = SubResource( 7 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]

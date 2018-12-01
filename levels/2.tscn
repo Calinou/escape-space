@@ -39,7 +39,7 @@ tile_data = PoolIntArray( -524303, 0, 0, -524302, 0, 0, -524301, 0, 0, -524300, 
 
 [node name="Goal" parent="." instance=ExtResource( 6 )]
 position = Vector2( 0, -320 )
-description = "Tutorial Goal"
+description = "Storage Platform"
 balls_required = 4
 
 [node name="BallLauncher" parent="." instance=ExtResource( 7 )]
