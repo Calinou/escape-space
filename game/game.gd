@@ -47,7 +47,7 @@ onready var hud := $CanvasLayer/HUD as Control
 
 func _ready() -> void:
 	randomize()
-	change_level(2)
+	change_level(1)
 
 func _process(delta: float) -> void:
 	if not level_timer.is_stopped():
