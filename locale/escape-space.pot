@@ -112,6 +112,9 @@ msgstr ""
 msgid "Powered by Godot Engine"
 msgstr ""
 
+msgid "Bricks"
+msgstr ""
+
 msgid ""
 "Welcome to the space station!\n"
 "Use the arrow keys to move."
