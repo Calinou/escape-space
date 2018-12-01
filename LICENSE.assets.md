@@ -10,6 +10,8 @@
 
 ## `game/brick/brick.{png,xcf}`
 
+## `game/exit/exit.{png,xcf}`
+
 ## `game/force_field/*.{png,xcf}`
 
 ## `game/hud/*.{png,xcf}`

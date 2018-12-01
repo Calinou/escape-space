@@ -1,15 +1,15 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://game/exit/exit.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://game/exit/exit.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 
-radius = 32.0
+radius = 64.0
 
 [sub_resource type="CircleShape2D" id=2]
 
-radius = 34.0
+radius = 66.0
 
 [node name="Exit" type="StaticBody2D"]
 script = ExtResource( 1 )
