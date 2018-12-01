@@ -54,20 +54,23 @@ func _control_pressed(control: Control) -> void:
 	Sound.play(Sound.Type.NON_POSITIONAL, self, click_sound, -2.0)
 
 # Called when a child GUI sets the currently-viewed GUI.
-# If no GUI is set, then only the animation will be played;
-# the child GUI will have to handle the action by itself.
+# If no GUI is set, then the screen will fade to black; this is
+# typically used for an action that will leave the menu
+# (such as starting the game or quitting).
 func _on_menu_changed(new_menu: Control = null) -> void:
-	animation_player.play("change_menu")
-
-	# Change the GUI when the animation is halfway done
-	yield(
+	if new_menu:
+		animation_player.play("change_menu")
+		# Change the GUI when the animation is halfway done
+		yield(
 			get_tree().create_timer(animation_player.current_animation_length / 2),
 			"timeout"
-	)
+		)
 
-	if new_menu:
 		current_menu.visible = false
 		new_menu.visible = true
 		current_menu = new_menu
+	else:
+		animation_player.play_backwards("fade_in")
+		yield(animation_player, "animation_finished")
 
 	emit_signal("transition_finished")
