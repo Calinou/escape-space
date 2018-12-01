@@ -20,9 +20,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -63.0
-margin_top = -210.0
+margin_top = -180.0
 margin_right = 63.0
-margin_bottom = -169.0
+margin_bottom = -139.0
 grow_horizontal = 2
 custom_fonts/font = ExtResource( 3 )
 text = "Controls"
@@ -34,15 +34,16 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -512.0
-margin_top = -134.0
+margin_top = -124.0
 margin_right = 158.0
-margin_bottom = 100.0
+margin_bottom = 110.0
 custom_constants/separation = 16
 alignment = 1
 
 [node name="move_up" type="HBoxContainer" parent="ActionList"]
+margin_top = 21.0
 margin_right = 670.0
-margin_bottom = 36.0
+margin_bottom = 57.0
 custom_constants/separation = 30
 
 [node name="Label" type="Label" parent="ActionList/move_up"]
@@ -65,9 +66,9 @@ size_flags_stretch_ratio = 0.2
 toggle_mode = true
 
 [node name="move_down" type="HBoxContainer" parent="ActionList"]
-margin_top = 52.0
+margin_top = 73.0
 margin_right = 670.0
-margin_bottom = 88.0
+margin_bottom = 109.0
 custom_constants/separation = 30
 
 [node name="Label" type="Label" parent="ActionList/move_down"]
@@ -90,9 +91,9 @@ size_flags_stretch_ratio = 0.2
 toggle_mode = true
 
 [node name="move_left" type="HBoxContainer" parent="ActionList"]
-margin_top = 104.0
+margin_top = 125.0
 margin_right = 670.0
-margin_bottom = 140.0
+margin_bottom = 161.0
 custom_constants/separation = 30
 
 [node name="Label" type="Label" parent="ActionList/move_left"]
@@ -115,9 +116,9 @@ size_flags_stretch_ratio = 0.2
 toggle_mode = true
 
 [node name="move_right" type="HBoxContainer" parent="ActionList"]
-margin_top = 156.0
+margin_top = 177.0
 margin_right = 670.0
-margin_bottom = 192.0
+margin_bottom = 213.0
 custom_constants/separation = 30
 
 [node name="Label" type="Label" parent="ActionList/move_right"]
@@ -139,31 +140,6 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
 toggle_mode = true
 
-[node name="use_boost" type="HBoxContainer" parent="ActionList"]
-margin_top = 208.0
-margin_right = 670.0
-margin_bottom = 244.0
-custom_constants/separation = 30
-
-[node name="Label" type="Label" parent="ActionList/use_boost"]
-margin_top = 4.0
-margin_right = 497.0
-margin_bottom = 32.0
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.7
-text = "Use Boost"
-align = 2
-
-[node name="Button" type="Button" parent="ActionList/use_boost" groups=[
-"makes_sound",
-]]
-margin_left = 527.0
-margin_right = 670.0
-margin_bottom = 36.0
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.2
-toggle_mode = true
-
 [node name="Done" type="Button" parent="." groups=[
 "makes_sound",
 ]]
@@ -172,9 +148,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -57.0
-margin_top = 143.0
+margin_top = 142.0
 margin_right = 57.0
-margin_bottom = 177.0
+margin_bottom = 178.0
 grow_horizontal = 2
 shortcut = ExtResource( 4 )
 text = "Done"
