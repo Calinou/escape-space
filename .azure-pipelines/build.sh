@@ -18,7 +18,7 @@ sudo apt-key add Release.key
 sudo apt-add-repository "https://dl.winehq.org/wine-builds/ubuntu/"
 sudo dpkg --add-architecture i386
 sudo apt-get update -qq
-sudo apt-get install -qqq winehq-devel
+sudo apt-get install --allow-unauthenticated -qqq winehq-devel
 
 # Install Inno Setup using innoextract and create a launcher script
 tmp="$(mktemp)"
