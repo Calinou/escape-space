@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://game/ball/ball.gd" type="Script" id=1]
 [ext_resource path="res://game/ball/ball.png" type="Texture" id=2]
@@ -31,7 +31,15 @@ particles_anim_loop = false
 
 [sub_resource type="Curve" id=5]
 
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 1.4, 0, 0 ]
+
+[sub_resource type="Curve" id=12]
+
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Curve" id=13]
+
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.5, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="PhysicsMaterial" id=6]
 
@@ -369,7 +377,6 @@ shape = SubResource( 3 )
 
 [node name="IdleParticles" type="CPUParticles2D" parent="."]
 material = SubResource( 4 )
-scale = 0.5
 amount = 15
 preprocess = 1.0
 texture = ExtResource( 5 )
@@ -377,12 +384,11 @@ spread = 180.0
 gravity = Vector2( 0, 0 )
 initial_velocity = 30.0
 angular_velocity = 2.80845e-06
-scale = 0.5
-scale_curve = SubResource( 5 )
+scale_amount = 0.5
+scale_amount_curve = SubResource( 5 )
 
 [node name="TrailParticles" type="CPUParticles2D" parent="."]
 material = SubResource( 4 )
-scale = 0.2
 amount = 100
 lifetime = 0.5
 preprocess = 1.0
@@ -394,13 +400,12 @@ spread = 180.0
 gravity = Vector2( 0, 0 )
 initial_velocity = 30.0
 angular_velocity = 2.80845e-06
-scale = 0.2
-scale_curve = SubResource( 5 )
+scale_amount = 0.35
+scale_amount_curve = SubResource( 12 )
 color = Color( 0.643137, 0.835294, 1, 0.12549 )
 
 [node name="DestroyParticles" type="CPUParticles2D" parent="."]
 material = SubResource( 4 )
-scale = 0.5
 emitting = false
 amount = 30
 lifetime = 0.5
@@ -411,8 +416,8 @@ spread = 180.0
 gravity = Vector2( 0, 0 )
 initial_velocity = 60.0
 angular_velocity = 1.08996e+27
-scale = 0.5
-scale_curve = SubResource( 5 )
+scale_amount = 0.5
+scale_amount_curve = SubResource( 13 )
 hue_variation = 0.1
 hue_variation_random = 1.0
 

@@ -24,7 +24,7 @@ blend_mode = 1
 
 [sub_resource type="Curve" id=5]
 
-_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.161574, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.200992, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="AudioStreamRandomPitch" id=6]
 
@@ -120,7 +120,6 @@ shape = SubResource( 3 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 material = SubResource( 4 )
-scale = 0.11
 emitting = false
 amount = 30
 lifetime = 0.75
@@ -133,9 +132,10 @@ spread = 180.0
 gravity = Vector2( 0, 0 )
 initial_velocity = 150.0
 initial_velocity_random = 0.2
+angular_velocity = 0.0
 angular_velocity_random = 1.0
-scale = 0.11
-scale_curve = SubResource( 5 )
+scale_amount = 0.1
+scale_amount_curve = SubResource( 5 )
 color = Color( 0.168627, 0.337255, 0.301961, 1 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

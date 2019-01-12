@@ -15,8 +15,7 @@ blend_mode = 1
 
 [sub_resource type="Curve" id=3]
 
-max_value = 0.2
-_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.1838, 0.2 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.494463, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="Animation" id=4]
 
@@ -65,7 +64,8 @@ initial_velocity_random = 0.2
 angular_velocity = 25.0
 angular_velocity_random = 1.0
 linear_accel = 50.0
-scale_curve = SubResource( 3 )
+scale_amount = 0.25
+scale_amount_curve = SubResource( 3 )
 color = Color( 1, 1, 1, 0.0784314 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

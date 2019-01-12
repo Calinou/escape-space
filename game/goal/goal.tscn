@@ -142,7 +142,6 @@ texture = ExtResource( 3 )
 
 [node name="Sparks" type="CPUParticles2D" parent="."]
 material = SubResource( 2 )
-scale = 0.14
 amount = 12
 preprocess = 1.0
 texture = ExtResource( 4 )
@@ -154,8 +153,8 @@ initial_velocity = 0.0
 angular_velocity = 180.0
 angular_velocity_random = 1.0
 radial_accel = -100.0
-scale = 0.14
-scale_curve = SubResource( 3 )
+scale_amount = 0.15
+scale_amount_curve = SubResource( 3 )
 color = Color( 0.196078, 0.352941, 1, 0.376471 )
 hue_variation_random = 1.0
 
