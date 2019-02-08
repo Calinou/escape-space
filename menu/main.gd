@@ -10,7 +10,10 @@ func _on_play_pressed() -> void:
 	Music.fade_out()
 
 	yield($"/root/Menu", "transition_finished")
-	get_tree().change_scene("res://game/game.tscn")
+	var error := get_tree().change_scene("res://game/game.tscn")
+
+	if error != OK:
+		push_error("Couldn't load the game scene.")
 
 func _on_options_pressed() -> void:
 	emit_signal("menu_changed", $"/root/Menu/Control/Options")

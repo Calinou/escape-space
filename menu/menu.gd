@@ -40,6 +40,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		motion += event.relative
 
+#warning-ignore:unused_argument
 func _physics_process(delta: float) -> void:
 	motion *= 0.9
 	background.scroll_offset += motion
@@ -50,6 +51,7 @@ func _control_hovered(control: Control) -> void:
 
 	Sound.play(Sound.Type.NON_POSITIONAL, self, hover_sound, -5.5)
 
+#warning-ignore:unused_argument
 func _control_pressed(control: Control) -> void:
 	Sound.play(Sound.Type.NON_POSITIONAL, self, click_sound, -2.0)
 

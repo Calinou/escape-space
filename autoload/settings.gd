@@ -30,13 +30,16 @@ func _input(event: InputEvent) -> void:
 
 # Sets fullscreen status and persists it to the settings file.
 func set_fullscreen(fullscreen: bool) -> void:
-	OS.window_fullscreen = !OS.window_fullscreen
-	file.set_value("video", "fullscreen", OS.window_fullscreen)
+	OS.window_fullscreen = fullscreen
+	file.set_value("video", "fullscreen", fullscreen)
 	save()
 
 # Saves configuration files with predefined paths.
 # This method should be used over `Settings.file.save(path)`
 # unless a custom path needs to be specified.
 func save() -> void:
-	file.save(CONFIG_PATH)
-	cache.save(CONFIG_CACHE_PATH)
+	var file_error := file.save(CONFIG_PATH)
+	var cache_error := cache.save(CONFIG_CACHE_PATH)
+
+	if file_error != OK or cache_error != OK:
+		push_error("An error occurred while trying to save configuration files.")

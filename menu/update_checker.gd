@@ -20,7 +20,7 @@ const UPDATE_THROTTLE = 600
 const VERSION_DATE_BIAS = 600
 
 func _ready() -> void:
-	version_label.text = ProjectSettings.get("application/config/version")
+	version_label.text = str(ProjectSettings.get("application/config/version"))
 
 	# User preference overrides the setting defined on export
 	if Settings.file.get_value("network", "check_for_updates", ProjectSettings.get("application/config/check_for_updates")):
@@ -28,23 +28,28 @@ func _ready() -> void:
 
 # TODO: Check for stable releases only (depending on user preference)
 func check_for_updates() -> void:
-	if OS.get_unix_time() < Settings.cache.get_value("updates", "last_check", 0) + UPDATE_THROTTLE:
+	if OS.get_unix_time() < int(Settings.cache.get_value("updates", "last_check", 0)) + UPDATE_THROTTLE:
 		print("INFO: Skipping update check since updates were recently checked.")
 		return
 	else:
 		print("INFO: Checking for updates…")
 
-	http_request.request(
+	var error := http_request.request(
 			"https://api.github.com/repos/{user}/{repository}/releases".format({
 					user = ProjectSettings.get("application/config/github_user"),
 					repository = ProjectSettings.get("application/config/github_repository"),
 			})
 	)
 
+	if error != OK:
+		push_error("A client error occurred while trying to check for updates.")
+
+#warning-ignore:unused_argument
+#warning-ignore:unused_argument
 func _on_http_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
 	if result != HTTPRequest.RESULT_SUCCESS:
 		# The request failed for any reason, abort
-		print("ERROR: Could not check for updates due to a network error.")
+		push_error("Couldn't check for updates due to a network error.")
 		return
 	else:
 		print("INFO: Update check successful.")
@@ -54,19 +59,22 @@ func _on_http_request_completed(result: int, response_code: int, headers: PoolSt
 	Settings.save()
 
 	var json = parse_json(body.get_string_from_utf8())
-	var latest_unix = OS.get_unix_time_from_datetime(parse_date(json[0].created_at))
+	var latest_unix := OS.get_unix_time_from_datetime(_parse_date(json[0].created_at))
 
-	if latest_unix > ProjectSettings.get("application/config/version_date") + VERSION_DATE_BIAS:
+	if latest_unix > int(ProjectSettings.get("application/config/version_date")) + VERSION_DATE_BIAS:
 		animation_player.play("fade_in")
 
 		# Set the URL that will be opened when the button is pressed
 		update_button.set_meta("url", json[0].html_url)
 
 func _on_update_pressed() -> void:
-	OS.shell_open(update_button.get_meta("url"))
+	var error := OS.shell_open(update_button.get_meta("url"))
+
+	if error != OK:
+		push_error("An error occurred while trying to open the Releases page in a Web browser.")
 
 # Parses an ISO-8601 date string to a datetime dictionary that can be parsed by Godot.
-func parse_date(iso_date: String) -> Dictionary:
+func _parse_date(iso_date: String) -> Dictionary:
 	var date := iso_date.split("T")[0].split("-")
 	var time := iso_date.split("T")[1].trim_suffix("Z").split(":")
 
