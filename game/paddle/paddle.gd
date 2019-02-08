@@ -51,7 +51,8 @@ func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 			camera,
 			"zoom",
 			camera.zoom,
-			CAMERA_ZOOM_BASE * Vector2.ONE + CAMERA_ZOOM_FACTOR * linear_velocity.length() * Vector2.ONE, 0.125,
+			CAMERA_ZOOM_BASE * Vector2.ONE + CAMERA_ZOOM_FACTOR * linear_velocity.length() * Vector2.ONE,
+			0.125,
 			Tween.TRANS_SINE,
 			Tween.EASE_IN_OUT
 	)
