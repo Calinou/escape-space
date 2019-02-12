@@ -49,7 +49,7 @@ func _ready() -> void:
 	randomize()
 	change_level(1)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not level_timer.is_stopped():
 		emit_signal("time_left_changed", level_timer.time_left)
 

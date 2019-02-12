@@ -54,7 +54,7 @@ func _on_goals_changed(goals_data: Dictionary) -> void:
 
 func _on_time_left_changed(time: float) -> void:
 	var color := time_gradient.interpolate(time / time_progress.max_value)
-
+	#warning-ignore:integer_division
 	time_label.text = str(int(time) / 60) + ":" + str(int(time) % 60).pad_zeros(2)
 	time_label.modulate = color
 	time_progress.value = time

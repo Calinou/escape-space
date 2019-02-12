@@ -102,6 +102,10 @@ Music="*res://autoload/music.tscn"
 Sound="*res://autoload/sound.gd"
 ColorCorrection="*res://autoload/color_correction.tscn"
 
+[debug]
+
+gdscript/warnings/return_value_discarded=false
+
 [display]
 
 window/dpi/allow_hidpi=true

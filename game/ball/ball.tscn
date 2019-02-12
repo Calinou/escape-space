@@ -11,18 +11,14 @@
 [ext_resource path="res://game/ball/bounce.3.wav" type="AudioStream" id=9]
 
 [sub_resource type="CanvasItemMaterial" id=1]
-
 blend_mode = 1
 
 [sub_resource type="CanvasItemMaterial" id=2]
-
 blend_mode = 1
 
 [sub_resource type="CircleShape2D" id=3]
 
-
 [sub_resource type="CanvasItemMaterial" id=4]
-
 blend_mode = 1
 particles_animation = true
 particles_anim_h_frames = 1
@@ -30,24 +26,19 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="Curve" id=5]
-
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 1.4, 0, 0 ]
 
-[sub_resource type="Curve" id=12]
-
+[sub_resource type="Curve" id=6]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="Curve" id=13]
-
+[sub_resource type="Curve" id=7]
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.5, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="PhysicsMaterial" id=6]
-
+[sub_resource type="PhysicsMaterial" id=8]
 friction = 0.0
 bounce = 1.0
 
-[sub_resource type="Animation" id=7]
-
+[sub_resource type="Animation" id=9]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Aura:modulate")
 tracks/0/interp = 1
@@ -94,7 +85,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ SubResource( 6 ) ]
+"values": [ SubResource( 8 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("TrailParticles:color")
@@ -121,8 +112,7 @@ tracks/5/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=8]
-
+[sub_resource type="Animation" id=10]
 tracks/0/type = "value"
 tracks/0/path = NodePath("DestroyParticles:emitting")
 tracks/0/interp = 1
@@ -220,9 +210,7 @@ tracks/7/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=9]
-
-resource_name = "score"
+[sub_resource type="Animation" id=11]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Ball:modulate")
@@ -311,8 +299,7 @@ tracks/6/keys = {
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=10]
-
+[sub_resource type="Animation" id=12]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -327,8 +314,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 4, 4, 4, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=11]
-
+[sub_resource type="Animation" id=13]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Spinner:rotation_degrees")
@@ -401,7 +387,7 @@ gravity = Vector2( 0, 0 )
 initial_velocity = 30.0
 angular_velocity = 2.80845e-06
 scale_amount = 0.35
-scale_amount_curve = SubResource( 12 )
+scale_amount_curve = SubResource( 6 )
 color = Color( 0.643137, 0.835294, 1, 0.12549 )
 
 [node name="DestroyParticles" type="CPUParticles2D" parent="."]
@@ -417,7 +403,7 @@ gravity = Vector2( 0, 0 )
 initial_velocity = 60.0
 angular_velocity = 1.08996e+27
 scale_amount = 0.5
-scale_amount_curve = SubResource( 13 )
+scale_amount_curve = SubResource( 7 )
 hue_variation = 0.1
 hue_variation_random = 1.0
 
@@ -426,14 +412,14 @@ bus = "Effects"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "spawn"
-anims/claim = SubResource( 7 )
-anims/destroy = SubResource( 8 )
-anims/score = SubResource( 9 )
-anims/spawn = SubResource( 10 )
+anims/claim = SubResource( 9 )
+anims/destroy = SubResource( 10 )
+anims/score = SubResource( 11 )
+anims/spawn = SubResource( 12 )
 
 [node name="SpinAnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "spin"
-anims/spin = SubResource( 11 )
+anims/spin = SubResource( 13 )
 
 [node name="ResourcePreloader" type="ResourcePreloader" parent="."]
 resources = [ PoolStringArray( "bounce.0", "bounce.1", "bounce.2", "bounce.3" ), [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ] ]

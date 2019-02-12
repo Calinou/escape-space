@@ -8,9 +8,6 @@ signal info_triggered
 # The text to display when triggered
 export(String, MULTILINE) var text := ""
 
-# Whether the area can be triggered
-var can_trigger := true
-
 onready var game := $"/root/Game" as Node
 onready var cooldown := $Cooldown as Timer
 onready var shape := $CollisionShape2D as CollisionShape2D
@@ -21,7 +18,7 @@ onready var shape := $CollisionShape2D as CollisionShape2D
 func _ready() -> void:
 	game.connect("state_changed", self, "_on_game_state_changed")
 
-func _on_body_entered(body: PhysicsBody2D) -> void:
+func _on_body_entered(_body: PhysicsBody2D) -> void:
 	emit_signal("info_triggered", tr(text))
 	cooldown.start()
 	shape.call_deferred("set_disabled", true)

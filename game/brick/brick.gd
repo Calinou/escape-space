@@ -17,5 +17,5 @@ func destroy() -> void:
 	animation_player.play("destroy")
 	emit_signal("brick_destroyed")
 
-func _on_animation_finished(animation: String) -> void:
+func _on_animation_finished(_animation: String) -> void:
 	queue_free()

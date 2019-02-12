@@ -44,9 +44,7 @@ func check_for_updates() -> void:
 	if error != OK:
 		push_error("A client error occurred while trying to check for updates.")
 
-#warning-ignore:unused_argument
-#warning-ignore:unused_argument
-func _on_http_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
+func _on_http_request_completed(result: int, _response_code: int, _headers: PoolStringArray, body: PoolByteArray) -> void:
 	if result != HTTPRequest.RESULT_SUCCESS:
 		# The request failed for any reason, abort
 		push_error("Couldn't check for updates due to a network error.")
