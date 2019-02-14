@@ -4,6 +4,11 @@
 extends Control
 
 onready var game := $"/root/Game" as Node
+onready var pause_options := $VBoxContainer as Control
+
+func _on_visibility_changed() -> void:
+	if visible:
+		pause_options.get_child(0).grab_focus()
 
 func _on_continue_pressed() -> void:
 	get_tree().paused = false

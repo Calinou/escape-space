@@ -35,6 +35,8 @@ func _ready() -> void:
 		elif control is Slider:
 			control.connect("mouse_entered", self, "_control_hovered", [control])
 
+	grab_autofocus()
+
 func _input(event: InputEvent) -> void:
 	# Move the background as the mouse moves
 	if event is InputEventMouseMotion:
@@ -69,8 +71,16 @@ func _on_menu_changed(new_menu: Control = null) -> void:
 		current_menu.visible = false
 		new_menu.visible = true
 		current_menu = new_menu
+		grab_autofocus()
 	else:
 		animation_player.play_backwards("fade_in")
 		yield(animation_player, "animation_finished")
 
 	emit_signal("transition_finished")
+
+# Focus the first visible node with the "autofocus" group.
+func grab_autofocus():
+	for autofocus_node in current_menu.get_tree().get_nodes_in_group("autofocus"):
+		if current_menu.is_a_parent_of(autofocus_node):
+			autofocus_node.grab_focus()
+			break

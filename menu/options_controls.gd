@@ -16,10 +16,19 @@ func _ready() -> void:
 	# Node names (purposely in `snake_case`) match input actions
 	for node in action_list.get_children():
 		var action: String = node.get_name()
+
+		# Display and use the first key bound to the action
+		# (ignoring gamepad events)
+		var input_key: InputEvent
+		for input_event in InputMap.get_action_list(action):
+			if input_event is InputEventKey:
+				input_key = input_event
+				break
+
 		var scancode: String = Settings.file.get_value(
 				"input",
 				action,
-				OS.get_scancode_string(InputMap.get_action_list(action)[0].scancode)
+				OS.get_scancode_string(input_key.scancode)
 		)
 		var event := InputEventKey.new()
 		event.scancode = OS.find_scancode_from_string(scancode)
@@ -51,7 +60,11 @@ func _wait_for_input(selected_action: String) -> void:
 func _on_done_pressed() -> void:
 	emit_signal("menu_changed", $"/root/Menu/Control/Options")
 
-# Removes existing input events from an action and binds a new event to an action.
+# Removes existing key input events from an action and binds a new event to an action.
 func bind_event(action: String, event: InputEvent) -> void:
-	InputMap.action_erase_events(action)
+	for old_event in InputMap.get_action_list(action):
+		if old_event is InputEventKey:
+			# Don't remove gamepad input events
+			InputMap.action_erase_event(action, old_event)
+
 	InputMap.action_add_event(action, event)

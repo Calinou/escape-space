@@ -41,6 +41,7 @@ custom_constants/separation = 20
 
 [node name="VideoSettings" type="Button" parent="VBoxContainer" groups=[
 "makes_sound",
+"autofocus",
 ]]
 margin_right = 195.0
 margin_bottom = 36.0

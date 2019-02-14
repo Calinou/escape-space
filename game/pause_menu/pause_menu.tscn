@@ -48,6 +48,7 @@ margin_right = 216.0
 margin_bottom = 374.0
 text = "Exit to Menu"
 
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="VBoxContainer/RestartLevel" to="." method="_on_restart_level_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitToMenu" to="." method="_on_exit_to_menu_pressed"]

@@ -7,7 +7,6 @@
 [ext_resource path="res://menu/update_checker.tscn" type="PackedScene" id=5]
 
 [sub_resource type="DynamicFont" id=1]
-
 size = 64
 extra_spacing_char = -2
 extra_spacing_space = 16
@@ -55,6 +54,7 @@ alignment = 1
 
 [node name="Play" type="Button" parent="VBoxContainer" groups=[
 "makes_sound",
+"autofocus",
 ]]
 margin_top = 226.0
 margin_right = 216.0

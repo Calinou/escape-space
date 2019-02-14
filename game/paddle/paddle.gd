@@ -33,17 +33,10 @@ func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 	motion = Vector2.ZERO
 
 	if can_move:
-		if Input.is_action_pressed("move_up"):
-			motion.y = -1
-		elif Input.is_action_pressed("move_down"):
-			motion.y = 1
+		motion.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+		motion.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 
-		if Input.is_action_pressed("move_left"):
-			motion.x = -1
-		elif Input.is_action_pressed("move_right"):
-			motion.x = 1
-
-	motion = motion.normalized()
+	motion = motion.clamped(1.0)
 	linear_velocity = (linear_velocity + motion * ACCELERATION * state.step) * FRICTION
 
 	tween.start()

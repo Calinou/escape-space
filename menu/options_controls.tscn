@@ -57,6 +57,7 @@ align = 2
 
 [node name="Button" type="Button" parent="ActionList/move_up" groups=[
 "makes_sound",
+"autofocus",
 ]]
 margin_left = 527.0
 margin_right = 670.0

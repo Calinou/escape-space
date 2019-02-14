@@ -57,6 +57,7 @@ align = 2
 
 [node name="Button" type="Button" parent="VBoxContainer/Fullscreen" groups=[
 "makes_sound",
+"autofocus",
 ]]
 margin_left = 525.0
 margin_right = 620.0
