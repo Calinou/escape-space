@@ -68,13 +68,13 @@ func change_level(level_name: int) -> void:
 	level = load("res://levels/" + str(level_name) + ".tscn").instance()
 	add_child(level)
 
-	for info_trigger in level.get_tree().get_nodes_in_group("info_trigger"):
+	for info_trigger in get_tree().get_nodes_in_group("info_trigger"):
 		info_trigger.connect("info_triggered", hud, "_on_info_triggered")
 
-	self.bricks_left = level.get_tree().get_nodes_in_group("brick").size()
+	self.bricks_left = get_tree().get_nodes_in_group("brick").size()
 	self.goals = {}
 
-	for goal in level.get_tree().get_nodes_in_group("goal"):
+	for goal in get_tree().get_nodes_in_group("goal"):
 		self.goals[goal.description] = goal.balls_required
 
 	Music.play_song(load("res://levels/" + str(level_name) + ".ogg"))

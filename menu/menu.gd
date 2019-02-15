@@ -80,7 +80,7 @@ func _on_menu_changed(new_menu: Control = null) -> void:
 
 # Focus the first visible node with the "autofocus" group.
 func grab_autofocus():
-	for autofocus_node in current_menu.get_tree().get_nodes_in_group("autofocus"):
+	for autofocus_node in get_tree().get_nodes_in_group("autofocus"):
 		if current_menu.is_a_parent_of(autofocus_node):
 			autofocus_node.grab_focus()
 			break
