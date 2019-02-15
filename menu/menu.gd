@@ -47,10 +47,8 @@ func _physics_process(_delta: float) -> void:
 	background.scroll_offset += motion
 
 func _control_hovered(control: Control) -> void:
-	if control is BaseButton and control.disabled:
-		return
-
-	Sound.play(Sound.Type.NON_POSITIONAL, self, hover_sound, -5.5)
+	if control is BaseButton and not control.disabled:
+		Sound.play(Sound.Type.NON_POSITIONAL, self, hover_sound, -5.5)
 
 func _control_pressed(_control: Control) -> void:
 	Sound.play(Sound.Type.NON_POSITIONAL, self, click_sound, -2.0)
