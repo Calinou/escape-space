@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## [1.1.0] - 2019-02-17
+
 ### Added
 
 - Full controller support.
@@ -23,4 +25,5 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 - Initial versioned release.
 
-[Unreleased]: https://github.com/Calinou/escape-space/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/Calinou/escape-space/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/Calinou/escape-space/compare/v1.0.0...v1.1.0
