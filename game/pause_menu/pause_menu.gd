@@ -36,7 +36,7 @@ func set_paused(p_paused: bool) -> void:
 		Control.MOUSE_FILTER_STOP if p_paused else Control.MOUSE_FILTER_IGNORE
 	])
 	propagate_call("set", [
-		"focus_mode",
+		"enabled_focus_mode",
 		Control.FOCUS_ALL if p_paused else Control.FOCUS_NONE
 	])
 
