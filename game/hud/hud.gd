@@ -3,7 +3,6 @@
 
 extends Control
 
-onready var pause_menu := $PauseMenu as Control
 onready var color_rect_animation := $ColorRect/AnimationPlayer as AnimationPlayer
 onready var bricks_counter := $Vitals/Bricks/Counter as Label
 onready var center_label := $CenterText as RichTextLabel
@@ -20,10 +19,6 @@ onready var goal_scene := preloader.get_resource("goal") as PackedScene
 onready var time_gradient := preloader.get_resource("time_gradient") as Gradient
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("toggle_pause"):
-		get_tree().paused = !get_tree().paused
-		pause_menu.visible = !pause_menu.visible
-
 	if event.is_action_pressed("toggle_hud"):
 		for node in get_tree().get_nodes_in_group("can_hide"):
 			node.visible = !node.visible
