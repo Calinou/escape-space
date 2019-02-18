@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Fixed
+
+- A ball's particle trail no longer disappears suddenly when it leaves
+  the viewport.
+
 ## [1.1.0] - 2019-02-17
 
 ### Added

@@ -14,6 +14,7 @@ const MAX_SPEED = 600
 var claimed := false
 
 onready var animation_player := $AnimationPlayer as AnimationPlayer
+onready var trail_particles := $TrailParticles as CPUParticles2D
 # FIXME: Workaround for <https://github.com/godotengine/godot/issues/23207>
 #warning-ignore:unused_class_variable
 onready var preloader := $ResourcePreloader as ResourcePreloader
@@ -23,6 +24,15 @@ onready var bounce_sounds := [
 	preloader.get_resource("bounce.2"),
 	preloader.get_resource("bounce.3"),
 ]
+
+func _ready() -> void:
+	# Make the trail not disappear when the ball leaves the viewport
+	# by making its visibility rectangle larger
+	VisualServer.canvas_item_set_custom_rect(
+			trail_particles.get_canvas_item(),
+			true,
+			Rect2(Vector2.ONE * -500, Vector2.ONE * 1000),
+	)
 
 func _integrate_forces(_state: Physics2DDirectBodyState) -> void:
 	linear_velocity = linear_velocity.clamped(MAX_SPEED)
