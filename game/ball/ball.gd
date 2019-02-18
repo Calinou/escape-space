@@ -31,7 +31,7 @@ func _ready() -> void:
 	VisualServer.canvas_item_set_custom_rect(
 			trail_particles.get_canvas_item(),
 			true,
-			Rect2(Vector2.ONE * -500, Vector2.ONE * 1000),
+			Rect2(Vector2.ONE * -500, Vector2.ONE * 1000)
 	)
 
 func _integrate_forces(_state: Physics2DDirectBodyState) -> void:
