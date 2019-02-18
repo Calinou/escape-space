@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://menu/theme.tres" type="Theme" id=1]
+[ext_resource path="res://menu/options/combo_slider.gd" type="Script" id=2]
+
+[node name="ComboSlider" type="HBoxContainer"]
+margin_top = 62.0
+margin_right = 620.0
+margin_bottom = 90.0
+theme = ExtResource( 1 )
+custom_constants/separation = 24
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+margin_top = 4.0
+margin_right = 414.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.8
+align = 2
+
+[node name="SpinBox" type="SpinBox" parent="." groups=[
+"makes_sound",
+]]
+margin_left = 438.0
+margin_right = 518.0
+margin_bottom = 36.0
+
+[node name="HSlider" type="HSlider" parent="." groups=[
+"makes_sound",
+]]
+margin_left = 542.0
+margin_top = 8.0
+margin_right = 620.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.15
+ticks_on_borders = true
+
+[connection signal="value_changed" from="SpinBox" to="." method="_on_spin_box_value_changed"]
+[connection signal="value_changed" from="HSlider" to="." method="_on_slider_value_changed"]

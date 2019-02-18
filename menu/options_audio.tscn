@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://menu/theme.tres" type="Theme" id=1]
 [ext_resource path="res://menu/options_audio.gd" type="Script" id=2]
 [ext_resource path="res://fonts/default_1.tres" type="DynamicFont" id=3]
-[ext_resource path="res://menu/shortcut_cancel.tres" type="ShortCut" id=4]
+[ext_resource path="res://menu/options/combo_slider.tscn" type="PackedScene" id=4]
+[ext_resource path="res://menu/shortcut_cancel.tres" type="ShortCut" id=5]
 
 [node name="OptionsAudio" type="Control"]
 anchor_right = 1.0
@@ -40,62 +41,50 @@ margin_bottom = 54.0
 custom_constants/separation = 8
 alignment = 1
 
-[node name="SoundVolume" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 22.0
+[node name="SoundVolume" parent="VBoxContainer" instance=ExtResource( 4 )]
+margin_top = 14.0
 margin_right = 680.0
 margin_bottom = 50.0
-custom_constants/separation = 20
 
-[node name="Label" type="Label" parent="VBoxContainer/SoundVolume"]
-margin_right = 502.0
-margin_bottom = 28.0
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.8
+[node name="Label" parent="VBoxContainer/SoundVolume" index="0"]
+margin_right = 464.0
 text = "Sound Volume"
-align = 2
 
-[node name="HSlider" type="HSlider" parent="VBoxContainer/SoundVolume" groups=[
-"makes_sound",
-"autofocus",
-]]
-margin_left = 522.0
-margin_top = 4.0
-margin_right = 680.0
-margin_bottom = 24.0
-size_flags_horizontal = 3
-size_flags_vertical = 4
-size_flags_stretch_ratio = 0.25
+[node name="SpinBox" parent="VBoxContainer/SoundVolume" index="1"]
+margin_left = 488.0
+margin_right = 568.0
 max_value = 1.0
-step = 0.0
+step = 0.01
 value = 0.5
-ticks_on_borders = false
 
-[node name="MusicVolume" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HSlider" parent="VBoxContainer/SoundVolume" index="2"]
+margin_left = 592.0
+margin_right = 680.0
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="MusicVolume" parent="VBoxContainer" instance=ExtResource( 4 )]
 margin_top = 58.0
 margin_right = 680.0
-margin_bottom = 86.0
-custom_constants/separation = 20
+margin_bottom = 94.0
 
-[node name="Label" type="Label" parent="VBoxContainer/MusicVolume"]
-margin_right = 502.0
-margin_bottom = 28.0
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.8
+[node name="Label" parent="VBoxContainer/MusicVolume" index="0"]
+margin_right = 464.0
 text = "Music Volume"
-align = 2
 
-[node name="HSlider" type="HSlider" parent="VBoxContainer/MusicVolume" groups=[
-"makes_sound",
-]]
-margin_left = 522.0
-margin_top = 4.0
-margin_right = 680.0
-margin_bottom = 24.0
-size_flags_horizontal = 3
-size_flags_vertical = 4
-size_flags_stretch_ratio = 0.25
+[node name="SpinBox" parent="VBoxContainer/MusicVolume" index="1"]
+margin_left = 488.0
+margin_right = 568.0
 max_value = 1.0
-step = 0.0
+step = 0.01
+value = 0.5
+
+[node name="HSlider" parent="VBoxContainer/MusicVolume" index="2"]
+margin_left = 592.0
+margin_right = 680.0
+max_value = 1.0
+step = 0.01
 value = 0.5
 
 [node name="Done" type="Button" parent="." groups=[
@@ -110,9 +99,13 @@ margin_top = 83.0
 margin_right = 57.0
 margin_bottom = 117.0
 grow_horizontal = 2
-shortcut = ExtResource( 4 )
+shortcut = ExtResource( 5 )
 text = "Done"
 
 [connection signal="value_changed" from="VBoxContainer/SoundVolume/HSlider" to="." method="_on_sound_volume_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/MusicVolume/HSlider" to="." method="_on_music_volume_value_changed"]
 [connection signal="pressed" from="Done" to="." method="_on_done_pressed"]
+
+[editable path="VBoxContainer/SoundVolume"]
+
+[editable path="VBoxContainer/MusicVolume"]

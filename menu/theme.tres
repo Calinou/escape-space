@@ -1,9 +1,8 @@
-[gd_resource type="Theme" load_steps=11 format=2]
+[gd_resource type="Theme" load_steps=13 format=2]
 
 [ext_resource path="res://fonts/default_2.tres" type="DynamicFont" id=1]
 
 [sub_resource type="StyleBoxFlat" id=1]
-
 content_margin_left = 8.0
 content_margin_right = 8.0
 content_margin_top = 4.0
@@ -16,7 +15,6 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxFlat" id=2]
-
 content_margin_left = 8.0
 content_margin_right = 8.0
 content_margin_top = 4.0
@@ -32,7 +30,6 @@ shadow_color = Color( 1, 0.870588, 0.423529, 0.6 )
 shadow_size = 4
 
 [sub_resource type="StyleBoxFlat" id=3]
-
 content_margin_left = 8.0
 content_margin_right = 8.0
 content_margin_top = 4.0
@@ -45,7 +42,6 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxFlat" id=4]
-
 content_margin_left = 8.0
 content_margin_right = 8.0
 content_margin_top = 4.0
@@ -58,7 +54,6 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxFlat" id=5]
-
 content_margin_left = 8.0
 content_margin_right = 8.0
 content_margin_top = 4.0
@@ -71,30 +66,47 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
 [sub_resource type="Gradient" id=6]
-
 colors = PoolColorArray( 0, 0, 0, 0, 1, 1, 1, 0 )
 
 [sub_resource type="GradientTexture" id=7]
-
 gradient = SubResource( 6 )
 width = 1
 
 [sub_resource type="StyleBoxFlat" id=8]
-
 bg_color = Color( 0.654902, 0.537255, 0.223529, 1 )
 border_width_right = 5
 border_color = Color( 1, 0.890196, 0.294118, 1 )
 border_blend = true
 
 [sub_resource type="StyleBoxFlat" id=9]
-
 draw_center = false
 border_width_top = 10
 border_width_bottom = 10
 border_color = Color( 0, 0, 0, 0.156863 )
 
-[resource]
+[sub_resource type="StyleBoxFlat" id=10]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color( 0.0627451, 0.0627451, 0.0627451, 0.752941 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
+[sub_resource type="StyleBoxFlat" id=11]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color( 0.25098, 0.25098, 0.25098, 0.501961 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[resource]
 default_font = ExtResource( 1 )
 Button/colors/font_color = Color( 0.878431, 0.878431, 0.878431, 1 )
 Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
@@ -116,3 +128,15 @@ HSlider/styles/grabber_area = SubResource( 8 )
 HSlider/styles/grabber_disabled = null
 HSlider/styles/grabber_highlight = null
 HSlider/styles/slider = SubResource( 9 )
+LineEdit/colors/clear_button_color = Color( 0.878431, 0.878431, 0.878431, 1 )
+LineEdit/colors/clear_button_color_pressed = Color( 1, 1, 1, 1 )
+LineEdit/colors/cursor_color = Color( 0.941176, 0.941176, 0.941176, 1 )
+LineEdit/colors/font_color = Color( 0.878431, 0.878431, 0.878431, 1 )
+LineEdit/colors/font_color_selected = Color( 0, 0, 0, 1 )
+LineEdit/colors/selection_color = Color( 0.490196, 0.490196, 0.490196, 1 )
+LineEdit/constants/minimum_spaces = 12
+LineEdit/fonts/font = null
+LineEdit/icons/clear = null
+LineEdit/styles/focus = SubResource( 2 )
+LineEdit/styles/normal = SubResource( 10 )
+LineEdit/styles/read_only = SubResource( 11 )

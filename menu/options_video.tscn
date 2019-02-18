@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://menu/theme.tres" type="Theme" id=1]
 [ext_resource path="res://menu/options_video.gd" type="Script" id=2]
 [ext_resource path="res://fonts/default_1.tres" type="DynamicFont" id=3]
-[ext_resource path="res://menu/shortcut_cancel.tres" type="ShortCut" id=4]
+[ext_resource path="res://menu/options/combo_slider.tscn" type="PackedScene" id=4]
+[ext_resource path="res://menu/shortcut_cancel.tres" type="ShortCut" id=5]
 
 [node name="OptionsVideo" type="Control"]
 anchor_right = 1.0
@@ -41,9 +42,9 @@ custom_constants/separation = 8
 alignment = 1
 
 [node name="Fullscreen" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 18.0
+margin_top = 14.0
 margin_right = 620.0
-margin_bottom = 54.0
+margin_bottom = 50.0
 custom_constants/separation = 24
 
 [node name="Label" type="Label" parent="VBoxContainer/Fullscreen"]
@@ -68,35 +69,24 @@ size_flags_stretch_ratio = 0.15
 toggle_mode = true
 text = "Off"
 
-[node name="Brightness" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 62.0
-margin_right = 620.0
-margin_bottom = 90.0
-custom_constants/separation = 24
+[node name="Brightness" parent="VBoxContainer" instance=ExtResource( 4 )]
+margin_top = 58.0
+margin_bottom = 94.0
 
-[node name="Label" type="Label" parent="VBoxContainer/Brightness"]
-margin_right = 501.0
-margin_bottom = 28.0
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.8
+[node name="Label" parent="VBoxContainer/Brightness" index="0"]
 text = "Brightness"
-align = 2
 
-[node name="HSlider" type="HSlider" parent="VBoxContainer/Brightness" groups=[
-"makes_sound",
-]]
-margin_left = 525.0
-margin_top = 4.0
-margin_right = 620.0
-margin_bottom = 24.0
-size_flags_horizontal = 3
-size_flags_vertical = 4
-size_flags_stretch_ratio = 0.15
+[node name="SpinBox" parent="VBoxContainer/Brightness" index="1"]
 min_value = 0.5
 max_value = 1.5
-step = 0.0
+step = 0.01
 value = 1.0
-ticks_on_borders = true
+
+[node name="HSlider" parent="VBoxContainer/Brightness" index="2"]
+min_value = 0.5
+max_value = 1.5
+step = 0.01
+value = 1.0
 
 [node name="Done" type="Button" parent="." groups=[
 "makes_sound",
@@ -110,9 +100,11 @@ margin_top = 83.0
 margin_right = 57.0
 margin_bottom = 117.0
 grow_horizontal = 2
-shortcut = ExtResource( 4 )
+shortcut = ExtResource( 5 )
 text = "Done"
 
 [connection signal="toggled" from="VBoxContainer/Fullscreen/Button" to="." method="_on_fullscreen_toggled"]
 [connection signal="value_changed" from="VBoxContainer/Brightness/HSlider" to="." method="_on_brightness_value_changed"]
 [connection signal="pressed" from="Done" to="." method="_on_done_pressed"]
+
+[editable path="VBoxContainer/Brightness"]

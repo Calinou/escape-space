@@ -6,7 +6,7 @@ extends Control
 signal menu_changed
 
 onready var fullscreen_button := $VBoxContainer/Fullscreen/Button as Button
-onready var brightness_slider := $VBoxContainer/Brightness/HSlider as HSlider
+onready var brightness_slider := $VBoxContainer/Brightness/HSlider as Slider
 
 func _ready() -> void:
 	fullscreen_button.pressed = OS.window_fullscreen
