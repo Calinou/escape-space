@@ -5,7 +5,6 @@
 [ext_resource path="res://fonts/data/ibm_plex_sans_condensed_medium.tres" type="DynamicFontData" id=3]
 
 [sub_resource type="DynamicFont" id=1]
-
 size = 17
 font_data = ExtResource( 3 )
 

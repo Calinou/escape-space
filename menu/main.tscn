@@ -96,13 +96,12 @@ text = "Credits"
 flat = true
 
 [node name="UpdateChecker" parent="." instance=ExtResource( 5 )]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -414.0
-margin_top = -81.0
-margin_right = -19.0
+margin_left = 98.0
+margin_top = 519.0
+margin_right = 493.0
 margin_bottom = -17.0
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
