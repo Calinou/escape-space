@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Added
+
+- Menu sliders now have an editable number field next to them.
+- Menu sliders can now be reset to their default value by right-clicking them.
+
+### Changed
+
+- The GUI is now confined to a 16:9 rectangle when using an ultrawide
+  aspect ratio.
+
 ### Fixed
 
 - A ball's particle trail no longer disappears suddenly when it leaves
