@@ -12,7 +12,7 @@ MAKEFLAGS += --silent
 all: dist-linux dist-macos dist-windows
 
 NAME = escape-space
-VERSION = 1.1.0
+VERSION = 1.2.0
 
 # The full package name with version
 PKG_NAME := $(NAME)-$(VERSION)

@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## [1.2.0] - 2019-03-01
+
 ### Added
 
 - Menu sliders now have an editable number field next to them.
@@ -40,5 +42,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 - Initial versioned release.
 
-[Unreleased]: https://github.com/Calinou/escape-space/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/Calinou/escape-space/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/Calinou/escape-space/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/Calinou/escape-space/compare/v1.0.0...v1.1.0
