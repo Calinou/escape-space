@@ -17,6 +17,10 @@ VERSION = 1.2.0
 # The full package name with version
 PKG_NAME := $(NAME)-$(VERSION)
 
+# The path of the project to deploy to on itch.io
+# Translates into an URL of the form <https://[user].itch.io/[name]>
+ITCHIO_PROJECT = calinou/$(NAME)
+
 # The Godot binary path (can be just the name if it's in the PATH)
 GODOT = godot-headless
 
@@ -26,7 +30,24 @@ OUTPUT_PATH = dist
 # Workaround for <https://github.com/godotengine/godot/issues/23044>
 TIMEOUT = 30
 
+# Clean up build artifacts
+.PHONY: clean
+clean:
+	rm -rf "$(OUTPUT_PATH)/" "icon.ico"
+
+# Deploy to itch.io (requires `butler` in PATH)
+# See <https://itch.io/docs/butler/login.html> for authentication
+.PHONY: deploy
+deploy:
+	butler push --userversion "$(VERSION)" "dist/$(PKG_NAME)-setup-x86_64.exe" "$(ITCHIO_PROJECT):windows-installer-x86_64"
+	butler push --userversion "$(VERSION)" "dist/$(PKG_NAME)-setup-x86.exe" "$(ITCHIO_PROJECT):windows-installer-x86"
+	butler push --userversion "$(VERSION)" "dist/$(PKG_NAME)-windows-x86_64.zip" "$(ITCHIO_PROJECT):windows-zip-x86_64"
+	butler push --userversion "$(VERSION)" "dist/$(PKG_NAME)-windows-x86.zip" "$(ITCHIO_PROJECT):windows-zip-x86"
+	butler push --userversion "$(VERSION)" "dist/$(PKG_NAME)-macos.zip" "$(ITCHIO_PROJECT):macos-x86_64"
+	butler push --userversion "$(VERSION)" "dist/$(PKG_NAME)-linux-x86_64.tar.xz" "$(ITCHIO_PROJECT):linux-x86_64"
+
 # Run before all export targets
+.PHONY: dist
 dist:
 	# Create directories needed for headless exporting
 	# Workaround for <https://github.com/godotengine/godot/issues/16949>
@@ -73,8 +94,3 @@ dist-windows: dist
 
 	# Clean up temporary files
 	rm -rf "$(OUTPUT_PATH)/.windows/"
-
-# Clean up build artifacts
-.PHONY: clean
-clean:
-	rm -rf "$(OUTPUT_PATH)/" "icon.ico"
