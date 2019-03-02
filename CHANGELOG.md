@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Added
+
+- Screenshots can now be taken by pressing <kbd>F12</kbd>.
+
 ## [1.2.0] - 2019-03-01
 
 ### Added
