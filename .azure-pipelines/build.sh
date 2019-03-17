@@ -23,7 +23,7 @@ sudo apt-get install --allow-unauthenticated -qqq winehq-devel
 # Install Inno Setup using innoextract and create a launcher script
 tmp="$(mktemp)"
 curl -fsSLo "$tmp" \
-    "http://constexpr.org/innoextract/files/snapshots/innoextract-1.8-dev-2018-09-09/innoextract-1.8-dev-2018-09-09-linux.tar.xz"
+    "https://constexpr.org/innoextract/files/snapshots/innoextract-1.8-dev-2019-01-13/innoextract-1.8-dev-2019-01-13-linux.tar.xz"
 tar xf "$tmp"
 sudo mv innoextract* /opt/innoextract/
 curl -fsSLO "http://files.jrsoftware.org/is/5/innosetup-5.6.1-unicode.exe"
