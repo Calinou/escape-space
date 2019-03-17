@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/warning_floor_yellow.png-ea69bfe8132bc25061b17e21f952081b.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

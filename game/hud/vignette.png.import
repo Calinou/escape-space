@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/vignette.png-d8e5daa6ce5f0f459dd7b6443b4c3b1b.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
