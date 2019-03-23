@@ -58,4 +58,4 @@ sed -i \
     project.godot
 
 # Export to all platforms
-make VERSION="continuous" OUTPUT_PATH="$SYSTEM_ARTIFACTSDIRECTORY"
+make VERSION="continuous" OUTPUT_DIR="$SYSTEM_ARTIFACTSDIRECTORY"
