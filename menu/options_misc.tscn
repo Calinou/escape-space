@@ -56,8 +56,8 @@ text = "Check for Updates"
 align = 2
 
 [node name="Button" type="Button" parent="VBoxContainer/CheckUpdates" groups=[
-"makes_sound",
 "autofocus",
+"makes_sound",
 ]]
 margin_left = 525.0
 margin_right = 620.0
@@ -82,6 +82,5 @@ margin_bottom = 117.0
 grow_horizontal = 2
 shortcut = ExtResource( 4 )
 text = "Done"
-
 [connection signal="toggled" from="VBoxContainer/CheckUpdates/Button" to="." method="_on_check_updates_toggled"]
 [connection signal="pressed" from="Done" to="." method="_on_done_pressed"]

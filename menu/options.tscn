@@ -40,8 +40,8 @@ margin_bottom = 104.0
 custom_constants/separation = 20
 
 [node name="VideoSettings" type="Button" parent="VBoxContainer" groups=[
-"makes_sound",
 "autofocus",
+"makes_sound",
 ]]
 margin_right = 195.0
 margin_bottom = 36.0
@@ -89,7 +89,6 @@ margin_bottom = 196.0
 grow_horizontal = 2
 shortcut = ExtResource( 4 )
 text = "Done"
-
 [connection signal="pressed" from="VBoxContainer/VideoSettings" to="." method="_on_video_settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/AudioSettings" to="." method="_on_audio_settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/Controls" to="." method="_on_controls_pressed"]

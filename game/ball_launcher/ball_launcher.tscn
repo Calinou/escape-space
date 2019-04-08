@@ -6,19 +6,15 @@
 [ext_resource path="res://game/ball/ball.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-
 extents = Vector2( 64, 32 )
 
 [sub_resource type="CanvasItemMaterial" id=2]
-
 blend_mode = 1
 
 [sub_resource type="Curve" id=3]
-
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.494463, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="Animation" id=4]
-
 resource_name = "launch"
 tracks/0/type = "value"
 tracks/0/path = NodePath("LaunchParticles:emitting")
@@ -76,5 +72,4 @@ wait_time = 1.5
 
 [node name="ResourcePreloader" type="ResourcePreloader" parent="."]
 resources = [ PoolStringArray( "ball" ), [ ExtResource( 4 ) ] ]
-
 [connection signal="timeout" from="LaunchTimer" to="." method="_on_launch_timer_timeout"]

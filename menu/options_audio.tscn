@@ -101,7 +101,6 @@ margin_bottom = 117.0
 grow_horizontal = 2
 shortcut = ExtResource( 5 )
 text = "Done"
-
 [connection signal="value_changed" from="VBoxContainer/SoundVolume/HSlider" to="." method="_on_sound_volume_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/MusicVolume/HSlider" to="." method="_on_music_volume_value_changed"]
 [connection signal="pressed" from="Done" to="." method="_on_done_pressed"]

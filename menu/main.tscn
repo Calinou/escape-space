@@ -53,8 +53,8 @@ custom_constants/separation = 20
 alignment = 1
 
 [node name="Play" type="Button" parent="VBoxContainer" groups=[
-"makes_sound",
 "autofocus",
+"makes_sound",
 ]]
 margin_top = 226.0
 margin_right = 216.0
@@ -103,7 +103,6 @@ margin_left = 98.0
 margin_top = 519.0
 margin_right = 493.0
 margin_bottom = -17.0
-
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

@@ -37,7 +37,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.15
 ticks_on_borders = true
-
 [connection signal="value_changed" from="SpinBox" to="." method="_on_spin_box_value_changed"]
 [connection signal="gui_input" from="HSlider" to="." method="_on_slider_gui_input"]
 [connection signal="value_changed" from="HSlider" to="." method="_on_slider_value_changed"]

@@ -29,11 +29,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://game/exit/exit.gd"
 }, {
-"base": "KinematicBody2D",
-"class": "FasterBallItem",
-"language": "GDScript",
-"path": "res://game/item/faster_ball.gd"
-}, {
 "base": "NinePatchRect",
 "class": "ForceField",
 "language": "GDScript",
@@ -49,33 +44,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://game/goal/goal.gd"
 }, {
-"base": "KinematicBody2D",
-"class": "Item",
-"language": "GDScript",
-"path": "res://game/item/item.gd"
-}, {
 "base": "RigidBody2D",
 "class": "Paddle",
 "language": "GDScript",
 "path": "res://game/paddle/paddle.gd"
-}, {
-"base": "KinematicBody2D",
-"class": "SlowerBallItem",
-"language": "GDScript",
-"path": "res://game/item/slower_ball.gd"
 } ]
 _global_script_class_icons={
 "Ball": "",
 "BallLauncher": "",
 "Brick": "",
 "Exit": "",
-"FasterBallItem": "",
 "ForceField": "",
 "Game": "",
 "Goal": "",
-"Item": "",
-"Paddle": "",
-"SlowerBallItem": ""
+"Paddle": ""
 }
 
 [application]

@@ -5,7 +5,6 @@
 [ext_resource path="res://fonts/default_4.tres" type="DynamicFont" id=3]
 
 [sub_resource type="Animation" id=1]
-
 resource_name = "fade_in"
 length = 0.5
 tracks/0/type = "value"
@@ -80,6 +79,5 @@ valign = 2
 anims/fade_in = SubResource( 1 )
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
-
 [connection signal="pressed" from="Update" to="." method="_on_update_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_completed"]

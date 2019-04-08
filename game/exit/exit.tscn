@@ -4,11 +4,9 @@
 [ext_resource path="res://game/exit/exit.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-
 radius = 64.0
 
 [sub_resource type="CircleShape2D" id=2]
-
 radius = 66.0
 
 [node name="Exit" type="StaticBody2D"]
@@ -26,5 +24,4 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitArea"]
 shape = SubResource( 2 )
-
 [connection signal="body_entered" from="ExitArea" to="." method="_on_exit_area_body_entered"]

@@ -50,8 +50,8 @@ custom_fonts/normal_font = ExtResource( 4 )
 bbcode_enabled = true
 
 [node name="Back" type="Button" parent="." groups=[
-"makes_sound",
 "autofocus",
+"makes_sound",
 ]]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -64,5 +64,4 @@ margin_bottom = 254.0
 grow_horizontal = 2
 shortcut = ExtResource( 5 )
 text = "Back"
-
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

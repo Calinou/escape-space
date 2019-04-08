@@ -6,7 +6,6 @@
 [ext_resource path="res://game/hud/hud.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CanvasItemMaterial" id=1]
-
 blend_mode = 1
 
 [node name="Game" type="Node"]
@@ -61,7 +60,6 @@ region_rect = Rect2( 0, 0, 65535, 65535 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource( 4 )]
-
 [connection signal="bricks_changed" from="." to="CanvasLayer/HUD" method="_on_bricks_changed"]
 [connection signal="goals_changed" from="." to="CanvasLayer/HUD" method="_on_goals_changed"]
 [connection signal="state_changed" from="." to="CanvasLayer/HUD" method="_on_game_state_changed"]

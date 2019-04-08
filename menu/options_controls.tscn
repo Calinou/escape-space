@@ -56,8 +56,8 @@ text = "Move Up"
 align = 2
 
 [node name="Button" type="Button" parent="ActionList/move_up" groups=[
-"makes_sound",
 "autofocus",
+"makes_sound",
 ]]
 margin_left = 527.0
 margin_right = 670.0
@@ -155,5 +155,4 @@ margin_bottom = 178.0
 grow_horizontal = 2
 shortcut = ExtResource( 4 )
 text = "Done"
-
 [connection signal="pressed" from="Done" to="." method="_on_done_pressed"]

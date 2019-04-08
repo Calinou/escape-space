@@ -8,7 +8,6 @@
 [ext_resource path="res://game/goal/get_ball.wav" type="AudioStream" id=6]
 
 [sub_resource type="DynamicFont" id=1]
-
 size = 26
 use_mipmaps = true
 use_filter = true
@@ -16,19 +15,15 @@ extra_spacing_char = 1
 font_data = ExtResource( 2 )
 
 [sub_resource type="CanvasItemMaterial" id=2]
-
 blend_mode = 1
 
 [sub_resource type="Curve" id=3]
-
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.5, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="CircleShape2D" id=4]
-
 radius = 36.0
 
 [sub_resource type="Animation" id=5]
-
 tracks/0/type = "value"
 tracks/0/path = NodePath("ScoreArea/CollisionShape2D:disabled")
 tracks/0/interp = 1
@@ -79,7 +74,6 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id=6]
-
 resource_name = "get_ball"
 length = 0.6
 tracks/0/type = "value"
@@ -96,7 +90,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=7]
-
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -173,5 +166,4 @@ anims/spin = SubResource( 7 )
 
 [node name="ResourcePreloader" type="ResourcePreloader" parent="."]
 resources = [ PoolStringArray( "close", "get_ball" ), [ ExtResource( 5 ), ExtResource( 6 ) ] ]
-
 [connection signal="body_entered" from="ScoreArea" to="." method="_on_score_area_body_entered"]
