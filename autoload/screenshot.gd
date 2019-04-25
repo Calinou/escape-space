@@ -31,7 +31,7 @@ func _input(event: InputEvent) -> void:
 		for key in datetime:
 			datetime[key] = str(datetime[key]).pad_zeros(2)
 
-		var screenshot_name := "/escape-space_{year}-{month}-{day}_{hour}:{minute}:{second}" \
+		var screenshot_name := "/escape-space_{year}-{month}-{day}_{hour}.{minute}.{second}" \
 				.format(datetime)
 
 		var error := image.save_png(
