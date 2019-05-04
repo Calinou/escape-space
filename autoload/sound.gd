@@ -11,7 +11,7 @@ enum Type {
 # Plays a sound. The AudioStreamPlayer node will be added to the `parent`
 # specified as parameter.
 func play(type: int, parent: Node, stream: AudioStream, volume_db: float = 0.0, pitch_scale: float = 1.0) -> void:
-	var audio_stream_player
+	var audio_stream_player: Node
 	match type:
 		Type.NON_POSITIONAL:
 			audio_stream_player = AudioStreamPlayer.new()
