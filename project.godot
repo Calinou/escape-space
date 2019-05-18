@@ -84,6 +84,7 @@ Music="*res://autoload/music.tscn"
 Sound="*res://autoload/sound.gd"
 ColorCorrection="*res://autoload/color_correction.tscn"
 Screenshot="*res://autoload/screenshot.gd"
+CommandLine="*res://autoload/command_line.gd"
 
 [debug]
 

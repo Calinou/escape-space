@@ -47,7 +47,22 @@ onready var hud := $CanvasLayer/HUD as Control
 
 func _ready() -> void:
 	randomize()
-	change_level(1)
+
+	var cli_level = CommandLine.arguments.get("level")
+	# Starting level can be specified using `--level=N` on the command line
+	if cli_level != null:
+		if int(cli_level) < 1 or int(cli_level) > LEVEL_MAX:
+			push_error(
+					'--level only accepts integer values between 1 and {level_max} ("{value}" given).' \
+					.format({
+						level_max = LEVEL_MAX,
+						value = cli_level,
+					})
+			)
+			get_tree().quit()
+			return
+
+	change_level(int(CommandLine.arguments.get("level", 1)))
 
 func _process(_delta: float) -> void:
 	if not level_timer.is_stopped():
