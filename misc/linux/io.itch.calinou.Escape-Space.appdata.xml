@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+  <id>io.itch.calinou.Escape-Space</id>
+  <name>Escape Space</name>
+  <summary>2D puzzle game</summary>
+  <description>
+    <p>
+      Escape Space is a 2D puzzle game. Escape space before time runs out,
+      or the shuttle will leave without you!
+    </p>
+  </description>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MIT</project_license>
+  <developer_name>Hugo Locurcio and contributors</developer_name>
+  <url type="homepage">https://calinou.itch.io/escape-space/</url>
+  <url type="bugtracker">https://github.com/Calinou/escape-space/issues</url>
+  <content_rating type="oars-1.1">
+    <content_attribute id="social-info">mild</content_attribute>
+  </content_rating>
+  <releases>
+    <release version="1.2.0" date="2019-03-02"/>
+  </releases>
+</component>

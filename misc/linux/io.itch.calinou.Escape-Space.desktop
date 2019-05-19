@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Escape Space
+GenericName=2D puzzle game
+Comment=Escape space before time runs out
+Exec=escape-space
+Icon=escape-space
+Terminal=false
+Type=Application
+Categories=Game;
