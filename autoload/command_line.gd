@@ -5,6 +5,7 @@ extends Node
 
 var arguments = {}
 
+
 func _ready():
 	for argument in OS.get_cmdline_args():
 		# Parse valid command-line arguments of the form `--key=value` into a dictionary

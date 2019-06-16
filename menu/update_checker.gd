@@ -19,12 +19,14 @@ const UPDATE_THROTTLE = 600
 # project is built
 const VERSION_DATE_BIAS = 600
 
+
 func _ready() -> void:
 	version_label.text = str(ProjectSettings.get("application/config/version"))
 
 	# User preference overrides the setting defined on export
 	if Settings.file.get_value("network", "check_for_updates", ProjectSettings.get("application/config/check_for_updates")):
 		check_for_updates()
+
 
 # TODO: Check for stable releases only (depending on user preference)
 func check_for_updates() -> void:
@@ -43,6 +45,7 @@ func check_for_updates() -> void:
 
 	if error != OK:
 		push_error("A client error occurred while trying to check for updates.")
+
 
 func _on_http_request_completed(result: int, _response_code: int, _headers: PoolStringArray, body: PoolByteArray) -> void:
 	if result != HTTPRequest.RESULT_SUCCESS:
@@ -65,11 +68,13 @@ func _on_http_request_completed(result: int, _response_code: int, _headers: Pool
 		# Set the URL that will be opened when the button is pressed
 		update_button.set_meta("url", json[0].html_url)
 
+
 func _on_update_pressed() -> void:
 	var error := OS.shell_open(update_button.get_meta("url"))
 
 	if error != OK:
 		push_error("An error occurred while trying to open the Releases page in a Web browser.")
+
 
 # Parses an ISO-8601 date string to a datetime dictionary that can be parsed by Godot.
 func _parse_date(iso_date: String) -> Dictionary:

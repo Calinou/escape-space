@@ -26,8 +26,10 @@ onready var game := $"/root/Game" as Node
 onready var camera := $Camera2D as Camera2D
 onready var tween := $Tween as Tween
 
+
 func _ready() -> void:
 	game.connect("state_changed", self, "_on_game_state_changed")
+
 
 func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 	motion = Vector2.ZERO
@@ -49,6 +51,7 @@ func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 			Tween.TRANS_SINE,
 			Tween.EASE_IN_OUT
 	)
+
 
 func _on_game_state_changed(state: int) -> void:
 	match state:

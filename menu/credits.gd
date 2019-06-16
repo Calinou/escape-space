@@ -30,6 +30,7 @@ const credits = {
 
 onready var rich_text_label := $Panel/RichTextLabel as RichTextLabel
 
+
 func _ready() -> void:
 	# Construct BBCode from the credits dictionary
 	var credits_text = "[center]"
@@ -46,6 +47,7 @@ func _ready() -> void:
 	credits_text += "[/center]"
 
 	rich_text_label.bbcode_text = credits_text
+
 
 func _on_back_pressed() -> void:
 	emit_signal("menu_changed", $"/root/Menu/Control/Main")

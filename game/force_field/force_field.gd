@@ -10,6 +10,7 @@ const DEFAULT_WIDTH = 128
 
 onready var body := $StaticBody2D as StaticBody2D
 
+
 func _ready() -> void:
 	# Update the body's width to match the size of the NinePatchRect
 	body.position.x = rect_size.x / 2

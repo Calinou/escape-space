@@ -5,17 +5,20 @@ extends Control
 
 signal menu_changed
 
+
 func start_game() -> void:
 	var error := get_tree().change_scene("res://game/game.tscn")
 
 	if error != OK:
 		push_error("Couldn't load the game scene.")
 
+
 func _ready() -> void:
 	# Start the game immediately if `--level=N` is passed on the command line
 	# Setting the starting level is handled in `game/game.gd`
 	if CommandLine.arguments.get("level"):
 		start_game()
+
 
 func _on_play_pressed() -> void:
 	emit_signal("menu_changed")
@@ -24,8 +27,10 @@ func _on_play_pressed() -> void:
 	yield($"/root/Menu", "transition_finished")
 	start_game()
 
+
 func _on_options_pressed() -> void:
 	emit_signal("menu_changed", $"/root/Menu/Control/Options")
+
 
 func _on_quit_pressed() -> void:
 	emit_signal("menu_changed")
@@ -33,6 +38,7 @@ func _on_quit_pressed() -> void:
 
 	yield($"/root/Menu", "transition_finished")
 	get_tree().quit()
+
 
 func _on_credits_pressed() -> void:
 	emit_signal("menu_changed", $"/root/Menu/Control/Credits")

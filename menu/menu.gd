@@ -18,6 +18,7 @@ onready var click_sound := preloader.get_resource("click") as AudioStream
 
 signal transition_finished
 
+
 func _ready() -> void:
 	animation_player.play("fade_in")
 	Music.play_song(preload("res://menu/menu.ogg"))
@@ -37,21 +38,26 @@ func _ready() -> void:
 
 	grab_autofocus()
 
+
 func _input(event: InputEvent) -> void:
 	# Move the background as the mouse moves
 	if event is InputEventMouseMotion:
 		motion += event.relative
 
+
 func _physics_process(_delta: float) -> void:
 	motion *= 0.9
 	background.scroll_offset += motion
+
 
 func _control_hovered(control: Control) -> void:
 	if control is BaseButton and not control.disabled:
 		Sound.play(Sound.Type.NON_POSITIONAL, self, hover_sound, -5.5)
 
+
 func _control_pressed(_control: Control) -> void:
 	Sound.play(Sound.Type.NON_POSITIONAL, self, click_sound, -2.0)
+
 
 # Called when a child GUI sets the currently-viewed GUI.
 # If no GUI is set, then the screen will fade to black; this is
@@ -75,6 +81,7 @@ func _on_menu_changed(new_menu: Control = null) -> void:
 		yield(animation_player, "animation_finished")
 
 	emit_signal("transition_finished")
+
 
 # Focus the first visible node with the "autofocus" group.
 func grab_autofocus():

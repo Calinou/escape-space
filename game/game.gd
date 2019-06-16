@@ -45,6 +45,7 @@ onready var pregame_timer := $PregameTimer as Timer
 onready var level_timer := $LevelTimer as Timer
 onready var hud := $CanvasLayer/HUD as Control
 
+
 func _ready() -> void:
 	randomize()
 
@@ -64,9 +65,11 @@ func _ready() -> void:
 
 	change_level(int(CommandLine.arguments.get("level", 1)))
 
+
 func _process(_delta: float) -> void:
 	if not level_timer.is_stopped():
 		emit_signal("time_left_changed", level_timer.time_left)
+
 
 # Changes to a new level and initializes data displayed by the HUD.
 func change_level(level_name: int) -> void:
@@ -101,6 +104,7 @@ func change_level(level_name: int) -> void:
 	emit_signal("time_limit_changed", level.time_limit)
 	emit_signal("time_left_changed", level.time_limit)
 
+
 # Checks whether the player is allowed to exit and starts the winning sequence
 # if they are.
 func _on_exit_requested() -> void:
@@ -115,17 +119,22 @@ func _on_exit_requested() -> void:
 	# Player is allowed to exit
 	self.state = State.WON
 
+
 func _on_brick_destroyed() -> void:
 	self.bricks_left -= 1
+
 
 func _on_goal_ball_received(goal: Goal) -> void:
 	self.goals[goal.description] = goal.balls_required
 
+
 func _on_level_timer_timeout() -> void:
 	self.state = State.LOST
 
+
 func _on_pregame_timer_timeout() -> void:
 	self.state = State.PLAYING
+
 
 func set_state(p_state: int) -> void:
 	state = p_state
@@ -148,9 +157,11 @@ func set_state(p_state: int) -> void:
 			# Restart the current level
 			change_level(current_level)
 
+
 func set_bricks_left(bricks: int) -> void:
 	bricks_left = bricks
 	emit_signal("bricks_changed", bricks)
+
 
 func set_goals(p_goals: Dictionary) -> void:
 	goals = p_goals

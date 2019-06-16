@@ -17,12 +17,15 @@ onready var preloader := $ResourcePreloader as ResourcePreloader
 onready var get_ball_sound := preloader.get_resource("get_ball")
 onready var close_sound := preloader.get_resource("close")
 
+
 func _ready() -> void:
 	connect("ball_received", $"/root/Game", "_on_goal_ball_received")
 	update_ball_counter(balls_required)
 
+
 func update_ball_counter(balls: int) -> void:
 	ball_counter.text = str(balls)
+
 
 # The area's collision shape is disabled when the number of balls required
 # reaches 0, so it won't be called anymore after the goal is complete

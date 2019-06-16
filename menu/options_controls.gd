@@ -10,6 +10,7 @@ var action: String
 
 onready var action_list = $ActionList as VBoxContainer
 
+
 func _ready() -> void:
 	set_process_input(false)
 
@@ -38,6 +39,7 @@ func _ready() -> void:
 		button.text = Settings.file.get_value("input", action, scancode)
 		button.connect("pressed", self, "_wait_for_input", [action])
 
+
 func _input(event: InputEvent) -> void:
 	if action and event is InputEventKey and not event.is_action_pressed("ui_cancel"):
 		var button := action_list.get_node(action).get_node("Button") as Button
@@ -53,12 +55,15 @@ func _input(event: InputEvent) -> void:
 		get_tree().set_input_as_handled()
 		set_process_input(false)
 
+
 func _wait_for_input(selected_action: String) -> void:
 	action = selected_action
 	set_process_input(true)
 
+
 func _on_done_pressed() -> void:
 	emit_signal("menu_changed", $"/root/Menu/Control/Options")
+
 
 # Removes existing key input events from an action and binds a new event to an action.
 func bind_event(action: String, event: InputEvent) -> void:

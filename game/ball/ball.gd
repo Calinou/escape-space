@@ -24,6 +24,7 @@ onready var bounce_sounds := [
 	preloader.get_resource("bounce.3"),
 ]
 
+
 func _integrate_forces(_state: Physics2DDirectBodyState) -> void:
 	linear_velocity = linear_velocity.clamped(MAX_SPEED)
 
@@ -47,9 +48,11 @@ func _integrate_forces(_state: Physics2DDirectBodyState) -> void:
 			# Destroy unclaimed balls on their first collision
 			animation_player.play("destroy")
 
+
 func _on_animation_finished(anim_name: String) -> void:
 	if anim_name == "destroy":
 		queue_free()
+
 
 # Called when the ball is claimed (i.e. touched by a paddle).
 func claim():

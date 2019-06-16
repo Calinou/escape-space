@@ -9,9 +9,11 @@ var screenshots_dir := (
 		ProjectSettings.get_setting("application/config/name") as String
 )
 
+
 func _ready() -> void:
 	# Make it possible to take screenshots while paused
 	pause_mode = PAUSE_MODE_PROCESS
+
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("take_screenshot"):

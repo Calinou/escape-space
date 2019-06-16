@@ -15,16 +15,20 @@ onready var shape := $CollisionShape2D as CollisionShape2D
 # Toggling the collision shape must be done on idle time,
 # so `set_deferred()` is used
 
+
 func _ready() -> void:
 	game.connect("state_changed", self, "_on_game_state_changed")
+
 
 func _on_body_entered(_body: PhysicsBody2D) -> void:
 	emit_signal("info_triggered", tr(text))
 	cooldown.start()
 	shape.set_deferred("disabled", true)
 
+
 func _on_cooldown_timeout() -> void:
 	shape.set_deferred("disabled", false)
+
 
 func _on_game_state_changed(state: int) -> void:
 	match state:
