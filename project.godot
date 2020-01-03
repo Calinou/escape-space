@@ -63,6 +63,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Escape Space"
+config/description="A top-down game featuring Pong, Breakout and pinball mechanics"
 run/main_scene="res://menu/menu.tscn"
 boot_splash/image="res://splash.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
