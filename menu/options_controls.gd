@@ -6,7 +6,7 @@ extends Control
 signal menu_changed
 
 # The currently-edited input action
-var action: String
+var current_action := ""
 
 onready var action_list = $ActionList as VBoxContainer
 
@@ -41,14 +41,14 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if action and event is InputEventKey and not event.is_action_pressed("ui_cancel"):
-		var button := action_list.get_node(action).get_node("Button") as Button
+	if current_action and event is InputEventKey and not event.is_action_pressed("ui_cancel"):
+		var button := action_list.get_node(current_action).get_node("Button") as Button
 		var scancode := OS.get_scancode_string(event.scancode)
 		button.text = scancode
 		button.pressed = false
 
-		bind_event(action, event)
-		Settings.file.set_value("input", action, scancode)
+		bind_event(current_action, event)
+		Settings.file.set_value("input", current_action, scancode)
 		Settings.save()
 
 		# This makes sure Enter or Space do not re-trigger the key configuration sequence
@@ -57,7 +57,7 @@ func _input(event: InputEvent) -> void:
 
 
 func _wait_for_input(selected_action: String) -> void:
-	action = selected_action
+	current_action = selected_action
 	set_process_input(true)
 
 
