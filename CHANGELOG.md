@@ -12,6 +12,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 - The game can now be started on a specific level by specifying `--level=N`
   on the command line, `N` being the number of the level starting from 1.
 
+### Fixed
+
+- Fixed stuttering when the paddle is moving on high refresh-rate displays.
+
 ## [1.2.0] - 2019-03-01
 
 ### Added

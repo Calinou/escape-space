@@ -35,6 +35,7 @@ texture = ExtResource( 3 )
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 zoom = Vector2( 1.5, 1.5 )
+process_mode = 0
 smoothing_enabled = true
 smoothing_speed = 18.0
 drag_margin_left = 0.0
