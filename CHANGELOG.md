@@ -12,6 +12,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 - The game can now be started on a specific level by specifying `--level=N`
   on the command line, `N` being the number of the level starting from 1.
 
+### Changed
+
+- Godot 3.2 is now required to run the project from source.
+
 ### Fixed
 
 - Fixed stuttering when the paddle is moving on high refresh-rate displays.
