@@ -1,5 +1,7 @@
 # Escape Space
 
+![Screenshot](https://img.itch.zone/aW1hZ2UvMzM3OTExLzE2NzYyNzcucG5n/original/8coXBD.png)
+
 **A top-down game featuring Pong, Breakout and pinball mechanics.**
 
 You land on a space station and must complete several objectives
