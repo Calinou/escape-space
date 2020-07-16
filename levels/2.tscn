@@ -44,52 +44,54 @@ balls_required = 4
 [node name="BallLauncher" parent="." instance=ExtResource( 7 )]
 position = Vector2( 0, 544 )
 
-[node name="Brick" parent="." instance=ExtResource( 8 )]
+[node name="Bricks" type="Node" parent="."]
+
+[node name="Brick" parent="Bricks" instance=ExtResource( 8 )]
 position = Vector2( -416, 416 )
 
-[node name="Brick12" parent="." instance=ExtResource( 8 )]
+[node name="Brick12" parent="Bricks" instance=ExtResource( 8 )]
 position = Vector2( -416, 544 )
 
-[node name="Brick2" parent="." instance=ExtResource( 8 )]
+[node name="Brick2" parent="Bricks" instance=ExtResource( 8 )]
 position = Vector2( -352, 416 )
 
-[node name="Brick10" parent="." instance=ExtResource( 8 )]
+[node name="Brick10" parent="Bricks" instance=ExtResource( 8 )]
 position = Vector2( -352, 544 )
 
-[node name="Brick3" parent="." instance=ExtResource( 8 )]
+[node name="Brick3" parent="Bricks" instance=ExtResource( 8 )]
 position = Vector2( -288, 416 )
 
-[node name="Brick13" parent="." instance=ExtResource( 8 )]
+[node name="Brick13" parent="Bricks" instance=ExtResource( 8 )]
 position = Vector2( -288, 544 )
 
-[node name="Brick4" parent="." instance=ExtResource( 8 )]
+[node name="Brick4" parent="Bricks" instance=ExtResource( 8 )]
 position = Vector2( -224, 416 )
 
-[node name="Brick9" parent="." instance=ExtResource( 8 )]
+[node name="Brick9" parent="Bricks" instance=ExtResource( 8 )]
 position = Vector2( -224, 544 )
 
-[node name="Brick5" parent="." instance=ExtResource( 8 )]
+[node name="Brick5" parent="Bricks" instance=ExtResource( 8 )]
 position = Vector2( 415, 416 )
 
-[node name="Brick15" parent="." instance=ExtResource( 8 )]
+[node name="Brick15" parent="Bricks" instance=ExtResource( 8 )]
 position = Vector2( 415, 544 )
 
-[node name="Brick6" parent="." instance=ExtResource( 8 )]
+[node name="Brick6" parent="Bricks" instance=ExtResource( 8 )]
 position = Vector2( 351, 416 )
 
-[node name="Brick16" parent="." instance=ExtResource( 8 )]
+[node name="Brick16" parent="Bricks" instance=ExtResource( 8 )]
 position = Vector2( 351, 544 )
 
-[node name="Brick7" parent="." instance=ExtResource( 8 )]
+[node name="Brick7" parent="Bricks" instance=ExtResource( 8 )]
 position = Vector2( 287, 416 )
 
-[node name="Brick14" parent="." instance=ExtResource( 8 )]
+[node name="Brick14" parent="Bricks" instance=ExtResource( 8 )]
 position = Vector2( 287, 544 )
 
-[node name="Brick8" parent="." instance=ExtResource( 8 )]
+[node name="Brick8" parent="Bricks" instance=ExtResource( 8 )]
 position = Vector2( 223, 416 )
 
-[node name="Brick11" parent="." instance=ExtResource( 8 )]
+[node name="Brick11" parent="Bricks" instance=ExtResource( 8 )]
 position = Vector2( 223, 544 )
 
 [node name="Exit" parent="." instance=ExtResource( 9 )]
