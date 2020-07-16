@@ -63,40 +63,42 @@ position = Vector2( 1664, 928 )
 launch_time = 1.0
 launch_speed = 160
 
-[node name="Brick" parent="." instance=ExtResource( 8 )]
+[node name="Bricks" type="Node" parent="."]
+
+[node name="Brick" parent="Bricks" instance=ExtResource( 8 )]
 position = Vector2( 1568, 800 )
 
-[node name="Brick2" parent="." instance=ExtResource( 8 )]
+[node name="Brick2" parent="Bricks" instance=ExtResource( 8 )]
 position = Vector2( 1568, 736 )
 
-[node name="Brick3" parent="." instance=ExtResource( 8 )]
+[node name="Brick3" parent="Bricks" instance=ExtResource( 8 )]
 position = Vector2( 1568, 864 )
 
-[node name="Brick4" parent="." instance=ExtResource( 8 )]
+[node name="Brick4" parent="Bricks" instance=ExtResource( 8 )]
 position = Vector2( 1632, 864 )
 
-[node name="Brick5" parent="." instance=ExtResource( 8 )]
+[node name="Brick5" parent="Bricks" instance=ExtResource( 8 )]
 position = Vector2( 1568, 672 )
 
-[node name="Brick6" parent="." instance=ExtResource( 8 )]
+[node name="Brick6" parent="Bricks" instance=ExtResource( 8 )]
 position = Vector2( 1632, 672 )
 
-[node name="Brick7" parent="." instance=ExtResource( 8 )]
+[node name="Brick7" parent="Bricks" instance=ExtResource( 8 )]
 position = Vector2( 1696, 672 )
 
-[node name="Brick8" parent="." instance=ExtResource( 8 )]
+[node name="Brick8" parent="Bricks" instance=ExtResource( 8 )]
 position = Vector2( 1760, 800 )
 
-[node name="Brick9" parent="." instance=ExtResource( 8 )]
+[node name="Brick9" parent="Bricks" instance=ExtResource( 8 )]
 position = Vector2( 1760, 864 )
 
-[node name="Brick10" parent="." instance=ExtResource( 8 )]
+[node name="Brick10" parent="Bricks" instance=ExtResource( 8 )]
 position = Vector2( 1760, 736 )
 
-[node name="Brick11" parent="." instance=ExtResource( 8 )]
+[node name="Brick11" parent="Bricks" instance=ExtResource( 8 )]
 position = Vector2( 1760, 672 )
 
-[node name="Brick12" parent="." instance=ExtResource( 8 )]
+[node name="Brick12" parent="Bricks" instance=ExtResource( 8 )]
 position = Vector2( 1696, 864 )
 
 [node name="Exit" parent="." instance=ExtResource( 9 )]
