@@ -15,10 +15,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 ### Changed
 
 - Godot 3.2 is now required to run the project from source.
+- Switched to the GLES2 renderer for better compatibility with mobile/web platforms.
 
 ### Fixed
 
-- Fixed stuttering when the paddle is moving on high refresh-rate displays.
+- Fixed stuttering when the paddle is moving on high refresh-rate displays
+  by implementing physics interpolation.
 
 ## [1.2.0] - 2019-03-01
 
