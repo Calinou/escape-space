@@ -5,6 +5,8 @@ extends Control
 
 signal menu_changed
 
+onready var version_label := $Version as Label
+
 
 func start_game() -> void:
 	var error := get_tree().change_scene("res://game/game.tscn")
@@ -14,6 +16,8 @@ func start_game() -> void:
 
 
 func _ready() -> void:
+	version_label.text = ProjectSettings.get_setting("application/config/version")
+	
 	# Start the game immediately if `--level=N` is passed on the command line
 	# Setting the starting level is handled in `game/game.gd`
 	if CommandLine.arguments.get("level"):

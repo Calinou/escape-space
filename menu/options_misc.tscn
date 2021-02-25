@@ -40,34 +40,6 @@ margin_bottom = 54.0
 custom_constants/separation = 8
 alignment = 1
 
-[node name="CheckUpdates" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 36.0
-margin_right = 620.0
-margin_bottom = 72.0
-custom_constants/separation = 24
-
-[node name="Label" type="Label" parent="VBoxContainer/CheckUpdates"]
-margin_top = 4.0
-margin_right = 501.0
-margin_bottom = 32.0
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.8
-text = "Check for Updates"
-align = 2
-
-[node name="Button" type="Button" parent="VBoxContainer/CheckUpdates" groups=[
-"autofocus",
-"makes_sound",
-]]
-margin_left = 525.0
-margin_right = 620.0
-margin_bottom = 36.0
-size_flags_horizontal = 3
-size_flags_vertical = 4
-size_flags_stretch_ratio = 0.15
-toggle_mode = true
-text = "Off"
-
 [node name="Done" type="Button" parent="." groups=[
 "makes_sound",
 ]]
@@ -82,5 +54,4 @@ margin_bottom = 117.0
 grow_horizontal = 2
 shortcut = ExtResource( 4 )
 text = "Done"
-[connection signal="toggled" from="VBoxContainer/CheckUpdates/Button" to="." method="_on_check_updates_toggled"]
 [connection signal="pressed" from="Done" to="." method="_on_done_pressed"]

@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://menu/theme.tres" type="Theme" id=1]
 [ext_resource path="res://menu/main.gd" type="Script" id=2]
 [ext_resource path="res://fonts/data/ibm_plex_sans_condensed_medium.tres" type="DynamicFontData" id=3]
 [ext_resource path="res://fonts/default_4.tres" type="DynamicFont" id=4]
-[ext_resource path="res://menu/update_checker.tscn" type="PackedScene" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -95,14 +94,18 @@ custom_fonts/font = ExtResource( 4 )
 text = "Credits"
 flat = true
 
-[node name="UpdateChecker" parent="." instance=ExtResource( 5 )]
-anchor_left = 0.5
-anchor_right = 0.5
+[node name="Version" type="Label" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 98.0
-margin_top = 519.0
-margin_right = 493.0
-margin_bottom = -17.0
+margin_left = -292.0
+margin_top = -60.0
+margin_right = -32.0
+margin_bottom = -24.0
+custom_colors/font_color = Color( 1, 1, 1, 0.752941 )
+align = 2
+valign = 2
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

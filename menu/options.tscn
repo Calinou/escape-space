@@ -20,13 +20,16 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -51.0
-margin_top = -180.0
+margin_top = -172.0
 margin_right = 52.0
-margin_bottom = -139.0
+margin_bottom = -131.0
 grow_horizontal = 2
 custom_fonts/font = ExtResource( 3 )
 text = "Options"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_left = 0.5
@@ -34,10 +37,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -97.0
-margin_top = -100.0
+margin_top = -92.0
 margin_right = 98.0
-margin_bottom = 104.0
+margin_bottom = 112.0
 custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="VideoSettings" type="Button" parent="VBoxContainer" groups=[
 "autofocus",
@@ -69,6 +75,7 @@ text = "Controls"
 [node name="MiscSettings" type="Button" parent="VBoxContainer" groups=[
 "makes_sound",
 ]]
+visible = false
 margin_top = 168.0
 margin_right = 195.0
 margin_bottom = 204.0
@@ -83,12 +90,15 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -57.0
-margin_top = 160.0
+margin_top = 96.0
 margin_right = 57.0
-margin_bottom = 196.0
+margin_bottom = 132.0
 grow_horizontal = 2
 shortcut = ExtResource( 4 )
 text = "Done"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="VBoxContainer/VideoSettings" to="." method="_on_video_settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/AudioSettings" to="." method="_on_audio_settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/Controls" to="." method="_on_controls_pressed"]
