@@ -203,6 +203,10 @@ take_screenshot={
 translations=PoolStringArray( "res://locale/fr.po" )
 locale_filter=[ 0, [  ] ]
 
+[physics]
+
+common/physics_jitter_fix=0.0
+
 [rendering]
 
 quality/driver/driver_name="GLES2"
