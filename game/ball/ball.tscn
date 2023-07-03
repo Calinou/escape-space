@@ -329,9 +329,7 @@ tracks/0/keys = {
 "values": [ 0.0, 360.0 ]
 }
 
-[node name="Ball" type="RigidBody2D" groups=[
-"ball",
-]]
+[node name="Ball" type="RigidBody2D" groups=["ball"]]
 collision_layer = 8
 collision_mask = 31
 mode = 2
@@ -369,7 +367,6 @@ texture = ExtResource( 5 )
 spread = 180.0
 gravity = Vector2( 0, 0 )
 initial_velocity = 30.0
-angular_velocity = 2.80845e-06
 scale_amount = 0.5
 scale_amount_curve = SubResource( 5 )
 
@@ -385,7 +382,6 @@ emission_sphere_radius = 5.0
 spread = 180.0
 gravity = Vector2( 0, 0 )
 initial_velocity = 30.0
-angular_velocity = 2.80845e-06
 scale_amount = 0.35
 scale_amount_curve = SubResource( 6 )
 color = Color( 0.643137, 0.835294, 1, 0.12549 )
@@ -423,4 +419,5 @@ anims/spin = SubResource( 13 )
 
 [node name="ResourcePreloader" type="ResourcePreloader" parent="."]
 resources = [ PoolStringArray( "bounce.0", "bounce.1", "bounce.2", "bounce.3" ), [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ] ]
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]

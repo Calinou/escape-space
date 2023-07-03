@@ -109,6 +109,7 @@ text = "Exit to Menu"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/fade_in = SubResource( 1 )
 anims/fade_out = SubResource( 2 )
+
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="VBoxContainer/RestartLevel" to="." method="_on_restart_level_pressed"]
