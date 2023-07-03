@@ -20,24 +20,24 @@
 
 extends Spatial
 
-export(NodePath) var target : NodePath setget set_target, get_target
+export (NodePath) var target: NodePath setget set_target, get_target
 
-var _m_Target : Spatial
+var _m_Target: Spatial
 
-var _m_trCurr : Transform
-var _m_trPrev : Transform
+var _m_trCurr: Transform
+var _m_trPrev: Transform
 
 const SF_ENABLED = 1 << 0
 const SF_TRANSLATE = 1 << 1
 const SF_BASIS = 1 << 2
 const SF_SLERP = 1 << 3
-const SF_DIRTY = 1 << 4
-const SF_INVISIBLE = 1 << 5
+const SF_INVISIBLE = 1 << 4
 
-export (int, FLAGS, "enabled", "translate", "basis", "slerp") var flags : int = SF_ENABLED | SF_TRANSLATE | SF_BASIS setget _set_flags, _get_flags
+export (int, FLAGS, "enabled", "translate", "basis", "slerp") var flags: int = SF_ENABLED | SF_TRANSLATE | SF_BASIS setget _set_flags, _get_flags
 
 ##########################################################################################
 # USER FUNCS
+
 
 # call this on e.g. starting a level, AFTER moving the target
 # so we can update both the previous and current values
@@ -54,14 +54,14 @@ func teleport():
 	# resume old flags
 	flags = temp_flags
 
-func set_enabled(var bEnable : bool):
+
+func set_enabled(bEnable: bool):
 	_ChangeFlags(SF_ENABLED, bEnable)
 	_SetProcessing()
 
+
 func is_enabled():
 	return _TestFlags(SF_ENABLED)
-
-
 
 
 ##########################################################################################
@@ -70,39 +70,46 @@ func is_enabled():
 func _ready():
 	_m_trCurr = Transform()
 	_m_trPrev = Transform()
+	set_process_priority(100)
+	set_as_toplevel(true)
+	Engine.set_physics_jitter_fix(0.0)
 
-	if _m_Target == null:
-		push_error("A target must be defined for the Smoothing node to work.")
 
 func set_target(new_value):
 	target = new_value
 	if is_inside_tree():
 		_FindTarget()
 
+
 func get_target():
 	return target
+
 
 func _set_flags(new_value):
 	flags = new_value
 	# we may have enabled or disabled
 	_SetProcessing()
 
+
 func _get_flags():
 	return flags
+
 
 func _SetProcessing():
 	var bEnable = _TestFlags(SF_ENABLED)
 	if _TestFlags(SF_INVISIBLE):
 		bEnable = false
 
-	set_process(bEnable);
-	set_physics_process(bEnable);
+	set_process(bEnable)
+	set_physics_process(bEnable)
 	pass
+
 
 func _enter_tree():
 	# might have been moved
 	_FindTarget()
 	pass
+
 
 func _notification(what):
 	match what:
@@ -112,32 +119,52 @@ func _notification(what):
 			_SetProcessing()
 
 
-
 func _RefreshTransform():
-	_ClearFlags(SF_DIRTY);
-
 	if _HasTarget() == false:
 		return
 
 	_m_trPrev = _m_trCurr
-	_m_trCurr = _m_Target.transform
-
+	_m_trCurr = _m_Target.global_transform
 
 func _FindTarget():
 	_m_Target = null
+	
+	# If no target has been assigned in the property,
+	# default to using the parent as the target.
 	if target.is_empty():
+		var parent = get_parent_spatial()
+		if parent:
+			_m_Target = parent
 		return
 
-	_m_Target = get_node(target)
+	var targ = get_node(target)
 
-	if _m_Target is Spatial:
+	if ! targ:
+		printerr("ERROR SmoothingNode : Target " + target + " not found")
 		return
 
-	_m_Target = null
-	#return false
+	if not targ is Spatial:
+		printerr("ERROR SmoothingNode : Target " + target + " is not spatial")
+		target = ""
+		return
+
+	# if we got to here targ is a spatial
+	_m_Target = targ
+
+	# do a final check
+	# certain targets are disallowed
+	if _m_Target == self:
+		var msg = _m_Target.get_name() + " assigned to " + self.get_name() + "]"
+		printerr("ERROR SmoothingNode : Target should not be self [", msg)
+
+		# error message
+		#OS.alert("Target cannot be a parent or grandparent in the scene tree.", "SmoothingNode")
+		_m_Target = null
+		target = ""
+		return
 
 
-func _HasTarget()->bool:
+func _HasTarget() -> bool:
 	if _m_Target == null:
 		return false
 
@@ -150,12 +177,9 @@ func _HasTarget()->bool:
 
 
 func _process(_delta):
-	if _TestFlags(SF_DIRTY):
-		_RefreshTransform()
 
 	var f = Engine.get_physics_interpolation_fraction()
-
-	var tr : Transform = Transform()
+	var tr: Transform = Transform()
 
 	# translate
 	if _TestFlags(SF_TRANSLATE):
@@ -171,34 +195,32 @@ func _process(_delta):
 
 	transform = tr
 
-	pass
 
 func _physics_process(_delta):
-	# take care of the special case where multiple physics ticks
-	# occur before a frame .. the data must flow!
-	if _TestFlags(SF_DIRTY):
-		_RefreshTransform()
+	_RefreshTransform()
 
-	_SetFlags(SF_DIRTY)
-	pass
 
-func _LerpBasis(var from : Basis, var to : Basis, var f : float)->Basis:
-	var res : Basis = Basis()
+func _LerpBasis(from: Basis, to: Basis, f: float) -> Basis:
+	var res: Basis = Basis()
 	res.x = from.x.linear_interpolate(to.x, f)
 	res.y = from.y.linear_interpolate(to.y, f)
 	res.z = from.z.linear_interpolate(to.z, f)
 	return res
 
-func _SetFlags(var f):
+
+func _SetFlags(f):
 	flags |= f
 
-func _ClearFlags(var f):
+
+func _ClearFlags(f):
 	flags &= ~f
 
-func _TestFlags(var f):
+
+func _TestFlags(f):
 	return (flags & f) == f
 
-func _ChangeFlags(var f, var bSet):
+
+func _ChangeFlags(f, bSet):
 	if bSet:
 		_SetFlags(f)
 	else:

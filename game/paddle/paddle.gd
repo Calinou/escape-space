@@ -9,7 +9,7 @@ class_name Paddle
 const ACCELERATION = 2400
 
 # The friction factor applied on each step
-const FRICTION = 0.9
+const FRICTION = 0.625
 
 const CAMERA_ZOOM_BASE = 1.5
 
@@ -23,8 +23,8 @@ var motion := Vector2()
 var can_move := false
 
 onready var game := $"/root/Game" as Node
-onready var camera := $Smoothing2D/Camera2D as Camera2D
-onready var tween := $Smoothing2D/Tween as Tween
+onready var camera := $Camera2D as Camera2D
+onready var tween := $Tween as Tween
 
 
 func _ready() -> void:

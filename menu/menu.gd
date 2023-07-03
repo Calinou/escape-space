@@ -45,8 +45,8 @@ func _input(event: InputEvent) -> void:
 		motion += event.relative
 
 
-func _physics_process(_delta: float) -> void:
-	motion *= 0.9
+func _process(_delta: float) -> void:
+	motion *= 0.95
 	background.scroll_offset += motion
 
 

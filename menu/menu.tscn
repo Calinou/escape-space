@@ -105,7 +105,6 @@ __meta__ = {
 resources = [ PoolStringArray( "click", "hover" ), [ ExtResource( 9 ), ExtResource( 10 ) ] ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-playback_process_mode = 0
 anims/change_menu = SubResource( 1 )
 anims/fade_in = SubResource( 2 )
 
