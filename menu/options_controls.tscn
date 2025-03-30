@@ -1,15 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://cff23kwn66fek"]
 
-[ext_resource path="res://menu/theme.tres" type="Theme" id=1]
-[ext_resource path="res://menu/options_controls.gd" type="Script" id=2]
-[ext_resource path="res://fonts/default_1.tres" type="DynamicFont" id=3]
-[ext_resource path="res://menu/shortcut_cancel.tres" type="ShortCut" id=4]
+[ext_resource type="Theme" path="res://menu/theme.tres" id="1"]
+[ext_resource type="Script" uid="uid://c2qt7rdqi74ew" path="res://menu/options_controls.gd" id="2"]
+[ext_resource type="FontFile" path="res://fonts/default_1.tres" id="3"]
+[ext_resource type="Shortcut" path="res://menu/shortcut_cancel.tres" id="4"]
 
 [node name="OptionsControls" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 1 )
-script = ExtResource( 2 )
+theme = ExtResource("1")
+script = ExtResource("2")
 __meta__ = {
 "_edit_lock_": true
 }
@@ -19,12 +19,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -63.0
-margin_top = -180.0
-margin_right = 63.0
-margin_bottom = -139.0
+offset_left = -63.0
+offset_top = -180.0
+offset_right = 63.0
+offset_bottom = -139.0
 grow_horizontal = 2
-custom_fonts/font = ExtResource( 3 )
+theme_override_fonts/font = ExtResource("3")
 text = "Controls"
 align = 1
 
@@ -33,126 +33,116 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -512.0
-margin_top = -124.0
-margin_right = 158.0
-margin_bottom = 110.0
-custom_constants/separation = 16
+offset_left = -512.0
+offset_top = -124.0
+offset_right = 158.0
+offset_bottom = 110.0
+theme_override_constants/separation = 16
 alignment = 1
 
 [node name="move_up" type="HBoxContainer" parent="ActionList"]
-margin_top = 21.0
-margin_right = 670.0
-margin_bottom = 57.0
-custom_constants/separation = 30
+offset_top = 21.0
+offset_right = 670.0
+offset_bottom = 57.0
+theme_override_constants/separation = 30
 
 [node name="Label" type="Label" parent="ActionList/move_up"]
-margin_top = 4.0
-margin_right = 497.0
-margin_bottom = 32.0
+offset_top = 4.0
+offset_right = 497.0
+offset_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.7
 text = "Move Up"
 align = 2
 
-[node name="Button" type="Button" parent="ActionList/move_up" groups=[
-"autofocus",
-"makes_sound",
-]]
-margin_left = 527.0
-margin_right = 670.0
-margin_bottom = 36.0
+[node name="Button" type="Button" parent="ActionList/move_up" groups=["autofocus", "makes_sound"]]
+offset_left = 527.0
+offset_right = 670.0
+offset_bottom = 36.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
 toggle_mode = true
 
 [node name="move_down" type="HBoxContainer" parent="ActionList"]
-margin_top = 73.0
-margin_right = 670.0
-margin_bottom = 109.0
-custom_constants/separation = 30
+offset_top = 73.0
+offset_right = 670.0
+offset_bottom = 109.0
+theme_override_constants/separation = 30
 
 [node name="Label" type="Label" parent="ActionList/move_down"]
-margin_top = 4.0
-margin_right = 497.0
-margin_bottom = 32.0
+offset_top = 4.0
+offset_right = 497.0
+offset_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.7
 text = "Move Down"
 align = 2
 
-[node name="Button" type="Button" parent="ActionList/move_down" groups=[
-"makes_sound",
-]]
-margin_left = 527.0
-margin_right = 670.0
-margin_bottom = 36.0
+[node name="Button" type="Button" parent="ActionList/move_down" groups=["makes_sound"]]
+offset_left = 527.0
+offset_right = 670.0
+offset_bottom = 36.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
 toggle_mode = true
 
 [node name="move_left" type="HBoxContainer" parent="ActionList"]
-margin_top = 125.0
-margin_right = 670.0
-margin_bottom = 161.0
-custom_constants/separation = 30
+offset_top = 125.0
+offset_right = 670.0
+offset_bottom = 161.0
+theme_override_constants/separation = 30
 
 [node name="Label" type="Label" parent="ActionList/move_left"]
-margin_top = 4.0
-margin_right = 497.0
-margin_bottom = 32.0
+offset_top = 4.0
+offset_right = 497.0
+offset_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.7
 text = "Move Left"
 align = 2
 
-[node name="Button" type="Button" parent="ActionList/move_left" groups=[
-"makes_sound",
-]]
-margin_left = 527.0
-margin_right = 670.0
-margin_bottom = 36.0
+[node name="Button" type="Button" parent="ActionList/move_left" groups=["makes_sound"]]
+offset_left = 527.0
+offset_right = 670.0
+offset_bottom = 36.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
 toggle_mode = true
 
 [node name="move_right" type="HBoxContainer" parent="ActionList"]
-margin_top = 177.0
-margin_right = 670.0
-margin_bottom = 213.0
-custom_constants/separation = 30
+offset_top = 177.0
+offset_right = 670.0
+offset_bottom = 213.0
+theme_override_constants/separation = 30
 
 [node name="Label" type="Label" parent="ActionList/move_right"]
-margin_top = 4.0
-margin_right = 497.0
-margin_bottom = 32.0
+offset_top = 4.0
+offset_right = 497.0
+offset_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.7
 text = "Move Right"
 align = 2
 
-[node name="Button" type="Button" parent="ActionList/move_right" groups=[
-"makes_sound",
-]]
-margin_left = 527.0
-margin_right = 670.0
-margin_bottom = 36.0
+[node name="Button" type="Button" parent="ActionList/move_right" groups=["makes_sound"]]
+offset_left = 527.0
+offset_right = 670.0
+offset_bottom = 36.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
 toggle_mode = true
 
-[node name="Done" type="Button" parent="." groups=[
-"makes_sound",
-]]
+[node name="Done" type="Button" parent="." groups=["makes_sound"]]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -57.0
-margin_top = 142.0
-margin_right = 57.0
-margin_bottom = 178.0
+offset_left = -57.0
+offset_top = 142.0
+offset_right = 57.0
+offset_bottom = 178.0
 grow_horizontal = 2
-shortcut = ExtResource( 4 )
+shortcut = ExtResource("4")
 text = "Done"
+
 [connection signal="pressed" from="Done" to="." method="_on_done_pressed"]

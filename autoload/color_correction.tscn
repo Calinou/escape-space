@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://dj2rtbqs5tf4a"]
 
-[ext_resource path="res://autoload/color_correction.gd" type="Script" id=1]
+[ext_resource type="Script" uid="uid://1vrcg1qj56u6" path="res://autoload/color_correction.gd" id="1"]
 
 [node name="ColorCorrection" type="CanvasModulate"]
-script = ExtResource( 1 )
+script = ExtResource("1")

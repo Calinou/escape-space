@@ -28,7 +28,7 @@ const credits = {
 	],
 }
 
-onready var rich_text_label := $Panel/RichTextLabel as RichTextLabel
+@onready var rich_text_label := $Panel/RichTextLabel as RichTextLabel
 
 
 func _ready() -> void:
@@ -36,8 +36,7 @@ func _ready() -> void:
 	var credits_text = "[center]"
 
 	for section in credits:
-		credits_text += "[color=#5fe8]———  [color=#fe8]{section}[/color]  ———[/color]\n\n" \
-				.format({section = tr(section)})
+		credits_text += "[color=#5fe8]———  [color=#fe8]{section}[/color]  ———[/color]\n\n".format({section = tr(section)})
 
 		for person in credits[section]:
 			credits_text += tr(person) + "\n"
@@ -46,11 +45,11 @@ func _ready() -> void:
 
 	credits_text += "[/center]"
 
-	rich_text_label.bbcode_text = credits_text
+	rich_text_label.text = credits_text
 
 
 func _on_back_pressed() -> void:
 	emit_signal("menu_changed", $"/root/Menu/Control/Main")
 
-	yield($"/root/Menu", "transition_finished")
+	await $"/root/Menu".transition_finished
 	rich_text_label.scroll_to_line(0)

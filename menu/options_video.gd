@@ -5,12 +5,12 @@ extends Control
 
 signal menu_changed
 
-onready var fullscreen_button := $VBoxContainer/Fullscreen/Button as Button
-onready var brightness_slider := $VBoxContainer/Brightness/HSlider as Slider
+@onready var fullscreen_button := $VBoxContainer/Fullscreen/Button as Button
+@onready var brightness_slider := $VBoxContainer/Brightness/HSlider as Slider
 
 
 func _ready() -> void:
-	fullscreen_button.pressed = OS.window_fullscreen
+	fullscreen_button.button_pressed = ((get_window().mode == Window.MODE_EXCLUSIVE_FULLSCREEN) or (get_window().mode == Window.MODE_FULLSCREEN))
 	fullscreen_button.text = tr("On") if fullscreen_button.pressed else tr("Off")
 	brightness_slider.value = float(Settings.file.get_value("video", "brightness", 1.0))
 

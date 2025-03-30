@@ -1,236 +1,256 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=3 uid="uid://cwulnu2w7ns4v"]
 
-[ext_resource path="res://game/hud/theme.tres" type="Theme" id=1]
-[ext_resource path="res://game/hud/hud.gd" type="Script" id=2]
-[ext_resource path="res://game/hud/vignette.png" type="Texture" id=3]
-[ext_resource path="res://fonts/default_1.tres" type="DynamicFont" id=4]
-[ext_resource path="res://game/hud/goal.tscn" type="PackedScene" id=5]
-[ext_resource path="res://game/hud/time_gradient.tres" type="Gradient" id=6]
-[ext_resource path="res://game/pause_menu/pause_menu.tscn" type="PackedScene" id=7]
+[ext_resource type="Theme" path="res://game/hud/theme.tres" id="1"]
+[ext_resource type="Script" uid="uid://deurw0nhufqrp" path="res://game/hud/hud.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://t0dwa8xmn0tx" path="res://game/hud/vignette.png" id="3"]
+[ext_resource type="FontFile" path="res://fonts/default_1.tres" id="4"]
+[ext_resource type="PackedScene" uid="uid://dl43guma6jrdb" path="res://game/hud/goal.tscn" id="5"]
+[ext_resource type="Gradient" path="res://game/hud/time_gradient.tres" id="6"]
+[ext_resource type="PackedScene" uid="uid://chngice30axav" path="res://game/pause_menu/pause_menu.tscn" id="7"]
 
-[sub_resource type="CanvasItemMaterial" id=1]
+[sub_resource type="CanvasItemMaterial" id="1"]
 blend_mode = 2
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id="2"]
 resource_name = "fade_in"
 length = 0.3
 step = 0.05
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, -2 ),
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, -2),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id="3"]
 length = 1.5
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1.5 ),
-"transitions": PoolRealArray( 1, -2 ),
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, -2),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Gradient" id=4]
-colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1 )
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5b4yy"]
+_data = {
+&"fade_in": SubResource("2"),
+&"fade_out": SubResource("3")
+}
 
-[sub_resource type="GradientTexture" id=5]
-gradient = SubResource( 4 )
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qiffg"]
+_data = {
+&"fade_in": SubResource("2"),
+&"fade_out": SubResource("3")
+}
+
+[sub_resource type="Gradient" id="4"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="5"]
+gradient = SubResource("4")
 width = 176
+height = 1
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id="6"]
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( -2, -2 ),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
 "update": 0,
-"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1bgfu"]
+_data = {
+&"fade_in": SubResource("6")
 }
 
 [node name="HUD" type="Control"]
-pause_mode = 2
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 32.0
-margin_top = 32.0
-margin_right = -32.0
-margin_bottom = -32.0
-theme = ExtResource( 1 )
-script = ExtResource( 2 )
+offset_left = 32.0
+offset_top = 32.0
+offset_right = -32.0
+offset_bottom = -32.0
+theme = ExtResource("1")
+script = ExtResource("2")
 
 [node name="Vignette" type="TextureRect" parent="."]
-modulate = Color( 1, 1, 1, 0.203922 )
-material = SubResource( 1 )
+modulate = Color(1, 1, 1, 0.203922)
+material = SubResource("1")
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -32.0
-margin_top = -32.0
-margin_right = 32.0
-margin_bottom = 32.0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
 mouse_filter = 2
-texture = ExtResource( 3 )
-expand = true
+texture = ExtResource("3")
+expand_mode = 1
 stretch_mode = 1
-__meta__ = {
-"_edit_lock_": true
-}
 
-[node name="CenterText" type="RichTextLabel" parent="." groups=[
-"can_hide",
-]]
-pause_mode = 1
+[node name="CenterText" type="RichTextLabel" parent="." groups=["can_hide"]]
+process_mode = 1
+layout_mode = 0
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -480.0
-margin_top = 118.0
-margin_right = 480.0
-margin_bottom = -278.0
+offset_left = -480.0
+offset_top = 118.0
+offset_right = 480.0
+offset_bottom = -278.0
 grow_horizontal = 2
-custom_fonts/normal_font = ExtResource( 4 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 0.501961 )
-custom_constants/shadow_offset_x = 2
-custom_constants/shadow_offset_y = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.501961)
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_offset_x = 2
+theme_override_fonts/normal_font = ExtResource("4")
 bbcode_enabled = true
 scroll_active = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CenterText"]
-anims/fade_in = SubResource( 2 )
-anims/fade_out = SubResource( 3 )
+libraries = {
+&"": SubResource("AnimationLibrary_5b4yy")
+}
 
 [node name="Timer" type="Timer" parent="CenterText"]
 one_shot = true
 
-[node name="InfoText" type="RichTextLabel" parent="." groups=[
-"can_hide",
-]]
-pause_mode = 1
+[node name="InfoText" type="RichTextLabel" parent="." groups=["can_hide"]]
+process_mode = 1
+layout_mode = 0
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -480.0
-margin_top = 428.0
-margin_right = 480.0
-margin_bottom = -20.0
+offset_left = -480.0
+offset_top = 428.0
+offset_right = 480.0
+offset_bottom = -20.0
 grow_horizontal = 2
-custom_colors/font_color_shadow = Color( 0, 0, 0, 0.501961 )
-custom_constants/shadow_offset_x = 2
-custom_constants/shadow_offset_y = 2
-custom_constants/line_separation = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.501961)
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/line_separation = 3
 bbcode_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="InfoText"]
-anims/fade_in = SubResource( 2 )
-anims/fade_out = SubResource( 3 )
+libraries = {
+&"": SubResource("AnimationLibrary_qiffg")
+}
 
 [node name="Timer" type="Timer" parent="InfoText"]
 one_shot = true
 
-[node name="Vitals" type="VBoxContainer" parent="." groups=[
-"can_hide",
-]]
+[node name="Vitals" type="VBoxContainer" parent="." groups=["can_hide"]]
+layout_mode = 0
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -479.0
-margin_right = 481.0
-custom_constants/separation = 10
+offset_left = -479.0
+offset_right = 481.0
+theme_override_constants/separation = 10
 
 [node name="Bricks" type="HSplitContainer" parent="Vitals"]
-margin_right = 960.0
-margin_bottom = 28.0
+layout_mode = 2
 dragger_visibility = 1
 
 [node name="Label" type="Label" parent="Vitals/Bricks"]
-margin_right = 58.0
-margin_bottom = 28.0
+layout_mode = 2
 text = "Bricks"
-align = 2
+horizontal_alignment = 2
 
 [node name="Counter" type="Label" parent="Vitals/Bricks"]
-margin_left = 70.0
-margin_right = 960.0
-margin_bottom = 28.0
+layout_mode = 2
 text = "0"
 
-[node name="Goals" type="VBoxContainer" parent="." groups=[
-"can_hide",
-]]
+[node name="Goals" type="VBoxContainer" parent="." groups=["can_hide"]]
+layout_mode = 0
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -480.0
-margin_top = 348.0
-margin_right = -312.0
+offset_left = -480.0
+offset_top = 348.0
+offset_right = -312.0
 alignment = 2
 
-[node name="Time" type="Panel" parent="." groups=[
-"can_hide",
-]]
-self_modulate = Color( 1, 1, 1, 0.501961 )
+[node name="Time" type="Panel" parent="." groups=["can_hide"]]
+self_modulate = Color(1, 1, 1, 0.501961)
+layout_mode = 0
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -88.0
-margin_top = -32.0
-margin_right = 88.0
-margin_bottom = 8.0
+offset_left = -88.0
+offset_top = -32.0
+offset_right = 88.0
+offset_bottom = 8.0
 
 [node name="Label" type="Label" parent="Time"]
-margin_right = 176.0
-margin_bottom = 40.0
+layout_mode = 0
+offset_right = 176.0
+offset_bottom = 40.0
 grow_horizontal = 2
 text = "3:00"
-align = 1
-valign = 1
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="TextureProgress" type="TextureProgress" parent="Time"]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Time"]
+layout_mode = 1
+anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -88.0
-margin_top = -2.0
-margin_right = 88.0
-margin_bottom = -1.0
-rect_scale = Vector2( 1, 2 )
+offset_left = -88.0
+offset_top = -2.0
+offset_right = 88.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1, 2)
 max_value = 1.0
 step = 0.0
 value = 0.5
-texture_progress = SubResource( 5 )
 fill_mode = 6
+texture_progress = SubResource("5")
 
 [node name="ResourcePreloader" type="ResourcePreloader" parent="."]
-resources = [ PoolStringArray( "goal", "time_gradient" ), [ ExtResource( 5 ), ExtResource( 6 ) ] ]
+resources = [PackedStringArray("goal", "time_gradient"), [ExtResource("5"), ExtResource("6")]]
 
-[node name="PauseMenu" parent="." instance=ExtResource( 7 )]
+[node name="PauseMenu" parent="." instance=ExtResource("7")]
 visible = false
+anchors_preset = 0
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -32.0
-margin_top = -32.0
-margin_right = 32.0
-margin_bottom = 32.0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
 mouse_filter = 2
-color = Color( 0, 0, 0, 0 )
+color = Color(0, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
-anims/fade_in = SubResource( 6 )
+libraries = {
+&"": SubResource("AnimationLibrary_1bgfu")
+}

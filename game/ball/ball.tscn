@@ -1,332 +1,335 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=23 format=3 uid="uid://q6afx2nc3s3s"]
 
-[ext_resource path="res://game/ball/ball.gd" type="Script" id=1]
-[ext_resource path="res://game/ball/ball.png" type="Texture" id=2]
-[ext_resource path="res://game/ball/aura.png" type="Texture" id=3]
-[ext_resource path="res://game/ball/spinner.png" type="Texture" id=4]
-[ext_resource path="res://game/ball/spark.png" type="Texture" id=5]
-[ext_resource path="res://game/ball/bounce.0.wav" type="AudioStream" id=6]
-[ext_resource path="res://game/ball/bounce.1.wav" type="AudioStream" id=7]
-[ext_resource path="res://game/ball/bounce.2.wav" type="AudioStream" id=8]
-[ext_resource path="res://game/ball/bounce.3.wav" type="AudioStream" id=9]
+[ext_resource type="Script" uid="uid://d38iuo1yvt33y" path="res://game/ball/ball.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://d4bff3r0xhuda" path="res://game/ball/ball.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://s6o5avtbj3ou" path="res://game/ball/aura.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://dsl54vxunehft" path="res://game/ball/spinner.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://cd2dqs3v2urlr" path="res://game/ball/spark.png" id="5"]
+[ext_resource type="AudioStream" uid="uid://cs7xi7xx3kkja" path="res://game/ball/bounce.0.wav" id="6"]
+[ext_resource type="AudioStream" uid="uid://cbnk0ax1xww3x" path="res://game/ball/bounce.1.wav" id="7"]
+[ext_resource type="AudioStream" uid="uid://db5i768ed8s17" path="res://game/ball/bounce.2.wav" id="8"]
+[ext_resource type="AudioStream" uid="uid://ujsls2ffxs3v" path="res://game/ball/bounce.3.wav" id="9"]
 
-[sub_resource type="CanvasItemMaterial" id=1]
+[sub_resource type="CanvasItemMaterial" id="1"]
 blend_mode = 1
 
-[sub_resource type="CanvasItemMaterial" id=2]
+[sub_resource type="CanvasItemMaterial" id="2"]
 blend_mode = 1
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id="3"]
 
-[sub_resource type="CanvasItemMaterial" id=4]
+[sub_resource type="CanvasItemMaterial" id="4"]
 blend_mode = 1
 particles_animation = true
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
-[sub_resource type="Curve" id=5]
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 1.4, 0, 0 ]
+[sub_resource type="Curve" id="5"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 1.4, 0, 0]
+point_count = 2
 
-[sub_resource type="Curve" id=6]
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+[sub_resource type="Curve" id="6"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
 
-[sub_resource type="Curve" id=7]
-_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.5, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+[sub_resource type="Curve" id="7"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
-[sub_resource type="PhysicsMaterial" id=8]
+[sub_resource type="PhysicsMaterial" id="8"]
 friction = 0.0
 bounce = 1.0
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id="9"]
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Aura:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Color( 0.643137, 0.835294, 1, 0.376471 ), Color( 1, 0.647059, 0.247059, 0.584314 ) ]
+"values": [Color(0.643137, 0.835294, 1, 0.376471), Color(1, 0.647059, 0.247059, 0.584314)]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("IdleParticles:color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.65098, 0.25098, 1 ) ]
+"values": [Color(1, 1, 1, 1), Color(1, 0.65098, 0.25098, 1)]
 }
 tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("Spinner:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Color( 0.643137, 0.835294, 1, 0.376471 ), Color( 1, 0.65098, 0.25098, 0.584314 ) ]
+"values": [Color(0.643137, 0.835294, 1, 0.376471), Color(1, 0.65098, 0.25098, 0.584314)]
 }
 tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
 tracks/3/path = NodePath(".:physics_material_override")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ SubResource( 8 ) ]
+"values": [SubResource("8")]
 }
 tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
 tracks/4/path = NodePath("TrailParticles:color")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Color( 0.643137, 0.835294, 1, 0.12549 ), Color( 1, 0.65098, 0.25098, 0.584314 ) ]
+"values": [Color(0.643137, 0.835294, 1, 0.12549), Color(1, 0.65098, 0.25098, 0.584314)]
 }
 tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
 tracks/5/path = NodePath(".:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0.5 ),
-"transitions": PoolRealArray( -2 ),
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(-2),
 "update": 3,
-"values": [ Color( 1, 1, 1, 1 ) ]
+"values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id="10"]
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("DestroyParticles:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ true ]
+"values": [true]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("Ball:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("Aura:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.2 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
 "update": 3,
-"values": [ Color( 0.639216, 0.831373, 1, 0 ) ]
+"values": [Color(0.639216, 0.831373, 1, 0)]
 }
 tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
 tracks/3/path = NodePath("Spinner:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0.2 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
 "update": 3,
-"values": [ Color( 0.639216, 0.831373, 1, 0 ) ]
+"values": [Color(0.639216, 0.831373, 1, 0)]
 }
 tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
 tracks/4/path = NodePath("IdleParticles:emitting")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ false ]
+"values": [false]
 }
 tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
 tracks/5/path = NodePath(".:linear_velocity")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [Vector2(0, 0)]
 }
 tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
 tracks/6/path = NodePath("CollisionShape2D:disabled")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ true ]
+"values": [true]
 }
 tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
 tracks/7/path = NodePath("TrailParticles:emitting")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ false ]
+"values": [false]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id="11"]
 length = 0.3
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Ball:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.3 ),
-"transitions": PoolRealArray( -2 ),
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(-2),
 "update": 3,
-"values": [ Color( 1, 1, 1, 0 ) ]
+"values": [Color(1, 1, 1, 0)]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("Aura:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.3 ),
-"transitions": PoolRealArray( -2 ),
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(-2),
 "update": 3,
-"values": [ Color( 1, 1, 1, 0 ) ]
+"values": [Color(1, 1, 1, 0)]
 }
 tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("Spinner:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.3 ),
-"transitions": PoolRealArray( -2 ),
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(-2),
 "update": 3,
-"values": [ Color( 1, 1, 1, 0 ) ]
+"values": [Color(1, 1, 1, 0)]
 }
 tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
 tracks/3/path = NodePath("IdleParticles:emitting")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ false ]
+"values": [false]
 }
 tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
 tracks/4/path = NodePath("TrailParticles:emitting")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ false ]
+"values": [false]
 }
 tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
 tracks/5/path = NodePath(".")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0.3 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "queue_free"
-} ]
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
 }
 tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
 tracks/6/path = NodePath("IdleParticles:modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0.2 ),
-"transitions": PoolRealArray( -2 ),
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(-2),
 "update": 3,
-"values": [ Color( 1, 1, 1, 0 ) ]
+"values": [Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id="12"]
 length = 0.8
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 0.8 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.3, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 4, 4, 4, 1 ), Color( 1, 1, 1, 1 ) ]
+"values": [Color(1, 1, 1, 0), Color(4, 4, 4, 1), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id=13]
-loop = true
+[sub_resource type="Animation" id="13"]
+loop_mode = 1
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Spinner:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ 0.0, 360.0 ]
+"values": [0.0, 360.0]
 }
 
 [node name="Ball" type="RigidBody2D" groups=["ball"]]
@@ -335,71 +338,71 @@ collision_mask = 31
 mode = 2
 gravity_scale = 0.0
 custom_integrator = true
-contacts_reported = 1
+max_contacts_reported = 1
 contact_monitor = true
-linear_velocity = Vector2( 44, 0 )
-script = ExtResource( 1 )
+linear_velocity = Vector2(44, 0)
+script = ExtResource("1")
 
-[node name="Ball" type="Sprite" parent="."]
-scale = Vector2( 0.08, 0.08 )
-texture = ExtResource( 2 )
+[node name="Ball" type="Sprite2D" parent="."]
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2")
 
-[node name="Aura" type="Sprite" parent="."]
-modulate = Color( 0.643137, 0.835294, 1, 0.376471 )
-material = SubResource( 1 )
-scale = Vector2( 0.2, 0.18 )
-texture = ExtResource( 3 )
+[node name="Aura" type="Sprite2D" parent="."]
+modulate = Color(0.643137, 0.835294, 1, 0.376471)
+material = SubResource("1")
+scale = Vector2(0.2, 0.18)
+texture = ExtResource("3")
 
-[node name="Spinner" type="Sprite" parent="."]
-modulate = Color( 0.643137, 0.835294, 1, 0.376471 )
-material = SubResource( 2 )
-scale = Vector2( 0.12, 0.115 )
-texture = ExtResource( 4 )
+[node name="Spinner" type="Sprite2D" parent="."]
+modulate = Color(0.643137, 0.835294, 1, 0.376471)
+material = SubResource("2")
+scale = Vector2(0.12, 0.115)
+texture = ExtResource("4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 3 )
+shape = SubResource("3")
 
 [node name="IdleParticles" type="CPUParticles2D" parent="."]
-material = SubResource( 4 )
+material = SubResource("4")
 amount = 15
 preprocess = 1.0
-texture = ExtResource( 5 )
+texture = ExtResource("5")
 spread = 180.0
-gravity = Vector2( 0, 0 )
+gravity = Vector2(0, 0)
 initial_velocity = 30.0
 scale_amount = 0.5
-scale_amount_curve = SubResource( 5 )
+scale_amount_curve = SubResource("5")
 
 [node name="TrailParticles" type="CPUParticles2D" parent="."]
-material = SubResource( 4 )
+material = SubResource("4")
 amount = 100
 lifetime = 0.5
 preprocess = 1.0
 local_coords = false
-texture = ExtResource( 5 )
+texture = ExtResource("5")
 emission_shape = 1
 emission_sphere_radius = 5.0
 spread = 180.0
-gravity = Vector2( 0, 0 )
+gravity = Vector2(0, 0)
 initial_velocity = 30.0
 scale_amount = 0.35
-scale_amount_curve = SubResource( 6 )
-color = Color( 0.643137, 0.835294, 1, 0.12549 )
+scale_amount_curve = SubResource("6")
+color = Color(0.643137, 0.835294, 1, 0.12549)
 
 [node name="DestroyParticles" type="CPUParticles2D" parent="."]
-material = SubResource( 4 )
+material = SubResource("4")
 emitting = false
 amount = 30
 lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
-texture = ExtResource( 5 )
+texture = ExtResource("5")
 spread = 180.0
-gravity = Vector2( 0, 0 )
+gravity = Vector2(0, 0)
 initial_velocity = 60.0
 angular_velocity = 1.08996e+27
 scale_amount = 0.5
-scale_amount_curve = SubResource( 7 )
+scale_amount_curve = SubResource("7")
 hue_variation = 0.1
 hue_variation_random = 1.0
 
@@ -408,16 +411,16 @@ bus = "Effects"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "spawn"
-anims/claim = SubResource( 9 )
-anims/destroy = SubResource( 10 )
-anims/score = SubResource( 11 )
-anims/spawn = SubResource( 12 )
+anims/claim = SubResource("9")
+anims/destroy = SubResource("10")
+anims/score = SubResource("11")
+anims/spawn = SubResource("12")
 
 [node name="SpinAnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "spin"
-anims/spin = SubResource( 13 )
+anims/spin = SubResource("13")
 
 [node name="ResourcePreloader" type="ResourcePreloader" parent="."]
-resources = [ PoolStringArray( "bounce.0", "bounce.1", "bounce.2", "bounce.3" ), [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ] ]
+resources = [PackedStringArray("bounce.0", "bounce.1", "bounce.2", "bounce.3"), [ExtResource("6"), ExtResource("7"), ExtResource("8"), ExtResource("9")]]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]

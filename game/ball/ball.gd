@@ -13,11 +13,11 @@ const MAX_SPEED = 600
 # Whether the ball has been touched by a paddle or not
 var claimed := false
 
-onready var animation_player := $AnimationPlayer as AnimationPlayer
+@onready var animation_player := $AnimationPlayer as AnimationPlayer
 # FIXME: Workaround for <https://github.com/godotengine/godot/issues/23207>
 #warning-ignore:unused_class_variable
-onready var preloader := $ResourcePreloader as ResourcePreloader
-onready var bounce_sounds := [
+@onready var preloader := $ResourcePreloader as ResourcePreloader
+@onready var bounce_sounds := [
 	preloader.get_resource("bounce.0"),
 	preloader.get_resource("bounce.1"),
 	preloader.get_resource("bounce.2"),
@@ -25,8 +25,8 @@ onready var bounce_sounds := [
 ]
 
 
-func _integrate_forces(_state: Physics2DDirectBodyState) -> void:
-	linear_velocity = linear_velocity.clamped(MAX_SPEED)
+func _integrate_forces(_state: PhysicsDirectBodyState2D) -> void:
+	linear_velocity = linear_velocity.limit_length(MAX_SPEED)
 
 	for body in get_colliding_bodies():
 		if body is Paddle:
@@ -37,8 +37,8 @@ func _integrate_forces(_state: Physics2DDirectBodyState) -> void:
 				Sound.Type.POSITIONAL_2D,
 				self,
 				bounce_sounds[randi() % bounce_sounds.size()],
-				range_lerp(linear_velocity.length(), 0, MAX_SPEED, -5.0, 5.0),
-				range_lerp(linear_velocity.length(), 0, MAX_SPEED, 0.55, 1.05)
+				remap(linear_velocity.length(), 0, MAX_SPEED, -5.0, 5.0),
+				remap(linear_velocity.length(), 0, MAX_SPEED, 0.55, 1.05)
 			)
 
 		if body is Brick:

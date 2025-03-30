@@ -1,111 +1,118 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=6 format=3 uid="uid://8dy1i41fb3np"]
 
-[ext_resource path="res://menu/theme.tres" type="Theme" id=1]
-[ext_resource path="res://menu/main.gd" type="Script" id=2]
-[ext_resource path="res://fonts/data/ibm_plex_sans_condensed_medium.tres" type="DynamicFontData" id=3]
-[ext_resource path="res://fonts/default_4.tres" type="DynamicFont" id=4]
+[ext_resource type="Theme" uid="uid://d2gamygkpadic" path="res://menu/theme.tres" id="1"]
+[ext_resource type="Script" uid="uid://bi4oi1tbfahqq" path="res://menu/main.gd" id="2"]
+[ext_resource type="FontFile" path="res://fonts/data/ibm_plex_sans_condensed_medium.tres" id="3"]
+[ext_resource type="FontFile" path="res://fonts/default_4.tres" id="4"]
 
-[sub_resource type="DynamicFont" id=1]
-size = 64
-extra_spacing_char = -2
-extra_spacing_space = 16
-font_data = ExtResource( 3 )
+[sub_resource type="FontFile" id="1"]
+fallbacks = Array[Font]([ExtResource("3")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/32/0/ascent = 0.0
+cache/0/32/0/descent = 0.0
+cache/0/32/0/underline_position = 0.0
+cache/0/32/0/underline_thickness = 0.0
+cache/0/32/0/scale = 1.0
+cache/0/64/0/ascent = 0.0
+cache/0/64/0/descent = 0.0
+cache/0/64/0/underline_position = 0.0
+cache/0/64/0/underline_thickness = 0.0
+cache/0/64/0/scale = 1.0
+cache/0/48/0/ascent = 0.0
+cache/0/48/0/descent = 0.0
+cache/0/48/0/underline_position = 0.0
+cache/0/48/0/underline_thickness = 0.0
+cache/0/48/0/scale = 1.0
 
 [node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 1 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_lock_": true
-}
+theme = ExtResource("1")
+script = ExtResource("2")
 
-[node name="Label" type="Label" parent="."]
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -207.0
-margin_top = -232.0
-margin_right = 208.0
-margin_bottom = -148.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 1, 0.980392, 0.65098, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 0.501961 )
-custom_constants/shadow_offset_x = 6
-custom_constants/shadow_offset_y = 6
+offset_left = -207.0
+offset_top = -232.0
+offset_right = 208.0
+offset_bottom = -148.0
+theme_override_colors/font_color = Color(1, 0.980392, 0.65098, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.501961)
+theme_override_constants/shadow_offset_x = 6
+theme_override_constants/shadow_offset_y = 6
+theme_override_fonts/font = SubResource("1")
+theme_override_font_sizes/font_size = 48
 text = "Escape Space"
-align = 1
-valign = 1
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -108.0
-margin_top = -300.0
-margin_right = 108.0
-margin_bottom = 300.0
+offset_left = -108.0
+offset_top = -300.0
+offset_right = 108.0
+offset_bottom = 300.0
 grow_horizontal = 2
-custom_constants/separation = 20
+theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Play" type="Button" parent="VBoxContainer" groups=[
-"autofocus",
-"makes_sound",
-]]
-margin_top = 226.0
-margin_right = 216.0
-margin_bottom = 262.0
-grow_horizontal = 2
+[node name="Play" type="Button" parent="VBoxContainer" groups=["autofocus", "makes_sound"]]
+layout_mode = 2
 text = "Play"
 
-[node name="Options" type="Button" parent="VBoxContainer" groups=[
-"makes_sound",
-]]
-margin_top = 282.0
-margin_right = 216.0
-margin_bottom = 318.0
-grow_horizontal = 2
+[node name="Options" type="Button" parent="VBoxContainer" groups=["makes_sound"]]
+layout_mode = 2
 text = "Options"
 
-[node name="Quit" type="Button" parent="VBoxContainer" groups=[
-"makes_sound",
-]]
-margin_top = 338.0
-margin_right = 216.0
-margin_bottom = 374.0
-grow_horizontal = 2
+[node name="Quit" type="Button" parent="VBoxContainer" groups=["makes_sound"]]
+layout_mode = 2
 text = "Quit"
 
-[node name="Credits" type="Button" parent="." groups=[
-"makes_sound",
-]]
+[node name="Credits" type="Button" parent="." groups=["makes_sound"]]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -108.0
-margin_top = -34.0
-margin_right = 108.0
+offset_left = -108.0
+offset_top = -34.0
+offset_right = 108.0
 grow_horizontal = 2
-custom_fonts/font = ExtResource( 4 )
+theme_override_fonts/font = ExtResource("4")
 text = "Credits"
 flat = true
 
 [node name="Version" type="Label" parent="."]
+layout_mode = 0
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -292.0
-margin_top = -60.0
-margin_right = -32.0
-margin_bottom = -24.0
-custom_colors/font_color = Color( 1, 1, 1, 0.752941 )
-align = 2
-valign = 2
+offset_left = -292.0
+offset_top = -60.0
+offset_right = -32.0
+offset_bottom = -24.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.752941)
+horizontal_alignment = 2
+vertical_alignment = 2
+
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

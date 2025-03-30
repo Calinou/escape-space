@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/hover.wav-8291b3e231ae041fc8424a6120bdaab3.sample"
+type="AudioStreamWAV"
+uid="uid://blwsbcbtcemgv"
+path="res://.godot/imported/hover.wav-8291b3e231ae041fc8424a6120bdaab3.sample"
 
 [deps]
 
 source_file="res://menu/hover.wav"
-dest_files=[ "res://.import/hover.wav-8291b3e231ae041fc8424a6120bdaab3.sample" ]
+dest_files=["res://.godot/imported/hover.wav-8291b3e231ae041fc8424a6120bdaab3.sample"]
 
 [params]
 

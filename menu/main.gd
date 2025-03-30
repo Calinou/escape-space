@@ -5,11 +5,11 @@ extends Control
 
 signal menu_changed
 
-onready var version_label := $Version as Label
+@onready var version_label := $Version as Label
 
 
 func start_game() -> void:
-	var error := get_tree().change_scene("res://game/game.tscn")
+	var error := get_tree().change_scene_to_file("res://game/game.tscn")
 
 	if error != OK:
 		push_error("Couldn't load the game scene.")
@@ -28,7 +28,7 @@ func _on_play_pressed() -> void:
 	emit_signal("menu_changed")
 	Music.fade_out()
 
-	yield($"/root/Menu", "transition_finished")
+	await $"/root/Menu".transition_finished
 	start_game()
 
 
@@ -40,7 +40,7 @@ func _on_quit_pressed() -> void:
 	emit_signal("menu_changed")
 	Music.fade_out()
 
-	yield($"/root/Menu", "transition_finished")
+	await $"/root/Menu".transition_finished
 	get_tree().quit()
 
 

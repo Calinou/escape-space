@@ -8,18 +8,18 @@ signal ball_received
 
 # Short description to be displayed by the HUD
 #warning-ignore:unused_class_variable
-export var description = ""
-export(int, 1, 100) var balls_required := 10
+@export var description = ""
+@export var balls_required := 10 # (int, 1, 100)
 
-onready var animation_player := $AnimationPlayer as AnimationPlayer
-onready var ball_counter := $Panel/BallCounter as Label
-onready var preloader := $ResourcePreloader as ResourcePreloader
-onready var get_ball_sound := preloader.get_resource("get_ball")
-onready var close_sound := preloader.get_resource("close")
+@onready var animation_player := $AnimationPlayer as AnimationPlayer
+@onready var ball_counter := $Panel/BallCounter as Label
+@onready var preloader := $ResourcePreloader as ResourcePreloader
+@onready var get_ball_sound := preloader.get_resource("get_ball")
+@onready var close_sound := preloader.get_resource("close")
 
 
 func _ready() -> void:
-	connect("ball_received", $"/root/Game", "_on_goal_ball_received")
+	connect("ball_received", Callable($"/root/Game", "_on_goal_ball_received"))
 	update_ball_counter(balls_required)
 
 
@@ -46,5 +46,5 @@ func _on_score_area_body_entered(body: PhysicsBody2D):
 					self,
 					get_ball_sound,
 					4.0,
-					rand_range(0.94, 1.06)
+					randf_range(0.94, 1.06)
 			)

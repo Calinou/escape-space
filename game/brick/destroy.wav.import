@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/destroy.wav-7cb7c01f954713488bf2778211220b61.sample"
+type="AudioStreamWAV"
+uid="uid://tbfcwcapubbv"
+path="res://.godot/imported/destroy.wav-7cb7c01f954713488bf2778211220b61.sample"
 
 [deps]
 
 source_file="res://game/brick/destroy.wav"
-dest_files=[ "res://.import/destroy.wav-7cb7c01f954713488bf2778211220b61.sample" ]
+dest_files=["res://.godot/imported/destroy.wav-7cb7c01f954713488bf2778211220b61.sample"]
 
 [params]
 

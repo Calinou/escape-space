@@ -15,25 +15,25 @@ var cache := ConfigFile.new()
 
 func _ready() -> void:
 	# Keep the fullscreen toggle functional while the game is paused
-	pause_mode = Node.PAUSE_MODE_PROCESS
+	process_mode = Node.PROCESS_MODE_ALWAYS
 
 	# Loads existing configuration (if any) for use anywhere
 	file.load(CONFIG_PATH)
 	cache.load(CONFIG_CACHE_PATH)
 
-	OS.window_fullscreen = bool(file.get_value("video", "fullscreen", false))
+	get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (bool(file.get_value("video", "fullscreen", false))) else Window.MODE_WINDOWED
 
 
 func _input(event: InputEvent) -> void:
 	# Fullscreen toggle
 	# This can be done from anywhere, so it should be in a singleton
 	if event.is_action_pressed("toggle_fullscreen"):
-		set_fullscreen(!OS.window_fullscreen)
+		set_fullscreen(!((get_window().mode == Window.MODE_EXCLUSIVE_FULLSCREEN) or (get_window().mode == Window.MODE_FULLSCREEN)))
 
 
 # Sets fullscreen status and persists it to the settings file.
 func set_fullscreen(fullscreen: bool) -> void:
-	OS.window_fullscreen = fullscreen
+	get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (fullscreen) else Window.MODE_WINDOWED
 	file.set_value("video", "fullscreen", fullscreen)
 	save()
 

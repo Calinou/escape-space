@@ -3,20 +3,20 @@
 
 extends Control
 
-onready var color_rect_animation := $ColorRect/AnimationPlayer as AnimationPlayer
-onready var bricks_counter := $Vitals/Bricks/Counter as Label
-onready var center_label := $CenterText as RichTextLabel
-onready var center_label_animation := $CenterText/AnimationPlayer as AnimationPlayer
-onready var center_label_timer := $CenterText/Timer as Timer
-onready var info_label := $InfoText as RichTextLabel
-onready var info_label_animation := $InfoText/AnimationPlayer as AnimationPlayer
-onready var info_label_timer := $InfoText/Timer as Timer
-onready var goals := $Goals as Control
-onready var time_label := $Time/Label as Label
-onready var time_progress := $Time/TextureProgress as Range
-onready var preloader := $ResourcePreloader as ResourcePreloader
-onready var goal_scene := preloader.get_resource("goal") as PackedScene
-onready var time_gradient := preloader.get_resource("time_gradient") as Gradient
+@onready var color_rect_animation := $ColorRect/AnimationPlayer as AnimationPlayer
+@onready var bricks_counter := $Vitals/Bricks/Counter as Label
+@onready var center_label := $CenterText as RichTextLabel
+@onready var center_label_animation := $CenterText/AnimationPlayer as AnimationPlayer
+@onready var center_label_timer := $CenterText/Timer as Timer
+@onready var info_label := $InfoText as RichTextLabel
+@onready var info_label_animation := $InfoText/AnimationPlayer as AnimationPlayer
+@onready var info_label_timer := $InfoText/Timer as Timer
+@onready var goals := $Goals as Control
+@onready var time_label := $Time/Label as Label
+@onready var time_progress := $Time/TextureProgressBar as Range
+@onready var preloader := $ResourcePreloader as ResourcePreloader
+@onready var goal_scene := preloader.get_resource("goal") as PackedScene
+@onready var time_gradient := preloader.get_resource("time_gradient") as Gradient
 
 
 func _input(event: InputEvent) -> void:
@@ -40,7 +40,7 @@ func _on_goals_changed(goals_data: Dictionary) -> void:
 
 	for goal_data in goals_data:
 		# Key is the description, value is the number of balls left
-		var goal := goal_scene.instance()
+		var goal := goal_scene.instantiate()
 		goal.get_node("Description").text = tr(goal_data)
 		goal.get_node("Balls").text = str(goals_data[goal_data])
 
@@ -53,7 +53,7 @@ func _on_goals_changed(goals_data: Dictionary) -> void:
 
 
 func _on_time_left_changed(time: float) -> void:
-	var color := time_gradient.interpolate(time / time_progress.max_value)
+	var color := time_gradient.sample(time / time_progress.max_value)
 	time_label.text = "%d:%02d" % [floor(time / 60), int(time) % 60]
 	time_label.modulate = color
 	time_progress.value = time
@@ -90,19 +90,19 @@ func _on_info_triggered(text: String) -> void:
 
 func set_center_text(text: String, duration: float = 6.0) -> void:
 	center_label_animation.play("fade_in")
-	center_label.bbcode_text = "[center]" + text + "[/center]"
+	center_label.text = "[center]" + text + "[/center]"
 	center_label_timer.wait_time = duration
 	center_label_timer.start()
 
-	yield(center_label_timer, "timeout")
+	await center_label_timer.timeout
 	center_label_animation.play("fade_out")
 
 
 func set_info_text(text: String, duration: float = 6.0) -> void:
 	info_label_animation.play("fade_in")
-	info_label.bbcode_text = "[center]" + text + "[/center]"
+	info_label.text = "[center]" + text + "[/center]"
 	info_label_timer.wait_time = duration
 	info_label_timer.start()
 
-	yield(info_label_timer, "timeout")
+	await info_label_timer.timeout
 	info_label_animation.play("fade_out")

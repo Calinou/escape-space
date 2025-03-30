@@ -5,8 +5,8 @@ extends Control
 
 signal menu_changed
 
-onready var sound_volume_slider := $VBoxContainer/SoundVolume/HSlider as HSlider
-onready var music_volume_slider := $VBoxContainer/MusicVolume/HSlider as HSlider
+@onready var sound_volume_slider := $VBoxContainer/SoundVolume/HSlider as HSlider
+@onready var music_volume_slider := $VBoxContainer/MusicVolume/HSlider as HSlider
 
 
 func _ready() -> void:
@@ -21,14 +21,14 @@ func _ready() -> void:
 func _on_sound_volume_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(
 			AudioServer.get_bus_index("Effects"),
-			linear2db(value)
+			linear_to_db(value)
 	)
 
 
 func _on_music_volume_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(
 			AudioServer.get_bus_index("Music"),
-			linear2db(value)
+			linear_to_db(value)
 	)
 
 

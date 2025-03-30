@@ -6,18 +6,18 @@ extends Area2D
 signal info_triggered
 
 # The text to display when triggered
-export(String, MULTILINE) var text := ""
+@export var text := "" # (String, MULTILINE)
 
-onready var game := $"/root/Game" as Node
-onready var cooldown := $Cooldown as Timer
-onready var shape := $CollisionShape2D as CollisionShape2D
+@onready var game := $"/root/Game" as Node
+@onready var cooldown := $Cooldown as Timer
+@onready var shape := $CollisionShape2D as CollisionShape2D
 
 # Toggling the collision shape must be done on idle time,
 # so `set_deferred()` is used
 
 
 func _ready() -> void:
-	game.connect("state_changed", self, "_on_game_state_changed")
+	game.connect("state_changed", Callable(self, "_on_game_state_changed"))
 
 
 func _on_body_entered(_body: PhysicsBody2D) -> void:

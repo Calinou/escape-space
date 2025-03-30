@@ -7,14 +7,14 @@ extends Node
 var motion := Vector2()
 
 # The currently-viewed menu control
-onready var current_menu := $"/root/Menu/Control/Main" as Control
+@onready var current_menu := $"/root/Menu/Control/Main" as Control
 
-onready var root_control := $Control as Control
-onready var animation_player := $AnimationPlayer as AnimationPlayer
-onready var background := $ParallaxBackground as ParallaxBackground
-onready var preloader := $ResourcePreloader as ResourcePreloader
-onready var hover_sound := preloader.get_resource("hover") as AudioStream
-onready var click_sound := preloader.get_resource("click") as AudioStream
+@onready var root_control := $Control as Control
+@onready var animation_player := $AnimationPlayer as AnimationPlayer
+@onready var background := $ParallaxBackground as ParallaxBackground
+@onready var preloader := $ResourcePreloader as ResourcePreloader
+@onready var hover_sound := preloader.get_resource("hover") as AudioStream
+@onready var click_sound := preloader.get_resource("click") as AudioStream
 
 signal transition_finished
 
@@ -26,15 +26,15 @@ func _ready() -> void:
 	# Connect menu nodes for menu transitions
 	for control in root_control.get_children():
 		if control.get_script() and control.get_script().has_script_signal("menu_changed"):
-			control.connect("menu_changed", self, "_on_menu_changed")
+			control.connect("menu_changed", Callable(self, "_on_menu_changed"))
 
 	# Connect any nodes that play a sound when hovered/pressed
 	for control in get_tree().get_nodes_in_group("makes_sound"):
 		if control is BaseButton:
-			control.connect("mouse_entered", self, "_control_hovered", [control])
-			control.connect("button_down", self, "_control_pressed", [control])
+			control.connect("mouse_entered", Callable(self, "_control_hovered").bind(control))
+			control.connect("button_down", Callable(self, "_control_pressed").bind(control))
 		elif control is Slider:
-			control.connect("mouse_entered", self, "_control_hovered", [control])
+			control.connect("mouse_entered", Callable(self, "_control_hovered").bind(control))
 
 	grab_autofocus()
 
@@ -67,10 +67,7 @@ func _on_menu_changed(new_menu: Control = null) -> void:
 	if new_menu:
 		animation_player.play("change_menu")
 		# Change the GUI when the animation is halfway done
-		yield(
-			get_tree().create_timer(animation_player.current_animation_length / 2),
-			"timeout"
-		)
+		await get_tree().create_timer(animation_player.current_animation_length / 2).timeout
 
 		current_menu.visible = false
 		new_menu.visible = true
@@ -78,7 +75,7 @@ func _on_menu_changed(new_menu: Control = null) -> void:
 		grab_autofocus()
 	else:
 		animation_player.play_backwards("fade_in")
-		yield(animation_player, "animation_finished")
+		await animation_player.animation_finished
 
 	emit_signal("transition_finished")
 
@@ -86,6 +83,6 @@ func _on_menu_changed(new_menu: Control = null) -> void:
 # Focus the first visible node with the "autofocus" group.
 func grab_autofocus():
 	for autofocus_node in get_tree().get_nodes_in_group("autofocus"):
-		if current_menu.is_a_parent_of(autofocus_node):
+		if current_menu.is_ancestor_of(autofocus_node):
 			autofocus_node.grab_focus()
 			break

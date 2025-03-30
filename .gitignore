@@ -1,8 +1,5 @@
 # Godot-specific ignores
-.import/
-
-# Mono-specific ignores
-.mono/
+.godot/
 
 # Build artifacts
 icon.ico

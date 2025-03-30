@@ -8,7 +8,7 @@ signal exit_requested
 
 
 func _ready() -> void:
-	connect("exit_requested", $"/root/Game", "_on_exit_requested")
+	connect("exit_requested", Callable($"/root/Game", "_on_exit_requested"))
 
 
 func _on_exit_area_body_entered(body: PhysicsBody2D) -> void:

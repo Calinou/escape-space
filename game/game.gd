@@ -25,11 +25,11 @@ var level: Node
 var current_level: int
 
 # The number of destroyable bricks left (used to check if the "bricks" goal was completed)
-var bricks_left := 0 setget set_bricks_left
+var bricks_left := 0: set = set_bricks_left
 
 # Goal information
 # Key is the description, value is the number of balls left
-var goals := {} setget set_goals
+var goals := {}: set = set_goals
 
 # The current game state
 enum State {
@@ -39,11 +39,11 @@ enum State {
 	LOST,
 }
 
-var state: int setget set_state
+var state: int: set = set_state
 
-onready var pregame_timer := $PregameTimer as Timer
-onready var level_timer := $LevelTimer as Timer
-onready var hud := $CanvasLayer/HUD as Control
+@onready var pregame_timer := $PregameTimer as Timer
+@onready var level_timer := $LevelTimer as Timer
+@onready var hud := $CanvasLayer/HUD as Control
 
 
 func _ready() -> void:
@@ -54,8 +54,7 @@ func _ready() -> void:
 	if cli_level != null:
 		if int(cli_level) < 1 or int(cli_level) > LEVEL_MAX:
 			push_error(
-					'--level only accepts integer values between 1 and {level_max} ("{value}" given).' \
-					.format({
+					'--level only accepts integer values between 1 and {level_max} ("{value}" given).'.format({
 						level_max = LEVEL_MAX,
 						value = cli_level,
 					})
@@ -74,7 +73,7 @@ func _process(_delta: float) -> void:
 # Changes to a new level and initializes data displayed by the HUD.
 func change_level(level_name: int) -> void:
 	if level_name > LEVEL_MAX:
-		get_tree().change_scene("res://menu/menu.tscn")
+		get_tree().change_scene_to_file("res://menu/menu.tscn")
 		return
 
 	current_level = level_name
@@ -83,11 +82,12 @@ func change_level(level_name: int) -> void:
 	if level:
 		level.queue_free()
 
-	level = load("res://levels/" + str(level_name) + ".tscn").instance()
+	level = load("res://levels/" + str(level_name) + ".tscn").instantiate()
 	add_child(level)
 
 	for info_trigger in get_tree().get_nodes_in_group("info_trigger"):
-		info_trigger.connect("info_triggered", hud, "_on_info_triggered")
+		if not info_trigger.info_triggered.is_connected(hud._on_info_triggered):
+			info_trigger.info_triggered.connect(hud._on_info_triggered)
 
 	self.bricks_left = get_tree().get_nodes_in_group("brick").size()
 	self.goals = {}
@@ -148,12 +148,12 @@ func set_state(p_state: int) -> void:
 			level_timer.start()
 
 		State.WON:
-			yield(get_tree().create_timer(2.0), "timeout")
+			await get_tree().create_timer(2.0).timeout
 			# Go to the next level
 			change_level(current_level + 1)
 
 		State.LOST:
-			yield(get_tree().create_timer(2.0), "timeout")
+			await get_tree().create_timer(2.0).timeout
 			# Restart the current level
 			change_level(current_level)
 

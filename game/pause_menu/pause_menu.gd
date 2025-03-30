@@ -3,12 +3,12 @@
 
 extends Control
 
-onready var game := $"/root/Game" as Node
-onready var pause_options := $VBoxContainer as Control
-onready var animation_player := $AnimationPlayer as AnimationPlayer
+@onready var game := $"/root/Game" as Node
+@onready var pause_options := $VBoxContainer as Control
+@onready var animation_player := $AnimationPlayer as AnimationPlayer
 
 # Whether the game is paused (the pause menu will be displayed automatically)
-var paused := false setget set_paused
+var paused := false: set = set_paused
 
 
 func _input(event: InputEvent) -> void:
@@ -32,7 +32,7 @@ func _on_restart_level_pressed() -> void:
 
 func _on_exit_to_menu_pressed() -> void:
 	self.paused = false
-	get_tree().change_scene("res://menu/menu.tscn")
+	get_tree().change_scene_to_file("res://menu/menu.tscn")
 
 
 func set_paused(p_paused: bool) -> void:
@@ -42,7 +42,7 @@ func set_paused(p_paused: bool) -> void:
 		Control.MOUSE_FILTER_STOP if p_paused else Control.MOUSE_FILTER_IGNORE
 	])
 	propagate_call("set", [
-		"enabled_focus_mode",
+		"focus_mode",
 		Control.FOCUS_ALL if p_paused else Control.FOCUS_NONE
 	])
 

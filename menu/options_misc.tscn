@@ -1,15 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://cu0oyjpacud6h"]
 
-[ext_resource path="res://menu/theme.tres" type="Theme" id=1]
-[ext_resource path="res://menu/options_misc.gd" type="Script" id=2]
-[ext_resource path="res://fonts/default_1.tres" type="DynamicFont" id=3]
-[ext_resource path="res://menu/shortcut_cancel.tres" type="ShortCut" id=4]
+[ext_resource type="Theme" path="res://menu/theme.tres" id="1"]
+[ext_resource type="Script" uid="uid://300kls3p47aw" path="res://menu/options_misc.gd" id="2"]
+[ext_resource type="FontFile" path="res://fonts/default_1.tres" id="3"]
+[ext_resource type="Shortcut" path="res://menu/shortcut_cancel.tres" id="4"]
 
 [node name="OptionsMisc" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 1 )
-script = ExtResource( 2 )
+theme = ExtResource("1")
+script = ExtResource("2")
 __meta__ = {
 "_edit_lock_": true
 }
@@ -19,12 +19,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -153.0
-margin_top = -110.0
-margin_right = 154.0
-margin_bottom = -69.0
+offset_left = -153.0
+offset_top = -110.0
+offset_right = 154.0
+offset_bottom = -69.0
 grow_horizontal = 2
-custom_fonts/font = ExtResource( 3 )
+theme_override_fonts/font = ExtResource("3")
 text = "Miscellaneous Settings"
 align = 1
 
@@ -33,25 +33,24 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -512.0
-margin_top = -54.0
-margin_right = 108.0
-margin_bottom = 54.0
-custom_constants/separation = 8
+offset_left = -512.0
+offset_top = -54.0
+offset_right = 108.0
+offset_bottom = 54.0
+theme_override_constants/separation = 8
 alignment = 1
 
-[node name="Done" type="Button" parent="." groups=[
-"makes_sound",
-]]
+[node name="Done" type="Button" parent="." groups=["makes_sound"]]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -57.0
-margin_top = 83.0
-margin_right = 57.0
-margin_bottom = 117.0
+offset_left = -57.0
+offset_top = 83.0
+offset_right = 57.0
+offset_bottom = 117.0
 grow_horizontal = 2
-shortcut = ExtResource( 4 )
+shortcut = ExtResource("4")
 text = "Done"
+
 [connection signal="pressed" from="Done" to="." method="_on_done_pressed"]

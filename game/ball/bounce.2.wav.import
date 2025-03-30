@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/bounce.2.wav-417f38c2cab196ffc38d45381b6f8218.sample"
+type="AudioStreamWAV"
+uid="uid://db5i768ed8s17"
+path="res://.godot/imported/bounce.2.wav-417f38c2cab196ffc38d45381b6f8218.sample"
 
 [deps]
 
 source_file="res://game/ball/bounce.2.wav"
-dest_files=[ "res://.import/bounce.2.wav-417f38c2cab196ffc38d45381b6f8218.sample" ]
+dest_files=["res://.godot/imported/bounce.2.wav-417f38c2cab196ffc38d45381b6f8218.sample"]
 
 [params]
 

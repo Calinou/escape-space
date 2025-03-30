@@ -1,75 +1,77 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=9 format=3 uid="uid://c1osswvwahlum"]
 
-[ext_resource path="res://game/ball_launcher/ball_launcher.gd" type="Script" id=1]
-[ext_resource path="res://game/ball_launcher/ball_launcher.png" type="Texture" id=2]
-[ext_resource path="res://game/ball_launcher/smoke_puff.png" type="Texture" id=3]
-[ext_resource path="res://game/ball/ball.tscn" type="PackedScene" id=4]
+[ext_resource type="Script" uid="uid://ksysccvfy27i" path="res://game/ball_launcher/ball_launcher.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bta2hswpcaeuv" path="res://game/ball_launcher/ball_launcher.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://cg3nymul76jrg" path="res://game/ball_launcher/smoke_puff.png" id="3"]
+[ext_resource type="PackedScene" uid="uid://q6afx2nc3s3s" path="res://game/ball/ball.tscn" id="4"]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 64, 32 )
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(128, 64)
 
-[sub_resource type="CanvasItemMaterial" id=2]
+[sub_resource type="CanvasItemMaterial" id="2"]
 blend_mode = 1
 
-[sub_resource type="Curve" id=3]
-_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.494463, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+[sub_resource type="Curve" id="3"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.494463, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id="4"]
 resource_name = "launch"
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("LaunchParticles:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ true, false ]
+"values": [true, false]
 }
 
 [node name="BallLauncher" type="StaticBody2D"]
-script = ExtResource( 1 )
+script = ExtResource("1")
 
-[node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 2 )
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource("1")
 
-[node name="LaunchPosition" type="Position2D" parent="."]
-position = Vector2( 0, 46 )
+[node name="LaunchPosition" type="Marker2D" parent="."]
+position = Vector2(0, 46)
 
 [node name="LaunchParticles" type="CPUParticles2D" parent="."]
-material = SubResource( 2 )
-position = Vector2( 0, 32 )
+material = SubResource("2")
+position = Vector2(0, 32)
 rotation = 1.57079
 emitting = false
 amount = 9
 lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
-texture = ExtResource( 3 )
+texture = ExtResource("3")
 emission_shape = 1
 emission_sphere_radius = 7.0
 spread = 0.0
-gravity = Vector2( 0, 0 )
+gravity = Vector2(0, 0)
 initial_velocity = 400.0
 initial_velocity_random = 0.2
 angular_velocity = 25.0
 angular_velocity_random = 1.0
 linear_accel = 50.0
 scale_amount = 0.25
-scale_amount_curve = SubResource( 3 )
-color = Color( 1, 1, 1, 0.0784314 )
+scale_amount_curve = SubResource("3")
+color = Color(1, 1, 1, 0.0784314)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/launch = SubResource( 4 )
+anims/launch = SubResource("4")
 
 [node name="LaunchTimer" type="Timer" parent="."]
 wait_time = 1.5
 
 [node name="ResourcePreloader" type="ResourcePreloader" parent="."]
-resources = [ PoolStringArray( "ball" ), [ ExtResource( 4 ) ] ]
+resources = [PackedStringArray("ball"), [ExtResource("4")]]
+
 [connection signal="timeout" from="LaunchTimer" to="." method="_on_launch_timer_timeout"]

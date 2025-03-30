@@ -4,7 +4,7 @@
 extends CanvasModulate
 
 # Output color will be multiplied by this value
-var intensity := 1.0 setget set_intensity
+var intensity := 1.0: set = set_intensity
 
 
 func _ready() -> void:

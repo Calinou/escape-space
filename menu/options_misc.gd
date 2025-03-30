@@ -4,7 +4,6 @@
 extends Control
 
 signal menu_changed
-signal update_requested
 
 
 func _on_done_pressed() -> void:

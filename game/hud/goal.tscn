@@ -1,33 +1,37 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://dl43guma6jrdb"]
 
-[ext_resource path="res://menu/theme.tres" type="Theme" id=1]
-[ext_resource path="res://fonts/default_4.tres" type="DynamicFont" id=2]
-[ext_resource path="res://fonts/data/ibm_plex_sans_condensed_medium.tres" type="DynamicFontData" id=3]
+[ext_resource type="Theme" path="res://menu/theme.tres" id="1"]
+[ext_resource type="FontFile" path="res://fonts/default_4.tres" id="2"]
+[ext_resource type="FontFile" path="res://fonts/data/ibm_plex_sans_condensed_medium.tres" id="3"]
 
-[sub_resource type="DynamicFont" id=1]
-size = 17
-font_data = ExtResource( 3 )
+[sub_resource type="FontFile" id="1"]
+fallbacks = Array[Font]([ExtResource("3")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
 
 [node name="Goal" type="HBoxContainer"]
-margin_right = 258.0
-margin_bottom = 31.0
-theme = ExtResource( 1 )
-custom_constants/separation = 20
+offset_right = 258.0
+offset_bottom = 31.0
+theme = ExtResource("1")
+theme_override_constants/separation = 20
 
 [node name="Description" type="Label" parent="."]
-modulate = Color( 1, 1, 1, 0.752941 )
-margin_top = 4.0
-margin_right = 228.0
-margin_bottom = 27.0
+modulate = Color(1, 1, 1, 0.752941)
+offset_top = 4.0
+offset_right = 228.0
+offset_bottom = 27.0
 size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 2 )
+theme_override_fonts/font = ExtResource("2")
 text = "Description"
 align = 2
 
 [node name="Balls" type="Label" parent="."]
-margin_left = 248.0
-margin_top = 4.0
-margin_right = 258.0
-margin_bottom = 27.0
-custom_fonts/font = SubResource( 1 )
+offset_left = 248.0
+offset_top = 4.0
+offset_right = 258.0
+offset_bottom = 27.0
+theme_override_fonts/font = SubResource("1")
 text = "0"
